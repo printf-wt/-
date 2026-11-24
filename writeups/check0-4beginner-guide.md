@@ -1,4 +1,4 @@
-# 从环境配置到 Checkpoint 0、1、2、3 和 4
+# 从环境配置到 Checkpoint 0、1、2、3、4 和 5
 
 本文面向计算机网络新手，按照本项目实际开发过程，说明环境怎样配置、
 各阶段实验分别解决什么问题、代码怎样验证，以及最后怎样提交到 GitHub。
@@ -17,6 +17,7 @@
 | Checkpoint 2 | TCPReceiver | 处理收到的 TCP 消息，生成确认号、接收窗口和复位标志 |
 | Checkpoint 3 | TCPSender | 按窗口发送数据、处理 ACK，超时重传最早未确认的消息 |
 | Checkpoint 4 | 网络测量工具 | 采集 ping，统计交付率、RTT、连续丢失与相关性，生成图表和报告 |
+| Checkpoint 5 | NetworkInterface | 在 IPv4 与以太网之间封装、解析，并用 ARP 寻找下一跳 MAC |
 
 webget 目前使用 Linux 自带的 TCP。ByteStream 和 Reassembler 是我们
 实现的基础模块；Checkpoint 2 已将它们接入自己的 TCP 接收端。
@@ -24,8 +25,9 @@ Checkpoint 3 又完成了自己的 TCP 发送端；完整实网互操作安排�
 TCP 编程部分已完成自动化验证；TCP 实网互操作、手工 SMTP 会话与 TCP 抓包尚未执行。
 Checkpoint 4 的实际 ICMP 网络测量另见后文。
 
-“Checkpoint 0/1/2/3/4”是实验阶段名称；命令中的 `check0` 到 `check3` 是
-前四个编程阶段的自动检查任务。Checkpoint 4 是测量实验，没有 check4 构建目标。
+“Checkpoint 0/1/2/3/4/5”是阶段名称。check0 到 check3 检查前四个编程阶段，
+check5 单独检查网络接口；Checkpoint 4 是测量实验，没有 check4 构建目标。
+Checkpoint 5 已完成内存模拟端口验证，真实网卡/TAP 通信尚未验证。
 
 ## 2 先认识开发环境
 
@@ -831,7 +833,56 @@ python tools/check4/analyze.py build/my-check4/cloudflare --output build/my-chec
 统计函数有 10 项边界测试，采集进程另有 2 项真实中断测试；另用短时本机回环探测验证采集到分析的实际流程，
 并确认最终报告会拒绝不足一小时的数据。正式图表只使用真实采集日志。
 
-## 14 怎样判断代码正确
+## 14 Checkpoint 5 的网络接口与 ARP
+
+### 14.1 先取得框架
+
+Checkpoint 4 是测量实验，下一阶段恢复 C++ 编程。
+本次取得并合入官方 check5-startercode，基准提交为 3411cca9。
+合并保留之前 TCP 源码，增加 NetworkInterface 和官方网络接口测试。
+
+在 Ubuntu 中可用以下命令理解取得框架的过程；本项目已完成合入，不需要重复合并：
+
+```bash
+git fetch upstream check5-startercode
+git merge --no-commit --no-ff upstream/check5-startercode
+```
+
+### 14.2 理解 IP、下一跳与 MAC
+
+访问远方服务器时，IP 数据报写最终服务器 IP，外层以太网帧写下一跳网关 MAC。
+NetworkInterface 接收调用者给出的 next_hop，用 ARP 找它的 MAC，
+找到后封装发送；不替上层选路，不改变数据报最终目的 IP。
+ARP 请求广播到本链路；目标接口收到后可单播回复自己的地址。
+
+### 14.3 实现三条入口
+
+- send_datagram：命中缓存就发 IPv4；未知则排队，首次广播 ARP。
+- recv_frame：过滤目的 MAC，按类型处理 IPv4 或 ARP；合法 ARP 可教会发送者映射。
+- tick：清理满 30 秒的映射和满 5 秒的请求；请求过期也丢弃其待发数据报。
+
+同一 IP 在 5 秒等待期内不重复广播，追加数据报不重置期限。
+收到 ARP 后按先来后到发送等待队列；只有询问本机 IP 的请求才得到应答。
+本次先准备状态再调用输出端口，使立即返回的同步应答也能正确找到待发数据。
+
+### 14.4 实际验证与学习材料
+
+```bash
+cmake -S . -B build/wsl
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check5
+python3 writeups/check5-screenshots/boundary-validation.py
+```
+
+官方 check5 的 3 个 CTest 任务全部通过，net_interface 内部包含多个测试场景。
+本次还通过 check3 的 37 项、check0 的 11 项回归及 5 个补充边界场景，
+并完成静态分析与两份新源码的格式检查。
+check5 独立测试网络接口，不包含先前 TCP 模块，回归要另跑 check3 和 check0。
+
+- [Point 5 逐函数新手讲解、手算和两份完整源码](check5-source-code-guide.md)
+- [实现报告与实际代码截图](check5.md)
+- [验证摘要与日志索引](check5-screenshots/validation.txt)
+
+## 15 怎样判断代码正确
 
 官方测试会自动构造输入，并核对输出、容量、结束状态和性能。
 测试结果中的一项可能是构建或基准任务，不等于一个单独的网络功能。
@@ -854,6 +905,7 @@ python tools/check4/analyze.py build/my-check4/cloudflare --output build/my-chec
 - Checkpoint 2 的 30 项官方检查通过，包含前两阶段的模块回归。
 - 合入 Checkpoint 2 后，另跑 Checkpoint 0 的 11 项检查通过，补充边界检查 10 项通过。
 - Checkpoint 3 的 37 项官方检查、11 项 HTTP 回归和 6 个补充场景均通过。
+- Checkpoint 5 的 3 个官方任务、37 项 check3 回归、11 项 check0 回归及 5 个补充场景通过。
 - 编译中的 ASan 检查常见内存访问错误，UBSan 检查未定义行为。
 - 静态检查曾提示重组器有不必要的数据复制，我增加整块移动处理后重新验证通过。
 - 最终通过相关静态分析与格式检查，官方测试内容保持原样。
@@ -878,11 +930,13 @@ check2、check3 同样不包含远端 HTTP 请求，因此也另跑 check0。
 - [Checkpoint 3 官方检查日志](check3-screenshots/check3-ctest.log)
 - [Checkpoint 3 补充场景结果](check3-screenshots/scenario-validation.log)
 - [Checkpoint 3 实现报告与截图](check3.md)
+- [Checkpoint 5 验证摘要](check5-screenshots/validation.txt)
+- [Checkpoint 5 实现报告与截图](check5.md)
 
 重组器官方基准的输出使用了不同于实际输入字节数的计算分子。
 报告中同时保留原始输出和折算后的有效载荷吞吐，避免混淆两种口径。
 
-## 15 截图、提交与推送
+## 16 截图、提交与推送
 
 功能验证后，我在 Windows 编辑器中打开主要代码并保存实际截图，
 再把源码、报告、截图和测试日志一起纳入 Git。
@@ -908,7 +962,7 @@ Ubuntu 中的开发工具负责编译和测试。
 3. 用 git diff --cached 检查暂存内容。
 4. 写清提交标题、文件改动、设计意图和实际验证结果，再执行 git commit。
 5. 执行 git push origin main。
-6. 比较本地与远端提交，并确认工作区干净。
+6. 比较本地与远端提交，确认本次提交内容；已有的其他本地改动应保留。
 
 现在可以查看真实记录：
 
@@ -918,7 +972,7 @@ git remote -v
 git log -1 --format=full
 ```
 
-## 16 可以亲手复现的最短流程
+## 17 可以亲手复现的最短流程
 
 工具和框架已经配置完成。先在 **Windows PowerShell** 中进入 Ubuntu：
 
@@ -938,14 +992,15 @@ CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check0
 CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check1
 CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check2
 CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check3
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check5
 ```
 
 先观察每条命令的输出，再读源码。建议顺序为：webget.cc、byte_stream.hh、
 byte_stream.cc、reassembler.hh、reassembler.cc、wrapping_integers.hh/.cc、
-tcp_receiver.hh/.cc、tcp_sender.hh/.cc，最后阅读 tests 中的测试。
+tcp_receiver.hh/.cc、tcp_sender.hh/.cc、network_interface.hh/.cc，最后阅读 tests 中的测试。
 
-学习时可分别观察四个编程阶段的输出；日常验收时，check3 已覆盖旧模块的回归，
-配合 check0 检查 HTTP 即可，不必每次重复运行 check1 和 check2。
+学习时可分别观察各编程阶段输出。check3 覆盖早期 TCP 模块，check0 另检查 HTTP，
+check5 检查新增网络接口；无需每次重复运行 check1 和 check2。
 网络测量另按第 13 节运行 Python 工具，不执行不存在的 check4 构建目标。
 
 阅读 ByteStream 时，尝试手工计算每次 push/pop 后的剩余容量；
@@ -953,15 +1008,16 @@ tcp_receiver.hh/.cc、tcp_sender.hh/.cc，最后阅读 tests 中的测试。
 阅读 TCPReceiver 时，再加入 SYN、FIN 的序号占用，逐步算出 ACK=101、103、108。
 阅读 TCPSender 时，画出未确认队列，计算每次 ACK 和超时后窗口、在途数及 RTO 的变化。
 
-## 17 阶段完成记录
+## 18 阶段完成记录
 
 | 提交 | 内容 |
 |---|---|
-| [c0e5235](https://github.com/printf-wt/-/commit/c0e5235847d6c1ca3eccf1082f93e50b50885dc9) | 完成 Checkpoint 0 的 HTTP 客户端、字节流、截图及验证记录 |
-| [2979d12](https://github.com/printf-wt/-/commit/2979d12740c91fc858f2920ca12abc1daae57395) | 合入 Checkpoint 1 框架，完成重组器、报告、截图和测试记录 |
-| [5a2442f](https://github.com/printf-wt/-/commit/5a2442f1dc172788c396d2e2d054342284d2f4f8) | 合入 Checkpoint 2 框架，完成序号换算、TCP 接收端及验证记录 |
-| [766c7ea](https://github.com/printf-wt/-/commit/766c7ea9b594c1c90ff95a113488154a749f06b2) | 合入 Checkpoint 3 框架，完成发送端、截图与重传验证 |
+| [c0e5235](https://github.com/printf-wt/C-NET_class-design/commit/c0e5235847d6c1ca3eccf1082f93e50b50885dc9) | 完成 Checkpoint 0 的 HTTP 客户端、字节流、截图及验证记录 |
+| [2979d12](https://github.com/printf-wt/C-NET_class-design/commit/2979d12740c91fc858f2920ca12abc1daae57395) | 合入 Checkpoint 1 框架，完成重组器、报告、截图和测试记录 |
+| [5a2442f](https://github.com/printf-wt/C-NET_class-design/commit/5a2442f1dc172788c396d2e2d054342284d2f4f8) | 合入 Checkpoint 2 框架，完成序号换算、TCP 接收端及验证记录 |
+| [766c7ea](https://github.com/printf-wt/C-NET_class-design/commit/766c7ea9b594c1c90ff95a113488154a749f06b2) | 合入 Checkpoint 3 框架，完成发送端、截图与重传验证 |
 
 Checkpoint 4 的实测范围、图表与原始记录见[测量报告](check4.md)。
+Checkpoint 5 的实现、四张代码截图与验证记录见[网络接口报告](check5.md)。
 
 实现、验证与本文整理由 Codex 按用户请求辅助完成。

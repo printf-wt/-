@@ -14,6 +14,8 @@
 
 建议第一遍先读第 1–9 节，只理解 C++ 和 TCP；第二遍再读第 10–11 节的 Python 与测试。
 第 15 节是查阅用的完整代码，不必从头背诵。
+后续已完成的 [Checkpoint 5 网络接口与 ARP 源码讲解](check5-source-code-guide.md)单独续写，
+本篇的 0–4 历史源码快照继续保留。
 
 快速跳转：[整体关系](#overview) · [HTTP 客户端](#webget) · [字节流](#byte-stream) ·
 [乱序重组](#reassembler) · [序号换算](#wrap32) · [接收端](#receiver) ·

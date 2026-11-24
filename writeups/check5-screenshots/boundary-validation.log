@@ -1,0 +1,12 @@
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+[PASS] exact 5000ms pending expiry, late reply and final IP preservation
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+[PASS] exact 30000ms cache expiry and changed-MAC refresh
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+[PASS] SIZE_MAX tick without overflow or unsolicited retransmission
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+[PASS] malformed, foreign and unknown Ethernet frames
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+[PASS] synchronous two-interface ARP and FIFO IPv4 delivery
+5 supplementary scenarios passed with ASan/UBSan.

@@ -25,9 +25,12 @@ To format code: `cmake --build build --target format`
 
 - [Checkpoint 0–4 源码新手逐步讲解](writeups/check0-check4-source-code-guide.md)：逐函数讲解、状态手算、收发端完整推演、测量脚本与 23 份源码快照。
 
-- [从环境配置到 Checkpoint 0、1、2、3 和 4](writeups/check0-4beginner-guide.md)：持续更新的新手指南，包含实际操作步骤、模块原理、示例、测试与 Git 提交流程。
+- [从环境配置到 Checkpoint 0、1、2、3、4 和 5](writeups/check0-4beginner-guide.md)：持续更新的新手指南，包含实际操作步骤、模块原理、示例、测试与 Git 提交流程。
 - [Checkpoint 1 实现报告](writeups/check1.md)
 - [Checkpoint 2 序号换算与 TCP 接收端](writeups/check2.md)：三种编号、确认号、接收窗口、实现步骤与验证记录。
 - [Checkpoint 3 TCP 发送端](writeups/check3.md)：窗口发送、累计确认、超时重传、零窗口探测、代码截图与验证记录。
 - [Checkpoint 4 真实网络测量](writeups/check4.md)：公网与同学路径的一小时测量、RTT/交付率图表及中文 PDF。
 - [同学主机配置说明](writeups/check4-peer-setup.md)：Windows 查看 IP、限定来源的 ping 放行与实验后清理。
+
+- [Checkpoint 5 网络接口与 ARP](writeups/check5.md)：下一跳地址解析、以太网封装、缓存过期、实际截图与测试结果。
+- [Checkpoint 5 源码新手讲解](writeups/check5-source-code-guide.md)：逐函数解释、手算流程与两份完整源码。
