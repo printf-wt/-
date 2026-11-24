@@ -20,3 +20,8 @@ To run speed benchmarks: `cmake --build build --target speed`
 To run clang-tidy (which suggests improvements): `cmake --build build --target tidy`
 
 To format code: `cmake --build build --target format`
+
+## 中文学习资料
+
+- [从环境配置到 Checkpoint 0 和 Checkpoint 1](writeups/check0-check1-beginner-guide.md)：面向新手的实际操作步骤、模块原理、示例、测试与 Git 提交流程。
+- [Checkpoint 1 实现报告](writeups/check1.md)
