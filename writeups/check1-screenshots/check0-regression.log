@@ -1,0 +1,221 @@
+Start testing: Nov 24 09:18 CST
+----------------------------------------------------------
+1/40 Testing: compile with bug-checkers
+1/40 Test: compile with bug-checkers
+Command: "/usr/bin/cmake" "--build" "/mnt/d/计算机网络/课程设计/-/build/wsl" "-t" "functionality_testing" "webget"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"compile with bug-checkers" start time: Nov 24 09:18 CST
+Output:
+----------------------------------------------------------
+make[4]: warning: -j4 forced in submake: resetting jobserver mode.
+[  5%] Built target imp_testing_sanitized
+[  5%] Built target imp_testing_debug
+[  9%] Built target imp_debug
+[ 23%] Built target util_debug
+[ 39%] Built target no_skip
+[ 41%] Built target byte_stream_basics
+[ 41%] Built target util_sanitized
+[ 46%] Built target byte_stream_capacity
+[ 47%] Built target byte_stream_one_write
+[ 47%] Built target byte_stream_two_writes
+[ 52%] Built target imp_sanitized
+[ 54%] Built target byte_stream_many_writes
+[ 54%] Built target byte_stream_stress_test
+[ 57%] Built target reassembler_single
+[ 63%] Built target reassembler_cap
+[ 64%] Built target reassembler_seq_sanitized
+[ 64%] Built target reassembler_seq
+[ 67%] Built target reassembler_dup_sanitized
+[ 69%] Built target reassembler_holes
+[ 71%] Built target reassembler_holes_sanitized
+[ 72%] Built target reassembler_dup
+[ 73%] Built target reassembler_overlapping_sanitized
+[ 76%] Built target reassembler_overlapping
+[ 78%] Built target reassembler_win_sanitized
+[ 82%] Built target no_skip_sanitized
+[ 82%] Built target reassembler_win
+[ 84%] Built target byte_stream_basics_sanitized
+[ 87%] Built target byte_stream_capacity_sanitized
+[ 90%] Built target byte_stream_one_write_sanitized
+[ 90%] Built target byte_stream_two_writes_sanitized
+[ 93%] Built target byte_stream_many_writes_sanitized
+[ 95%] Built target byte_stream_stress_test_sanitized
+[ 98%] Built target reassembler_single_sanitized
+[100%] Built target reassembler_cap_sanitized
+[100%] Built target functionality_testing
+[ 11%] Built target stream_copy
+[ 29%] Built target imp_debug
+[ 88%] Built target util_debug
+[100%] Built target webget
+<end of output>
+Test time =   3.55 sec
+----------------------------------------------------------
+Test Passed.
+"compile with bug-checkers" end time: Nov 24 09:18 CST
+"compile with bug-checkers" time elapsed: 00:00:03
+----------------------------------------------------------
+
+2/40 Testing: t_webget
+2/40 Test: t_webget
+Command: "/mnt/d/计算机网络/课程设计/-/tests/webget_t.sh" "/mnt/d/计算机网络/课程设计/-/build/wsl"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"t_webget" start time: Nov 24 09:18 CST
+Output:
+----------------------------------------------------------
+HTTP/1.1 200 OK
+Content-type: text/plain
+
+7SmXqWkrLKzVBCEalbSPqBcvs11Pw263K7x4Wv3JckI
+<end of output>
+Test time =   6.00 sec
+----------------------------------------------------------
+Test Passed.
+"t_webget" end time: Nov 24 09:19 CST
+"t_webget" time elapsed: 00:00:05
+----------------------------------------------------------
+
+3/40 Testing: byte_stream_basics
+3/40 Test: byte_stream_basics
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_basics_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_basics" start time: Nov 24 09:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_basics" end time: Nov 24 09:19 CST
+"byte_stream_basics" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/40 Testing: byte_stream_capacity
+4/40 Test: byte_stream_capacity
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_capacity_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_capacity" start time: Nov 24 09:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_capacity" end time: Nov 24 09:19 CST
+"byte_stream_capacity" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/40 Testing: byte_stream_one_write
+5/40 Test: byte_stream_one_write
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_one_write_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_one_write" start time: Nov 24 09:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_one_write" end time: Nov 24 09:19 CST
+"byte_stream_one_write" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/40 Testing: byte_stream_two_writes
+6/40 Test: byte_stream_two_writes
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_two_writes_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_two_writes" start time: Nov 24 09:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_two_writes" end time: Nov 24 09:19 CST
+"byte_stream_two_writes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/40 Testing: byte_stream_many_writes
+7/40 Test: byte_stream_many_writes
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_many_writes_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_many_writes" start time: Nov 24 09:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_many_writes" end time: Nov 24 09:19 CST
+"byte_stream_many_writes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/40 Testing: byte_stream_stress_test
+8/40 Test: byte_stream_stress_test
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_stress_test_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_stress_test" start time: Nov 24 09:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.16 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_stress_test" end time: Nov 24 09:19 CST
+"byte_stream_stress_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/40 Testing: no_skip
+37/40 Test: no_skip
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/no_skip_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"no_skip" start time: Nov 24 09:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"no_skip" end time: Nov 24 09:19 CST
+"no_skip" time elapsed: 00:00:00
+----------------------------------------------------------
+
+38/40 Testing: compile with optimization
+38/40 Test: compile with optimization
+Command: "/usr/bin/cmake" "--build" "/mnt/d/计算机网络/课程设计/-/build/wsl" "-t" "speed_testing"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"compile with optimization" start time: Nov 24 09:19 CST
+Output:
+----------------------------------------------------------
+make[4]: warning: -j4 forced in submake: resetting jobserver mode.
+[ 61%] Built target util_optimized
+[ 77%] Built target imp_optimized
+[ 88%] Built target byte_stream_speed_test
+[100%] Built target reassembler_speed_test
+[100%] Built target speed_testing
+<end of output>
+Test time =   0.98 sec
+----------------------------------------------------------
+Test Passed.
+"compile with optimization" end time: Nov 24 09:19 CST
+"compile with optimization" time elapsed: 00:00:00
+----------------------------------------------------------
+
+39/40 Testing: byte_stream_speed_test
+39/40 Test: byte_stream_speed_test
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_speed_test"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_speed_test" start time: Nov 24 09:19 CST
+Output:
+----------------------------------------------------------
+ByteStream with capacity=32768, write_size=1500, read_size=4096 reached 19.24 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=128 reached 11.20 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=32 reached 6.57 Gbit/s.
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_speed_test" end time: Nov 24 09:19 CST
+"byte_stream_speed_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 24 09:19 CST

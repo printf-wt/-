@@ -1,0 +1,41 @@
+Checkpoint 1 verification
+2026-11-24 | Ubuntu 24.04.4 / WSL2 | g++ 13.3 | CMake 3.28.3
+
+Framework: CS144/imp check1-startercode @ 5f35eb9
+Command: CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check1
+Result: 18/18 checks passed (including ASan/UBSan and speed benchmarks).
+Regression: Checkpoint 0 passed all 11 checks, including remote HTTP retrieval.
+Static analysis: clang-tidy-20 passed for all src files.
+Formatting: clang-format --dry-run --Werror passed for reassembler.hh/.cc.
+
+Checks:
+[PASS] compile with bug-checkers
+[PASS] byte_stream_basics
+[PASS] byte_stream_capacity
+[PASS] byte_stream_one_write
+[PASS] byte_stream_two_writes
+[PASS] byte_stream_many_writes
+[PASS] byte_stream_stress_test
+[PASS] reassembler_single
+[PASS] reassembler_cap
+[PASS] reassembler_seq
+[PASS] reassembler_dup
+[PASS] reassembler_holes
+[PASS] reassembler_overlapping
+[PASS] reassembler_win
+[PASS] no_skip
+[PASS] compile with optimization
+[PASS] byte_stream_speed_test
+[PASS] reassembler_speed_test
+
+Reassembler performance (no overlap / 10x overlap):
+Built-in benchmark output: 90.21 / 15.05 Gbit/s.
+Actual payload throughput, rescaled: 4.13 / 0.69 Gbit/s.
+Both payload throughputs exceed 0.1 Gbit/s.
+Metric note: the supplied benchmark uses num_chunks * capacity,
+while the generated payload contains num_chunks * chunk_size bytes.
+The rescaling factor above is chunk_size / capacity = 1500 / 32768.
+
+Raw evidence: check1-ctest.log and check0-regression.log.
+Code screenshots: 01 capacity/EOF, 02 deduplication/delivery.
+Implementation and validation assisted by Codex.
