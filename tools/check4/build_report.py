@@ -205,7 +205,7 @@ def main():
         '## 实现、配置与代码截图\n',
         '- [测量工具与复现命令](../tools/check4/README.md)',
         '- [同学 Windows 主机配置记录](check4-peer-setup.md)',
-        '- [持续更新的新手指南](check0-check1-beginner-guide.md)',
+        '- [持续更新的新手指南](check0-4beginner-guide.md)',
         '- [验证记录](check4-screenshots/validation.txt)\n',
         '![采集命令与实际计时](check4-screenshots/01-collector.jpg)\n',
         '![最终发送数、去重与完整性检查](check4-screenshots/02-ping-parser.jpg)\n',

@@ -136,7 +136,7 @@ P(下一次仍丢失 | 本次丢失) = 0.057，分母为 105；无条件丢失�
 
 - [测量工具与复现命令](../tools/check4/README.md)
 - [同学 Windows 主机配置记录](check4-peer-setup.md)
-- [持续更新的新手指南](check0-check1-beginner-guide.md)
+- [持续更新的新手指南](check0-4beginner-guide.md)
 - [验证记录](check4-screenshots/validation.txt)
 
 ![采集命令与实际计时](check4-screenshots/01-collector.jpg)

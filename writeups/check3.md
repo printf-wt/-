@@ -158,7 +158,7 @@ uint64_t 计时上限、无效未来 ACK，以及跨 32 位回绕的 2500 字节
 - [HTTP 回归日志](check3-screenshots/check0-regression.log)
 - [补充场景脚本](check3-screenshots/scenario-validation.py)与[结果](check3-screenshots/scenario-validation.log)
 - [静态分析日志](check3-screenshots/static-analysis.log)
-- [从环境配置开始的持续更新指南](check0-check1-beginner-guide.md)
+- [从环境配置开始的持续更新指南](check0-4beginner-guide.md)
 
 静态分析原始日志中的 warnings generated 数字包含编译器在系统头文件中产生、
 被过滤掉的诊断；日志未出现项目源文件的 warning/error。
