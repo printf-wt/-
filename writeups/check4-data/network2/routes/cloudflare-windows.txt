@@ -1,0 +1,17 @@
+
+Tracing route to 1.1.1.1 over a maximum of 24 hops
+
+  1     2 ms     6 ms     5 ms  172.20.10.1 
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4     *        *        *     Request timed out.
+  5     *        *        *     Request timed out.
+  6     *        *        *     Request timed out.
+  7     *        *        *     Request timed out.
+  8    54 ms    49 ms     *     219.158.3.214 
+  9   200 ms   205 ms     *     219.158.97.206 
+ 10     *        *      495 ms  219.158.33.194 
+ 11     *        *      238 ms  141.101.72.110 
+ 12   295 ms     *      277 ms  1.1.1.1 
+
+Trace complete.

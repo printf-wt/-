@@ -1,0 +1,30 @@
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+[1795502562.147851] 64 bytes from 1.1.1.1: icmp_seq=1 ttl=52 time=280 ms
+[1795502562.359475] 64 bytes from 1.1.1.1: icmp_seq=2 ttl=52 time=291 ms
+[1795502562.541766] 64 bytes from 1.1.1.1: icmp_seq=3 ttl=52 time=272 ms
+[1795502562.744567] 64 bytes from 1.1.1.1: icmp_seq=4 ttl=52 time=275 ms
+[1795502562.970391] 64 bytes from 1.1.1.1: icmp_seq=5 ttl=52 time=299 ms
+[1795502563.152185] 64 bytes from 1.1.1.1: icmp_seq=6 ttl=52 time=280 ms
+[1795502563.351542] 64 bytes from 1.1.1.1: icmp_seq=7 ttl=52 time=279 ms
+[1795502563.564510] 64 bytes from 1.1.1.1: icmp_seq=8 ttl=52 time=291 ms
+[1795502563.985186] 64 bytes from 1.1.1.1: icmp_seq=10 ttl=52 time=310 ms
+[1795502564.172052] 64 bytes from 1.1.1.1: icmp_seq=11 ttl=52 time=295 ms
+[1795502564.388582] 64 bytes from 1.1.1.1: icmp_seq=12 ttl=52 time=311 ms
+[1795502564.756619] 64 bytes from 1.1.1.1: icmp_seq=14 ttl=52 time=278 ms
+[1795502564.944342] 64 bytes from 1.1.1.1: icmp_seq=15 ttl=52 time=263 ms
+[1795502565.139104] 64 bytes from 1.1.1.1: icmp_seq=16 ttl=52 time=257 ms
+[1795502565.346078] 64 bytes from 1.1.1.1: icmp_seq=17 ttl=52 time=263 ms
+[1795502565.569198] 64 bytes from 1.1.1.1: icmp_seq=18 ttl=52 time=286 ms
+[1795502565.761991] 64 bytes from 1.1.1.1: icmp_seq=19 ttl=52 time=277 ms
+[1795502565.963173] 64 bytes from 1.1.1.1: icmp_seq=20 ttl=52 time=278 ms
+[1795502566.188020] 64 bytes from 1.1.1.1: icmp_seq=21 ttl=52 time=302 ms
+[1795502566.372634] 64 bytes from 1.1.1.1: icmp_seq=22 ttl=52 time=285 ms
+[1795502566.571370] 64 bytes from 1.1.1.1: icmp_seq=23 ttl=52 time=283 ms
+[1795502566.777861] 64 bytes from 1.1.1.1: icmp_seq=24 ttl=52 time=289 ms
+[1795502566.975161] 64 bytes from 1.1.1.1: icmp_seq=25 ttl=52 time=285 ms
+[1795502567.157620] 64 bytes from 1.1.1.1: icmp_seq=26 ttl=52 time=267 ms
+[1795502567.366027] 64 bytes from 1.1.1.1: icmp_seq=27 ttl=52 time=275 ms
+
+--- 1.1.1.1 ping statistics ---
+28 packets transmitted, 25 received, 10.7143% packet loss, time 5422ms
+rtt min/avg/max/mdev = 257.068/282.845/310.952/13.432 ms, pipe 2

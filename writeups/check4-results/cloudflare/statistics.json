@@ -1,0 +1,276 @@
+{
+  "finalized": true,
+  "sent": 17926,
+  "received_unique": 16985,
+  "duplicates": 0,
+  "lost": 941,
+  "delivery_rate": 0.9475064152627468,
+  "longest_success_run": 996,
+  "longest_loss_run": 3,
+  "rtt_min_ms": 193.0,
+  "rtt_max_ms": 2013.0,
+  "rtt_mean_ms": 266.17727406535175,
+  "rtt_median_ms": 275.0,
+  "rtt_p95_ms": 320.0,
+  "rtt_upper_bound_count": 0,
+  "adjacent_rtt_pairs": 16109,
+  "adjacent_rtt_pearson": 0.7325117045901276,
+  "conditional": [
+    {
+      "lag": -10,
+      "success_denominator": 16976,
+      "success_probability": 0.9488689915174364,
+      "loss_denominator": 940,
+      "loss_probability": 0.07446808510638298
+    },
+    {
+      "lag": -9,
+      "success_denominator": 16977,
+      "success_probability": 0.9476350356364494,
+      "loss_denominator": 940,
+      "loss_probability": 0.052127659574468084
+    },
+    {
+      "lag": -8,
+      "success_denominator": 16978,
+      "success_probability": 0.948639415714454,
+      "loss_denominator": 940,
+      "loss_probability": 0.07021276595744681
+    },
+    {
+      "lag": -7,
+      "success_denominator": 16979,
+      "success_probability": 0.9487602332292833,
+      "loss_denominator": 940,
+      "loss_probability": 0.07234042553191489
+    },
+    {
+      "lag": -6,
+      "success_denominator": 16980,
+      "success_probability": 0.9483510011778563,
+      "loss_denominator": 940,
+      "loss_probability": 0.06489361702127659
+    },
+    {
+      "lag": -5,
+      "success_denominator": 16980,
+      "success_probability": 0.9484687868080094,
+      "loss_denominator": 941,
+      "loss_probability": 0.0669500531349628
+    },
+    {
+      "lag": -4,
+      "success_denominator": 16981,
+      "success_probability": 0.9478240386314116,
+      "loss_denominator": 941,
+      "loss_probability": 0.05526036131774708
+    },
+    {
+      "lag": -3,
+      "success_denominator": 16982,
+      "success_probability": 0.9480626545754328,
+      "loss_denominator": 941,
+      "loss_probability": 0.06057385759829968
+    },
+    {
+      "lag": -2,
+      "success_denominator": 16983,
+      "success_probability": 0.9483012424188895,
+      "loss_denominator": 941,
+      "loss_probability": 0.06482465462274177
+    },
+    {
+      "lag": -1,
+      "success_denominator": 16984,
+      "success_probability": 0.9484809232218558,
+      "loss_denominator": 941,
+      "loss_probability": 0.06907545164718384
+    },
+    {
+      "lag": 0,
+      "success_denominator": 16985,
+      "success_probability": 1.0,
+      "loss_denominator": 941,
+      "loss_probability": 1.0
+    },
+    {
+      "lag": 1,
+      "success_denominator": 16985,
+      "success_probability": 0.9484250809537828,
+      "loss_denominator": 940,
+      "loss_probability": 0.06914893617021277
+    },
+    {
+      "lag": 2,
+      "success_denominator": 16985,
+      "success_probability": 0.9481895790403297,
+      "loss_denominator": 939,
+      "loss_probability": 0.06496272630457935
+    },
+    {
+      "lag": 3,
+      "success_denominator": 16984,
+      "success_probability": 0.9479510127178521,
+      "loss_denominator": 939,
+      "loss_probability": 0.06070287539936102
+    },
+    {
+      "lag": 4,
+      "success_denominator": 16984,
+      "success_probability": 0.9476566179934055,
+      "loss_denominator": 938,
+      "loss_probability": 0.05543710021321962
+    },
+    {
+      "lag": 5,
+      "success_denominator": 16983,
+      "success_probability": 0.9483012424188895,
+      "loss_denominator": 938,
+      "loss_probability": 0.06716417910447761
+    },
+    {
+      "lag": 6,
+      "success_denominator": 16982,
+      "success_probability": 0.9482393122129313,
+      "loss_denominator": 938,
+      "loss_probability": 0.0650319829424307
+    },
+    {
+      "lag": 7,
+      "success_denominator": 16981,
+      "success_probability": 0.9486484894882515,
+      "loss_denominator": 938,
+      "loss_probability": 0.07249466950959488
+    },
+    {
+      "lag": 8,
+      "success_denominator": 16980,
+      "success_probability": 0.9485276796230859,
+      "loss_denominator": 938,
+      "loss_probability": 0.07036247334754797
+    },
+    {
+      "lag": 9,
+      "success_denominator": 16979,
+      "success_probability": 0.9475234112727486,
+      "loss_denominator": 938,
+      "loss_probability": 0.05223880597014925
+    },
+    {
+      "lag": 10,
+      "success_denominator": 16978,
+      "success_probability": 0.948757215219696,
+      "loss_denominator": 938,
+      "loss_probability": 0.07462686567164178
+    }
+  ],
+  "host": "1.1.1.1",
+  "source_sha256": "8ee0b1dde16a778a065f7e938f07d930744d81a017f32d17ae7dab2f18afd336",
+  "started_utc": "2026-11-24T06:40:32.847270+00:00",
+  "ended_utc": "2026-11-24T07:40:34.868318+00:00",
+  "elapsed_s": 3602.015363018,
+  "interval_s": 0.2,
+  "payload_bytes": 56,
+  "collection_state": "finished",
+  "burst_trials": [
+    {
+      "host": "1.1.1.1",
+      "ipv4": "1.1.1.1",
+      "started_utc": "2026-11-24T06:42:41.865974+00:00",
+      "payload_bytes": 56,
+      "interval_s": 0.2,
+      "count_requested": 25,
+      "sent": 28,
+      "received": 25,
+      "elapsed_s": 5.500376681999995,
+      "returncode": 0,
+      "command": [
+        "ping",
+        "-4",
+        "-D",
+        "-n",
+        "-i",
+        "0.2",
+        "-s",
+        "56",
+        "-c",
+        "25",
+        "-w",
+        "8",
+        "-W",
+        "1",
+        "1.1.1.1"
+      ],
+      "nominal_request_payload_bps": 2240.0,
+      "observed_request_payload_bps": 2280.5710818043226,
+      "observed_reply_payload_bps": 2036.224180182431,
+      "raw_log": "ping-56bytes-0.2s.txt"
+    },
+    {
+      "host": "1.1.1.1",
+      "ipv4": "1.1.1.1",
+      "started_utc": "2026-11-24T06:42:47.397687+00:00",
+      "payload_bytes": 256,
+      "interval_s": 0.1,
+      "count_requested": 50,
+      "sent": 56,
+      "received": 50,
+      "elapsed_s": 5.656416959000012,
+      "returncode": 0,
+      "command": [
+        "ping",
+        "-4",
+        "-D",
+        "-n",
+        "-i",
+        "0.1",
+        "-s",
+        "256",
+        "-c",
+        "50",
+        "-w",
+        "8",
+        "-W",
+        "1",
+        "1.1.1.1"
+      ],
+      "nominal_request_payload_bps": 20480.0,
+      "observed_request_payload_bps": 20275.7330004674,
+      "observed_reply_payload_bps": 18103.333036131608,
+      "raw_log": "ping-256bytes-0.1s.txt"
+    },
+    {
+      "host": "1.1.1.1",
+      "ipv4": "1.1.1.1",
+      "started_utc": "2026-11-24T06:42:53.061549+00:00",
+      "payload_bytes": 1200,
+      "interval_s": 0.05,
+      "count_requested": 100,
+      "sent": 115,
+      "received": 100,
+      "elapsed_s": 6.0128468620000035,
+      "returncode": 0,
+      "command": [
+        "ping",
+        "-4",
+        "-D",
+        "-n",
+        "-i",
+        "0.05",
+        "-s",
+        "1200",
+        "-c",
+        "100",
+        "-w",
+        "8",
+        "-W",
+        "1",
+        "1.1.1.1"
+      ],
+      "nominal_request_payload_bps": 192000.0,
+      "observed_request_payload_bps": 183606.87131033727,
+      "observed_reply_payload_bps": 159658.14896551069,
+      "raw_log": "ping-1200bytes-0.05s.txt"
+    }
+  ]
+}

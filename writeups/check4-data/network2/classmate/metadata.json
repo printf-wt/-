@@ -1,0 +1,30 @@
+{
+  "host": "172.20.10.2",
+  "ipv4": "172.20.10.2",
+  "command": [
+    "ping",
+    "-4",
+    "-D",
+    "-n",
+    "-O",
+    "-i",
+    "0.2",
+    "-w",
+    "3602",
+    "-W",
+    "2",
+    "-s",
+    "56",
+    "172.20.10.2"
+  ],
+  "started_utc": "2026-11-24T06:42:59.766759+00:00",
+  "duration_requested_s": 3602,
+  "interval_s": 0.2,
+  "payload_bytes": 56,
+  "platform": "Linux/WSL",
+  "state": "finished",
+  "note": "Raw ping timestamps are reply times; missing replies are resolved from final statistics.",
+  "ended_utc": "2026-11-24T07:43:01.793648+00:00",
+  "elapsed_s": 3602.021922636,
+  "returncode": 0
+}

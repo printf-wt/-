@@ -1,0 +1,30 @@
+{
+  "host": "8.8.8.8",
+  "ipv4": "8.8.8.8",
+  "command": [
+    "ping",
+    "-4",
+    "-D",
+    "-n",
+    "-O",
+    "-i",
+    "0.2",
+    "-w",
+    "3602",
+    "-W",
+    "2",
+    "-s",
+    "56",
+    "8.8.8.8"
+  ],
+  "started_utc": "2026-11-24T03:05:33.343636+00:00",
+  "duration_requested_s": 3602,
+  "interval_s": 0.2,
+  "payload_bytes": 56,
+  "platform": "Linux/WSL",
+  "state": "finished",
+  "note": "Raw ping timestamps are reply times; missing replies are resolved from final statistics.",
+  "ended_utc": "2026-11-24T03:40:25.080493+00:00",
+  "elapsed_s": 2062.505750401,
+  "returncode": 0
+}

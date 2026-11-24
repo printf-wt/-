@@ -1,0 +1,2 @@
+[PASS] child signal -> ended_early; incomplete session cannot count as finished
+[PASS] parent signal -> interrupted; incomplete session cannot count as finished

@@ -1,0 +1,15 @@
+test_all_loss_and_single_success (__main__.MetricsTest.test_all_loss_and_single_success) ... ok
+test_duplicates_and_reordering (__main__.MetricsTest.test_duplicates_and_reordering) ... ok
+test_incomplete_and_inconsistent_log_rejected (__main__.MetricsTest.test_incomplete_and_inconsistent_log_rejected) ... ok
+test_lag_edges_and_denominators (__main__.MetricsTest.test_lag_edges_and_denominators) ... ok
+test_leading_internal_and_trailing_losses (__main__.MetricsTest.test_leading_internal_and_trailing_losses) ... ok
+test_less_than_one_ms_is_labelled_upper_bound (__main__.MetricsTest.test_less_than_one_ms_is_labelled_upper_bound) ... ok
+test_no_loss_condition_is_undefined (__main__.MetricsTest.test_no_loss_condition_is_undefined) ... ok
+test_no_pair_across_missing_sequence (__main__.MetricsTest.test_no_pair_across_missing_sequence) ... ok
+test_outstanding_notice_is_not_final_loss (__main__.MetricsTest.test_outstanding_notice_is_not_final_loss) ... ok
+test_preview_is_explicitly_nonfinal (__main__.MetricsTest.test_preview_is_explicitly_nonfinal) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK

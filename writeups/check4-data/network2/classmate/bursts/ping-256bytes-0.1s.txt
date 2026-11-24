@@ -1,0 +1,55 @@
+PING 172.20.10.2 (172.20.10.2) 256(284) bytes of data.
+[1795502594.920594] 264 bytes from 172.20.10.2: icmp_seq=1 ttl=127 time=5.00 ms
+[1795502595.024708] 264 bytes from 172.20.10.2: icmp_seq=2 ttl=127 time=8.25 ms
+[1795502595.122737] 264 bytes from 172.20.10.2: icmp_seq=3 ttl=127 time=5.58 ms
+[1795502595.225461] 264 bytes from 172.20.10.2: icmp_seq=4 ttl=127 time=7.20 ms
+[1795502595.323710] 264 bytes from 172.20.10.2: icmp_seq=5 ttl=127 time=4.79 ms
+[1795502595.459572] 264 bytes from 172.20.10.2: icmp_seq=6 ttl=127 time=39.4 ms
+[1795502595.539605] 264 bytes from 172.20.10.2: icmp_seq=7 ttl=127 time=18.6 ms
+[1795502595.630308] 264 bytes from 172.20.10.2: icmp_seq=8 ttl=127 time=8.27 ms
+[1795502595.726759] 264 bytes from 172.20.10.2: icmp_seq=9 ttl=127 time=4.14 ms
+[1795502595.827445] 264 bytes from 172.20.10.2: icmp_seq=10 ttl=127 time=4.40 ms
+[1795502595.929789] 264 bytes from 172.20.10.2: icmp_seq=11 ttl=127 time=5.80 ms
+[1795502596.048609] 264 bytes from 172.20.10.2: icmp_seq=12 ttl=127 time=23.5 ms
+[1795502596.144308] 264 bytes from 172.20.10.2: icmp_seq=13 ttl=127 time=18.4 ms
+[1795502596.233604] 264 bytes from 172.20.10.2: icmp_seq=14 ttl=127 time=7.00 ms
+[1795502596.334766] 264 bytes from 172.20.10.2: icmp_seq=15 ttl=127 time=7.90 ms
+[1795502596.433289] 264 bytes from 172.20.10.2: icmp_seq=16 ttl=127 time=6.23 ms
+[1795502596.536773] 264 bytes from 172.20.10.2: icmp_seq=17 ttl=127 time=9.09 ms
+[1795502596.632987] 264 bytes from 172.20.10.2: icmp_seq=18 ttl=127 time=4.57 ms
+[1795502596.740980] 264 bytes from 172.20.10.2: icmp_seq=19 ttl=127 time=11.5 ms
+[1795502596.840649] 264 bytes from 172.20.10.2: icmp_seq=20 ttl=127 time=10.2 ms
+[1795502596.942793] 264 bytes from 172.20.10.2: icmp_seq=21 ttl=127 time=11.8 ms
+[1795502597.053406] 264 bytes from 172.20.10.2: icmp_seq=22 ttl=127 time=21.1 ms
+[1795502597.138740] 264 bytes from 172.20.10.2: icmp_seq=23 ttl=127 time=5.94 ms
+[1795502597.239021] 264 bytes from 172.20.10.2: icmp_seq=24 ttl=127 time=5.90 ms
+[1795502597.358863] 264 bytes from 172.20.10.2: icmp_seq=25 ttl=127 time=25.5 ms
+[1795502597.439324] 264 bytes from 172.20.10.2: icmp_seq=26 ttl=127 time=5.12 ms
+[1795502597.546248] 264 bytes from 172.20.10.2: icmp_seq=27 ttl=127 time=11.5 ms
+[1795502597.647679] 264 bytes from 172.20.10.2: icmp_seq=28 ttl=127 time=12.0 ms
+[1795502597.763357] 264 bytes from 172.20.10.2: icmp_seq=29 ttl=127 time=27.3 ms
+[1795502597.844268] 264 bytes from 172.20.10.2: icmp_seq=30 ttl=127 time=7.54 ms
+[1795502597.948827] 264 bytes from 172.20.10.2: icmp_seq=31 ttl=127 time=11.2 ms
+[1795502598.082908] 264 bytes from 172.20.10.2: icmp_seq=32 ttl=127 time=44.7 ms
+[1795502598.216911] 264 bytes from 172.20.10.2: icmp_seq=33 ttl=127 time=77.7 ms
+[1795502598.313916] 264 bytes from 172.20.10.2: icmp_seq=34 ttl=127 time=73.7 ms
+[1795502598.350446] 264 bytes from 172.20.10.2: icmp_seq=35 ttl=127 time=9.12 ms
+[1795502598.464338] 264 bytes from 172.20.10.2: icmp_seq=36 ttl=127 time=22.3 ms
+[1795502598.550332] 264 bytes from 172.20.10.2: icmp_seq=37 ttl=127 time=7.58 ms
+[1795502598.655715] 264 bytes from 172.20.10.2: icmp_seq=38 ttl=127 time=11.9 ms
+[1795502598.751475] 264 bytes from 172.20.10.2: icmp_seq=39 ttl=127 time=7.23 ms
+[1795502598.859003] 264 bytes from 172.20.10.2: icmp_seq=40 ttl=127 time=14.0 ms
+[1795502598.954463] 264 bytes from 172.20.10.2: icmp_seq=41 ttl=127 time=9.15 ms
+[1795502599.060754] 264 bytes from 172.20.10.2: icmp_seq=42 ttl=127 time=14.9 ms
+[1795502599.164118] 264 bytes from 172.20.10.2: icmp_seq=43 ttl=127 time=18.0 ms
+[1795502599.263295] 264 bytes from 172.20.10.2: icmp_seq=44 ttl=127 time=16.8 ms
+[1795502599.354454] 264 bytes from 172.20.10.2: icmp_seq=45 ttl=127 time=6.76 ms
+[1795502599.488644] 264 bytes from 172.20.10.2: icmp_seq=46 ttl=127 time=39.8 ms
+[1795502599.570773] 264 bytes from 172.20.10.2: icmp_seq=47 ttl=127 time=21.7 ms
+[1795502599.662828] 264 bytes from 172.20.10.2: icmp_seq=48 ttl=127 time=12.7 ms
+[1795502599.779005] 264 bytes from 172.20.10.2: icmp_seq=49 ttl=127 time=27.9 ms
+[1795502599.859911] 264 bytes from 172.20.10.2: icmp_seq=50 ttl=127 time=8.64 ms
+
+--- 172.20.10.2 ping statistics ---
+50 packets transmitted, 50 received, 0% packet loss, time 4935ms
+rtt min/avg/max/mdev = 4.141/15.985/77.693/15.421 ms

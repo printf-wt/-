@@ -1,0 +1,14 @@
+{
+  "recorded_utc": "2026-11-24T06:40:30.448626+00:00",
+  "windows_ipv4": "172.20.10.3",
+  "prefix_length": 28,
+  "gateway": "172.20.10.1",
+  "reason": "User changed LAN and requested retry. Prior measurements are preserved separately and were shorter than one hour.",
+  "classmate_ipv4": "172.20.10.2",
+  "classmate_preflight": "After classmate updated the firewall source to 172.20.10.3, Windows and Ubuntu each received 3/3 replies.",
+  "preflight_wsl_rtt_ms": [
+    7.92,
+    25.5,
+    24.0
+  ]
+}

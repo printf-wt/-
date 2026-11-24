@@ -1,0 +1,21 @@
+
+Tracing route to 8.8.8.8 over a maximum of 24 hops
+
+  1     4 ms     4 ms     3 ms  172.20.10.1 
+  2     *        *        *     Request timed out.
+  3     *        *        *     Request timed out.
+  4    19 ms    20 ms    15 ms  43.250.200.233 
+  5     *        *        *     Request timed out.
+  6     *        *        *     Request timed out.
+  7     *        *        *     Request timed out.
+  8    41 ms    41 ms    77 ms  219.158.4.30 
+  9    37 ms     *       36 ms  219.158.3.190 
+ 10     *        *        *     Request timed out.
+ 11     *        *        *     Request timed out.
+ 12   122 ms     *      142 ms  203.131.241.220 
+ 13   257 ms     *      253 ms  203.131.250.82 
+ 14   308 ms     *      301 ms  142.251.67.15 
+ 15   269 ms     *      263 ms  216.239.43.61 
+ 16   236 ms   256 ms   264 ms  8.8.8.8 
+
+Trace complete.

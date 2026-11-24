@@ -1,0 +1,6 @@
+
+Tracing route to 172.20.10.2 over a maximum of 8 hops
+
+  1    28 ms     7 ms     6 ms  172.20.10.2 
+
+Trace complete.

@@ -1,0 +1,18 @@
+Checkpoint 4 validation - 2026-11-24
+Official checkpoint: measurement lab; no check4-startercode or check4 CMake target.
+Final sessions: writeups/check4-data/network2. Previous network records are incomplete and excluded.
+
+PASS 1.1.1.1: 3602.015s, 16985/17926 replies, delivery 94.750642%; raw SHA-256 and CSV verified.
+PASS 8.8.8.8: 3602.013s, 17262/17931 replies, delivery 96.269031%; raw SHA-256 and CSV verified.
+PASS 172.20.10.2: 3602.022s, 17827/17932 replies, delivery 99.414455%; raw SHA-256 and CSV verified.
+
+PASS metrics tests: 10/10 (metrics-tests.log).
+PASS collector lifecycle checks: 2/2 (collector-lifecycle-tests.log).
+PASS final-report guard rejects sessions shorter than one hour.
+PASS all Python files parse successfully.
+PASS PDF: 10 pages, Chinese text extraction, no preview marker; all pages rendered and visually inspected.
+PASS three actual VS Code screenshots saved; screenshots record development of the main collector/statistics flow.
+PASS previous C++ implementation and official framework unchanged.
+Actual peer uses the local LAN, not the CS144 course private network. ICMP reply rates are not TCP throughput or link capacity.
+PASS staged Git objects: raw ping SHA-256 matches verified source; PDF bytes unchanged.
+PASS .gitattributes preserves raw-data bytes and treats PDFs as binary.

@@ -1,0 +1,55 @@
+PING 1.1.1.1 (1.1.1.1) 256(284) bytes of data.
+[1795502567.679913] 264 bytes from 1.1.1.1: icmp_seq=1 ttl=52 time=281 ms
+[1795502567.770419] 264 bytes from 1.1.1.1: icmp_seq=2 ttl=52 time=270 ms
+[1795502567.890175] 264 bytes from 1.1.1.1: icmp_seq=3 ttl=52 time=289 ms
+[1795502567.985202] 264 bytes from 1.1.1.1: icmp_seq=4 ttl=52 time=283 ms
+[1795502568.081219] 264 bytes from 1.1.1.1: icmp_seq=5 ttl=52 time=278 ms
+[1795502568.185790] 264 bytes from 1.1.1.1: icmp_seq=6 ttl=52 time=282 ms
+[1795502568.289474] 264 bytes from 1.1.1.1: icmp_seq=7 ttl=52 time=285 ms
+[1795502568.515159] 264 bytes from 1.1.1.1: icmp_seq=9 ttl=52 time=309 ms
+[1795502568.600270] 264 bytes from 1.1.1.1: icmp_seq=10 ttl=52 time=293 ms
+[1795502568.703457] 264 bytes from 1.1.1.1: icmp_seq=11 ttl=52 time=294 ms
+[1795502568.808844] 264 bytes from 1.1.1.1: icmp_seq=12 ttl=52 time=295 ms
+[1795502568.885874] 264 bytes from 1.1.1.1: icmp_seq=13 ttl=52 time=272 ms
+[1795502568.999388] 264 bytes from 1.1.1.1: icmp_seq=14 ttl=52 time=284 ms
+[1795502569.088782] 264 bytes from 1.1.1.1: icmp_seq=15 ttl=52 time=270 ms
+[1795502569.291842] 264 bytes from 1.1.1.1: icmp_seq=17 ttl=52 time=272 ms
+[1795502569.392259] 264 bytes from 1.1.1.1: icmp_seq=18 ttl=52 time=272 ms
+[1795502569.506968] 264 bytes from 1.1.1.1: icmp_seq=19 ttl=52 time=286 ms
+[1795502569.602391] 264 bytes from 1.1.1.1: icmp_seq=20 ttl=52 time=280 ms
+[1795502569.712435] 264 bytes from 1.1.1.1: icmp_seq=21 ttl=52 time=290 ms
+[1795502569.813676] 264 bytes from 1.1.1.1: icmp_seq=22 ttl=52 time=290 ms
+[1795502569.897677] 264 bytes from 1.1.1.1: icmp_seq=23 ttl=52 time=274 ms
+[1795502570.017669] 264 bytes from 1.1.1.1: icmp_seq=24 ttl=52 time=293 ms
+[1795502570.115017] 264 bytes from 1.1.1.1: icmp_seq=25 ttl=52 time=289 ms
+[1795502570.209280] 264 bytes from 1.1.1.1: icmp_seq=26 ttl=52 time=282 ms
+[1795502570.307111] 264 bytes from 1.1.1.1: icmp_seq=27 ttl=52 time=279 ms
+[1795502570.428098] 264 bytes from 1.1.1.1: icmp_seq=28 ttl=52 time=300 ms
+[1795502570.517803] 264 bytes from 1.1.1.1: icmp_seq=29 ttl=52 time=289 ms
+[1795502570.607901] 264 bytes from 1.1.1.1: icmp_seq=30 ttl=52 time=278 ms
+[1795502570.724065] 264 bytes from 1.1.1.1: icmp_seq=31 ttl=52 time=285 ms
+[1795502570.812828] 264 bytes from 1.1.1.1: icmp_seq=32 ttl=52 time=274 ms
+[1795502570.919626] 264 bytes from 1.1.1.1: icmp_seq=33 ttl=52 time=279 ms
+[1795502571.023311] 264 bytes from 1.1.1.1: icmp_seq=34 ttl=52 time=283 ms
+[1795502571.120745] 264 bytes from 1.1.1.1: icmp_seq=35 ttl=52 time=279 ms
+[1795502571.259406] 264 bytes from 1.1.1.1: icmp_seq=36 ttl=52 time=317 ms
+[1795502571.321403] 264 bytes from 1.1.1.1: icmp_seq=37 ttl=52 time=280 ms
+[1795502571.425556] 264 bytes from 1.1.1.1: icmp_seq=38 ttl=52 time=284 ms
+[1795502571.543614] 264 bytes from 1.1.1.1: icmp_seq=39 ttl=52 time=298 ms
+[1795502571.641894] 264 bytes from 1.1.1.1: icmp_seq=40 ttl=52 time=296 ms
+[1795502571.724624] 264 bytes from 1.1.1.1: icmp_seq=41 ttl=52 time=278 ms
+[1795502571.857852] 264 bytes from 1.1.1.1: icmp_seq=42 ttl=52 time=304 ms
+[1795502572.044416] 264 bytes from 1.1.1.1: icmp_seq=44 ttl=52 time=289 ms
+[1795502572.133299] 264 bytes from 1.1.1.1: icmp_seq=45 ttl=52 time=276 ms
+[1795502572.250452] 264 bytes from 1.1.1.1: icmp_seq=46 ttl=52 time=289 ms
+[1795502572.355243] 264 bytes from 1.1.1.1: icmp_seq=47 ttl=52 time=294 ms
+[1795502572.519289] 264 bytes from 1.1.1.1: icmp_seq=48 ttl=52 time=358 ms
+[1795502572.547976] 264 bytes from 1.1.1.1: icmp_seq=49 ttl=52 time=286 ms
+[1795502572.763308] 264 bytes from 1.1.1.1: icmp_seq=51 ttl=52 time=294 ms
+[1795502572.843417] 264 bytes from 1.1.1.1: icmp_seq=52 ttl=52 time=273 ms
+[1795502572.984838] 264 bytes from 1.1.1.1: icmp_seq=53 ttl=52 time=311 ms
+[1795502573.053831] 264 bytes from 1.1.1.1: icmp_seq=54 ttl=52 time=280 ms
+
+--- 1.1.1.1 ping statistics ---
+56 packets transmitted, 50 received, 10.7143% packet loss, time 5579ms
+rtt min/avg/max/mdev = 269.593/287.363/357.738/14.576 ms, pipe 4

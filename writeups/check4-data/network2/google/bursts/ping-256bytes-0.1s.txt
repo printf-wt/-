@@ -1,0 +1,55 @@
+PING 8.8.8.8 (8.8.8.8) 256(284) bytes of data.
+[1795502584.948578] 264 bytes from 8.8.8.8: icmp_seq=1 ttl=99 time=269 ms
+[1795502585.039102] 264 bytes from 8.8.8.8: icmp_seq=2 ttl=99 time=259 ms
+[1795502585.121362] 264 bytes from 8.8.8.8: icmp_seq=3 ttl=99 time=240 ms
+[1795502585.228303] 264 bytes from 8.8.8.8: icmp_seq=4 ttl=99 time=246 ms
+[1795502585.323118] 264 bytes from 8.8.8.8: icmp_seq=5 ttl=99 time=242 ms
+[1795502585.426788] 264 bytes from 8.8.8.8: icmp_seq=6 ttl=99 time=245 ms
+[1795502585.553385] 264 bytes from 8.8.8.8: icmp_seq=7 ttl=99 time=271 ms
+[1795502585.647371] 264 bytes from 8.8.8.8: icmp_seq=8 ttl=99 time=264 ms
+[1795502585.744553] 264 bytes from 8.8.8.8: icmp_seq=9 ttl=99 time=260 ms
+[1795502585.844317] 264 bytes from 8.8.8.8: icmp_seq=10 ttl=99 time=260 ms
+[1795502585.929832] 264 bytes from 8.8.8.8: icmp_seq=11 ttl=99 time=244 ms
+[1795502586.028787] 264 bytes from 8.8.8.8: icmp_seq=12 ttl=99 time=243 ms
+[1795502586.206044] 264 bytes from 8.8.8.8: icmp_seq=13 ttl=99 time=319 ms
+[1795502586.235725] 264 bytes from 8.8.8.8: icmp_seq=14 ttl=99 time=249 ms
+[1795502586.346282] 264 bytes from 8.8.8.8: icmp_seq=15 ttl=99 time=258 ms
+[1795502586.551077] 264 bytes from 8.8.8.8: icmp_seq=17 ttl=99 time=261 ms
+[1795502586.640958] 264 bytes from 8.8.8.8: icmp_seq=18 ttl=99 time=250 ms
+[1795502586.731110] 264 bytes from 8.8.8.8: icmp_seq=19 ttl=99 time=238 ms
+[1795502586.856613] 264 bytes from 8.8.8.8: icmp_seq=20 ttl=99 time=262 ms
+[1795502586.935453] 264 bytes from 8.8.8.8: icmp_seq=21 ttl=99 time=240 ms
+[1795502587.061654] 264 bytes from 8.8.8.8: icmp_seq=22 ttl=99 time=265 ms
+[1795502587.163756] 264 bytes from 8.8.8.8: icmp_seq=23 ttl=99 time=267 ms
+[1795502587.252751] 264 bytes from 8.8.8.8: icmp_seq=24 ttl=99 time=255 ms
+[1795502587.352212] 264 bytes from 8.8.8.8: icmp_seq=25 ttl=99 time=253 ms
+[1795502587.456623] 264 bytes from 8.8.8.8: icmp_seq=26 ttl=99 time=257 ms
+[1795502587.542361] 264 bytes from 8.8.8.8: icmp_seq=27 ttl=99 time=241 ms
+[1795502587.657489] 264 bytes from 8.8.8.8: icmp_seq=28 ttl=99 time=256 ms
+[1795502587.748963] 264 bytes from 8.8.8.8: icmp_seq=29 ttl=99 time=247 ms
+[1795502587.876357] 264 bytes from 8.8.8.8: icmp_seq=30 ttl=99 time=274 ms
+[1795502587.964728] 264 bytes from 8.8.8.8: icmp_seq=31 ttl=99 time=261 ms
+[1795502588.063617] 264 bytes from 8.8.8.8: icmp_seq=32 ttl=99 time=259 ms
+[1795502588.170764] 264 bytes from 8.8.8.8: icmp_seq=33 ttl=99 time=266 ms
+[1795502588.269859] 264 bytes from 8.8.8.8: icmp_seq=34 ttl=99 time=265 ms
+[1795502588.427207] 264 bytes from 8.8.8.8: icmp_seq=35 ttl=99 time=321 ms
+[1795502588.446089] 264 bytes from 8.8.8.8: icmp_seq=36 ttl=99 time=239 ms
+[1795502588.552857] 264 bytes from 8.8.8.8: icmp_seq=37 ttl=99 time=245 ms
+[1795502588.660750] 264 bytes from 8.8.8.8: icmp_seq=38 ttl=99 time=251 ms
+[1795502588.762353] 264 bytes from 8.8.8.8: icmp_seq=39 ttl=99 time=252 ms
+[1795502588.862749] 264 bytes from 8.8.8.8: icmp_seq=40 ttl=99 time=252 ms
+[1795502588.988066] 264 bytes from 8.8.8.8: icmp_seq=41 ttl=99 time=276 ms
+[1795502589.062375] 264 bytes from 8.8.8.8: icmp_seq=42 ttl=99 time=250 ms
+[1795502589.148198] 264 bytes from 8.8.8.8: icmp_seq=43 ttl=99 time=235 ms
+[1795502589.256770] 264 bytes from 8.8.8.8: icmp_seq=44 ttl=99 time=244 ms
+[1795502589.355709] 264 bytes from 8.8.8.8: icmp_seq=45 ttl=99 time=243 ms
+[1795502589.467146] 264 bytes from 8.8.8.8: icmp_seq=46 ttl=99 time=254 ms
+[1795502589.668714] 264 bytes from 8.8.8.8: icmp_seq=48 ttl=99 time=254 ms
+[1795502589.764947] 264 bytes from 8.8.8.8: icmp_seq=49 ttl=99 time=250 ms
+[1795502589.872716] 264 bytes from 8.8.8.8: icmp_seq=50 ttl=99 time=255 ms
+[1795502589.965545] 264 bytes from 8.8.8.8: icmp_seq=51 ttl=99 time=247 ms
+[1795502590.058821] 264 bytes from 8.8.8.8: icmp_seq=52 ttl=99 time=240 ms
+
+--- 8.8.8.8 ping statistics ---
+54 packets transmitted, 50 received, 7.40741% packet loss, time 5342ms
+rtt min/avg/max/mdev = 234.968/255.851/321.225/16.480 ms, pipe 4

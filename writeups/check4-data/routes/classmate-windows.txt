@@ -1,0 +1,6 @@
+
+Tracing route to 10.200.31.238 over a maximum of 8 hops
+
+  1    97 ms    14 ms    18 ms  10.200.31.238 
+
+Trace complete.
