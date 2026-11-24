@@ -1,0 +1,31 @@
+Checkpoint 0 validation
+Date: 2026-11-24 (Asia/Shanghai)
+Environment: Ubuntu 24.04.4 LTS / WSL2, g++ 13.3, CMake 3.28.3
+
+Command: CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check0
+Result: 100% tests passed, 0 tests failed out of 11
+
+[PASS] compile with bug-checkers
+[PASS] t_webget
+[PASS] byte_stream_basics
+[PASS] byte_stream_capacity
+[PASS] byte_stream_one_write
+[PASS] byte_stream_two_writes
+[PASS] byte_stream_many_writes
+[PASS] byte_stream_stress_test
+[PASS] no_skip
+[PASS] compile with optimization
+[PASS] byte_stream_speed_test
+
+Speed benchmark:
+ByteStream with capacity=32768, write_size=1500, read_size=4096 reached 19.56 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=128 reached 16.66 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=32 reached 7.26 Gbit/s.
+
+Static analysis: cmake --build build/wsl --target tidy tidy_apps__webget.cc
+Result: exit code 0; no project diagnostics
+Formatting: clang-format --dry-run --Werror src/byte_stream.hh src/byte_stream.cc apps/webget.cc
+Result: exit code 0
+
+Screenshots: 01 = Writer; 02 = Reader; 03 = HTTP webget implementation.
+Implementation and validation assisted by Codex.
