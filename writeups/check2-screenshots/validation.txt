@@ -1,0 +1,56 @@
+Checkpoint 2 verification
+Date: 2026-11-24 (Asia/Shanghai)
+Environment: Ubuntu 24.04.4 LTS / WSL2; g++ 13.3; CMake 3.28.3
+Framework: CS144/imp check2-startercode @ d4aea19a311753ac47bd074cb1c5bf778191962b
+
+Official: cmake --build build/wsl --target check2
+Result: 30/30 checks passed, including ASan/UBSan and prior module regressions.
+HTTP regression: cmake --build build/wsl --target check0
+Result: 11/11 checks passed, including remote HTTP retrieval.
+Supplementary: python3 writeups/check2-screenshots/boundary-validation.py
+Result: 10 additional uint64 boundary checks passed with ASan/UBSan.
+Static analysis: cmake --build build/wsl --target tidy
+Result: passed for every src implementation using clang-tidy-20.
+Formatting: clang-format --dry-run --Werror on wrapping_integers.hh/.cc and tcp_receiver.hh/.cc
+Result: passed.
+
+Official checks:
+[PASS] compile with bug-checkers
+[PASS] byte_stream_basics
+[PASS] byte_stream_capacity
+[PASS] byte_stream_one_write
+[PASS] byte_stream_two_writes
+[PASS] byte_stream_many_writes
+[PASS] byte_stream_stress_test
+[PASS] reassembler_single
+[PASS] reassembler_cap
+[PASS] reassembler_seq
+[PASS] reassembler_dup
+[PASS] reassembler_holes
+[PASS] reassembler_overlapping
+[PASS] reassembler_win
+[PASS] wrapping_integers_cmp
+[PASS] wrapping_integers_wrap
+[PASS] wrapping_integers_unwrap
+[PASS] wrapping_integers_roundtrip
+[PASS] wrapping_integers_extra
+[PASS] recv_connect
+[PASS] recv_transmit
+[PASS] recv_window
+[PASS] recv_reorder
+[PASS] recv_reorder_more
+[PASS] recv_close
+[PASS] recv_special
+[PASS] no_skip
+[PASS] compile with optimization
+[PASS] byte_stream_speed_test
+[PASS] reassembler_speed_test
+
+Coverage: wrap/unwrap, random round trips, sequence wraparound, SYN/FIN/RST,
+retransmitted SYN, out-of-order and overlapping payloads, cumulative ACK,
+zero/full windows, application reads, window saturation at 65535,
+binary data, uint64 upper-bound arithmetic, and deterministic tie handling.
+
+Screenshots: 01 Wrap32, 02 receive, 03 acknowledgment/window.
+Raw evidence: check2-ctest.log, check0-regression.log, boundary-validation.log, static-analysis.log.
+Implementation and validation assisted by Codex.
