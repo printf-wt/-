@@ -1,0 +1,380 @@
+Start testing: Nov 24 16:53 CST
+----------------------------------------------------------
+1/40 Testing: compile with bug-checkers
+1/40 Test: compile with bug-checkers
+Command: "/usr/bin/cmake" "--build" "/mnt/d/计算机网络/课程设计/-/build/wsl" "-t" "functionality_testing" "webget"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"compile with bug-checkers" start time: Nov 24 16:53 CST
+Output:
+----------------------------------------------------------
+make[4]: warning: -j4 forced in submake: resetting jobserver mode.
+[  1%] Built target imp_testing_sanitized
+[  2%] Built target imp_testing_debug
+[  3%] Building CXX object src/CMakeFiles/imp_debug.dir/router.cc.o
+[  3%] Building CXX object src/CMakeFiles/imp_sanitized.dir/router.cc.o
+[ 12%] Built target util_debug
+[ 19%] Built target util_sanitized
+[ 19%] Linking CXX static library libimp_debug.a
+[ 19%] Linking CXX static library libimp_sanitized.a
+[ 23%] Built target imp_debug
+[ 23%] Linking CXX executable byte_stream_capacity
+[ 23%] Linking CXX executable no_skip
+[ 23%] Linking CXX executable byte_stream_basics
+[ 23%] Built target no_skip
+[ 28%] Built target imp_sanitized
+[ 28%] Linking CXX executable byte_stream_one_write
+[ 29%] Linking CXX executable byte_stream_two_writes
+[ 30%] Built target byte_stream_capacity
+[ 30%] Built target byte_stream_basics
+[ 32%] Linking CXX executable byte_stream_many_writes_sanitized
+[ 33%] Linking CXX executable byte_stream_many_writes
+[ 33%] Built target byte_stream_one_write
+[ 33%] Built target byte_stream_two_writes
+[ 34%] Linking CXX executable byte_stream_stress_test_sanitized
+[ 35%] Linking CXX executable byte_stream_stress_test
+[ 35%] Built target byte_stream_many_writes
+[ 35%] Built target byte_stream_many_writes_sanitized
+[ 35%] Linking CXX executable reassembler_single_sanitized
+[ 35%] Linking CXX executable reassembler_single
+[ 35%] Built target byte_stream_stress_test_sanitized
+[ 35%] Built target byte_stream_stress_test
+[ 37%] Linking CXX executable reassembler_cap_sanitized
+[ 37%] Linking CXX executable reassembler_cap
+[ 37%] Built target reassembler_single
+[ 38%] Built target reassembler_single_sanitized
+[ 39%] Linking CXX executable reassembler_seq_sanitized
+[ 40%] Linking CXX executable reassembler_seq
+[ 41%] Built target reassembler_cap
+[ 41%] Built target reassembler_cap_sanitized
+[ 43%] Linking CXX executable reassembler_dup_sanitized
+[ 44%] Linking CXX executable reassembler_dup
+[ 44%] Built target reassembler_seq
+[ 44%] Built target reassembler_seq_sanitized
+[ 44%] Linking CXX executable reassembler_holes_sanitized
+[ 44%] Linking CXX executable reassembler_holes
+[ 44%] Built target reassembler_dup
+[ 44%] Built target reassembler_dup_sanitized
+[ 45%] Linking CXX executable reassembler_overlapping_sanitized
+[ 45%] Linking CXX executable reassembler_overlapping
+[ 45%] Built target reassembler_holes
+[ 46%] Built target reassembler_holes_sanitized
+[ 48%] Linking CXX executable reassembler_win_sanitized
+[ 48%] Linking CXX executable reassembler_win
+[ 49%] Built target reassembler_overlapping
+[ 49%] Built target reassembler_overlapping_sanitized
+[ 50%] Linking CXX executable wrapping_integers_cmp_sanitized
+[ 50%] Linking CXX executable wrapping_integers_cmp
+[ 50%] Built target wrapping_integers_cmp_sanitized
+[ 51%] Built target reassembler_win
+[ 53%] Built target wrapping_integers_cmp
+[ 53%] Built target reassembler_win_sanitized
+[ 54%] Linking CXX executable wrapping_integers_wrap_sanitized
+[ 55%] Linking CXX executable wrapping_integers_wrap
+[ 56%] Linking CXX executable wrapping_integers_unwrap_sanitized
+[ 56%] Linking CXX executable wrapping_integers_unwrap
+[ 56%] Built target wrapping_integers_wrap_sanitized
+[ 56%] Built target wrapping_integers_wrap
+[ 56%] Built target wrapping_integers_unwrap_sanitized
+[ 58%] Built target wrapping_integers_unwrap
+[ 58%] Linking CXX executable wrapping_integers_roundtrip_sanitized
+[ 58%] Linking CXX executable wrapping_integers_roundtrip
+[ 58%] Linking CXX executable wrapping_integers_extra_sanitized
+[ 59%] Linking CXX executable wrapping_integers_extra
+[ 59%] Built target wrapping_integers_extra
+[ 59%] Built target wrapping_integers_extra_sanitized
+[ 60%] Built target wrapping_integers_roundtrip
+[ 61%] Built target wrapping_integers_roundtrip_sanitized
+[ 61%] Linking CXX executable recv_connect_sanitized
+[ 61%] Linking CXX executable recv_connect
+[ 62%] Linking CXX executable recv_transmit_sanitized
+[ 62%] Linking CXX executable recv_transmit
+[ 64%] Built target recv_connect
+[ 65%] Built target recv_transmit
+[ 66%] Built target recv_connect_sanitized
+[ 66%] Linking CXX executable recv_window_sanitized
+[ 66%] Built target recv_transmit_sanitized
+[ 67%] Linking CXX executable recv_window
+[ 67%] Linking CXX executable recv_reorder_sanitized
+[ 67%] Linking CXX executable recv_reorder
+[ 67%] Built target recv_window
+[ 67%] Built target recv_window_sanitized
+[ 69%] Built target recv_reorder
+[ 70%] Linking CXX executable recv_reorder_more_sanitized
+[ 70%] Built target recv_reorder_sanitized
+[ 71%] Linking CXX executable recv_reorder_more
+[ 71%] Linking CXX executable recv_close_sanitized
+[ 72%] Linking CXX executable recv_close
+[ 72%] Built target recv_reorder_more
+[ 72%] Built target recv_reorder_more_sanitized
+[ 72%] Built target recv_close
+[ 72%] Built target recv_close_sanitized
+[ 72%] Linking CXX executable recv_special_sanitized
+[ 72%] Linking CXX executable recv_special
+[ 72%] Linking CXX executable send_connect_sanitized
+[ 72%] Linking CXX executable send_connect
+[ 74%] Built target recv_special
+[ 75%] Built target send_connect
+[ 76%] Built target recv_special_sanitized
+[ 77%] Built target send_connect_sanitized
+[ 77%] Linking CXX executable send_transmit_sanitized
+[ 77%] Linking CXX executable send_transmit
+[ 79%] Linking CXX executable send_window_sanitized
+[ 79%] Linking CXX executable send_window
+[ 79%] Built target send_transmit
+[ 80%] Built target send_window
+[ 81%] Built target send_transmit_sanitized
+[ 81%] Built target send_window_sanitized
+[ 82%] Linking CXX executable send_ack_sanitized
+[ 82%] Linking CXX executable send_ack
+[ 82%] Linking CXX executable send_close_sanitized
+[ 83%] Linking CXX executable send_close
+[ 85%] Built target send_ack
+[ 85%] Built target send_ack_sanitized
+[ 85%] Built target send_close
+[ 85%] Built target send_close_sanitized
+[ 86%] Linking CXX executable send_retx_sanitized
+[ 87%] Linking CXX executable send_retx
+[ 88%] Linking CXX executable send_extra_sanitized
+[ 88%] Linking CXX executable send_extra
+[ 88%] Built target send_retx
+[ 88%] Built target send_retx_sanitized
+[ 90%] Built target send_extra
+[ 91%] Building CXX object tests/CMakeFiles/router_sanitized.dir/router.cc.o
+[ 92%] Linking CXX executable net_interface_sanitized
+[ 92%] Built target send_extra_sanitized
+[ 93%] Linking CXX executable net_interface
+[ 95%] Building CXX object tests/CMakeFiles/router.dir/router.cc.o
+[ 95%] Built target net_interface
+[ 95%] Built target net_interface_sanitized
+[ 95%] Linking CXX executable no_skip_sanitized
+[ 95%] Linking CXX executable byte_stream_basics_sanitized
+[ 96%] Built target no_skip_sanitized
+[ 97%] Linking CXX executable byte_stream_capacity_sanitized
+[ 97%] Linking CXX executable router
+[ 98%] Built target byte_stream_basics_sanitized
+[ 98%] Linking CXX executable byte_stream_one_write_sanitized
+[ 98%] Linking CXX executable router_sanitized
+[ 98%] Built target byte_stream_capacity_sanitized
+[ 98%] Linking CXX executable byte_stream_two_writes_sanitized
+[ 98%] Built target router
+[100%] Built target byte_stream_one_write_sanitized
+[100%] Built target byte_stream_two_writes_sanitized
+[100%] Built target router_sanitized
+[100%] Built target functionality_testing
+[ 53%] Built target util_debug
+[ 61%] Built target stream_copy
+[ 92%] Built target imp_debug
+[ 92%] Linking CXX executable webget
+[100%] Built target webget
+<end of output>
+Test time =  45.04 sec
+----------------------------------------------------------
+Test Passed.
+"compile with bug-checkers" end time: Nov 24 16:54 CST
+"compile with bug-checkers" time elapsed: 00:00:45
+----------------------------------------------------------
+
+35/40 Testing: net_interface
+35/40 Test: net_interface
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/net_interface_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"net_interface" start time: Nov 24 16:54 CST
+Output:
+----------------------------------------------------------
+DEBUG: Network interface has Ethernet address fa:77:53:49:da:cc and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address 86:b0:a6:b3:63:25 and IP address 5.5.5.5
+DEBUG: Network interface has Ethernet address 76:f1:7f:c3:6c:0e and IP address 5.5.5.5
+DEBUG: Network interface has Ethernet address 42:4e:46:08:9b:38 and IP address 1.2.3.4
+DEBUG: Network interface has Ethernet address c2:d2:cc:8a:77:1d and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address 6e:a9:57:2c:6c:7e and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 82:1c:0a:50:ba:b2 and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address 6a:8c:8d:9b:91:12 and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address 5a:99:0f:7d:71:c5 and IP address 100.5.100.5
+DEBUG: Network interface has Ethernet address c2:e1:0e:53:83:e9 and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address 02:2d:21:e6:b2:f4 and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address 02:d1:6e:02:af:d1 and IP address 5.5.5.5
+DEBUG: Network interface has Ethernet address da:5e:14:69:c1:33 and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address ce:4d:9b:59:b0:e8 and IP address 5.5.5.5
+DEBUG: Network interface has Ethernet address e2:6d:b1:90:65:70 and IP address 5.5.5.5
+DEBUG: Network interface has Ethernet address 6e:fb:e0:77:57:7e and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address 86:e8:8d:84:bd:f6 and IP address 5.5.5.5
+DEBUG: Network interface has Ethernet address 0a:b2:e7:d5:3a:fe and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address 9a:94:74:4b:9c:f7 and IP address 80.97.114.116
+DEBUG: Network interface has Ethernet address ae:03:6f:25:a9:f1 and IP address 5.5.5.5
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"net_interface" end time: Nov 24 16:54 CST
+"net_interface" time elapsed: 00:00:00
+----------------------------------------------------------
+
+36/40 Testing: router
+36/40 Test: router
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/router_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"router" start time: Nov 24 16:54 CST
+Output:
+----------------------------------------------------------
+[32;1mConstructing network.[m
+DEBUG: Network interface has Ethernet address 02:00:00:6d:2a:64 and IP address 171.67.76.46
+DEBUG: Network interface has Ethernet address 02:00:00:49:41:12 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:f0:8b:cd and IP address 172.16.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:83:53:25 and IP address 192.168.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:51:d1:93 and IP address 198.178.229.1
+DEBUG: Network interface has Ethernet address 02:00:00:20:4a:ba and IP address 143.195.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:9e:b7:c1 and IP address 128.30.76.255
+DEBUG: Network interface has Ethernet address 4e:12:7e:8e:d9:f6 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 3a:f3:cf:5d:83:12 and IP address 171.67.76.1
+DEBUG: Network interface has Ethernet address d2:99:0f:28:94:39 and IP address 192.168.0.2
+DEBUG: Network interface has Ethernet address 76:29:ef:30:a0:95 and IP address 143.195.0.1
+DEBUG: Network interface has Ethernet address 8e:ba:e3:61:f5:91 and IP address 198.178.229.42
+DEBUG: Network interface has Ethernet address 5e:ae:1b:d4:15:09 and IP address 198.178.229.43
+DEBUG: adding route 10.0.0.0/8 => (direct) on interface 1
+DEBUG: adding route 172.16.0.0/16 => (direct) on interface 2
+DEBUG: adding route 192.168.0.0/24 => (direct) on interface 3
+DEBUG: adding route 0.0.0.0/0 => 171.67.76.1 on interface 0
+DEBUG: adding route 198.178.229.0/24 => (direct) on interface 4
+DEBUG: adding route 143.195.0.0/17 => 143.195.0.1 on interface 5
+DEBUG: adding route 143.195.128.0/18 => 143.195.0.1 on interface 5
+DEBUG: adding route 143.195.192.0/19 => 143.195.0.1 on interface 5
+DEBUG: adding route 128.30.76.255/16 => 128.30.0.1 on interface 6
+[32;1m
+
+Testing traffic between two ordinary hosts (applesauce to cherrypie)...[m
+
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 830"
+Transferring frame from applesauce to eth0: dst=ff:ff:ff:ff:ff:ff src=4e:12:7e:8e:d9:f6 type=ARP payload: opcode=REQUEST, sender=4e:12:7e:8e:d9:f6/10.0.0.2, target=00:00:00:00:00:00/10.0.0.1
+Transferring frame from eth0 to applesauce: dst=4e:12:7e:8e:d9:f6 src=02:00:00:49:41:12 type=ARP payload: opcode=REPLY, sender=02:00:00:49:41:12/10.0.0.1, target=4e:12:7e:8e:d9:f6/10.0.0.2
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 830"
+Transferring frame from eth2 to cherrypie: dst=ff:ff:ff:ff:ff:ff src=02:00:00:83:53:25 type=ARP payload: opcode=REQUEST, sender=02:00:00:83:53:25/192.168.0.1, target=00:00:00:00:00:00/192.168.0.2
+Transferring frame from cherrypie to eth2: dst=02:00:00:83:53:25 src=d2:99:0f:28:94:39 type=ARP payload: opcode=REPLY, sender=d2:99:0f:28:94:39/192.168.0.2, target=02:00:00:83:53:25/192.168.0.1
+Transferring frame from eth2 to cherrypie: dst=d2:99:0f:28:94:39 src=02:00:00:83:53:25 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 830"
+[32;1m
+
+Testing traffic between two ordinary hosts (cherrypie to applesauce)...[m
+
+Host cherrypie trying to send datagram (with next hop = 192.168.0.1): IPv4 len=32 proto=144 ttl=64 src=192.168.0.2 dst=10.0.0.2 payload="Cardinal 264"
+Transferring frame from cherrypie to eth2: dst=02:00:00:83:53:25 src=d2:99:0f:28:94:39 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=192.168.0.2 dst=10.0.0.2 payload="Cardinal 264"
+Transferring frame from eth0 to applesauce: dst=4e:12:7e:8e:d9:f6 src=02:00:00:49:41:12 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=192.168.0.2 dst=10.0.0.2 payload="Cardinal 264"
+[32;1m
+
+Testing a few datagrams between applesauce and cherrypie...[m
+
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 861"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 727"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 420"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 174"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 272"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 889"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 229"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 424"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=30 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 2"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 499"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 861"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 727"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 420"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 174"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 272"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 889"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 229"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 424"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=30 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 2"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 499"
+Transferring frame from eth2 to cherrypie: dst=d2:99:0f:28:94:39 src=02:00:00:83:53:25 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 861"
+Transferring frame from eth2 to cherrypie: dst=d2:99:0f:28:94:39 src=02:00:00:83:53:25 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 727"
+Transferring frame from eth2 to cherrypie: dst=d2:99:0f:28:94:39 src=02:00:00:83:53:25 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 420"
+Transferring frame from eth2 to cherrypie: dst=d2:99:0f:28:94:39 src=02:00:00:83:53:25 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 174"
+Transferring frame from eth2 to cherrypie: dst=d2:99:0f:28:94:39 src=02:00:00:83:53:25 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 272"
+Transferring frame from eth2 to cherrypie: dst=d2:99:0f:28:94:39 src=02:00:00:83:53:25 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 889"
+Transferring frame from eth2 to cherrypie: dst=d2:99:0f:28:94:39 src=02:00:00:83:53:25 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 229"
+Transferring frame from eth2 to cherrypie: dst=d2:99:0f:28:94:39 src=02:00:00:83:53:25 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 424"
+Transferring frame from eth2 to cherrypie: dst=d2:99:0f:28:94:39 src=02:00:00:83:53:25 type=IPv4 payload: IPv4 len=30 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 2"
+Transferring frame from eth2 to cherrypie: dst=d2:99:0f:28:94:39 src=02:00:00:83:53:25 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 499"
+[32;1m
+
+Testing applesauce sending to the Internet.[m
+
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 549"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 549"
+Transferring frame from default to default_router: dst=ff:ff:ff:ff:ff:ff src=02:00:00:6d:2a:64 type=ARP payload: opcode=REQUEST, sender=02:00:00:6d:2a:64/171.67.76.46, target=00:00:00:00:00:00/171.67.76.1
+Transferring frame from default_router to default: dst=02:00:00:6d:2a:64 src=3a:f3:cf:5d:83:12 type=ARP payload: opcode=REPLY, sender=3a:f3:cf:5d:83:12/171.67.76.1, target=02:00:00:6d:2a:64/171.67.76.46
+Transferring frame from default to default_router: dst=3a:f3:cf:5d:83:12 src=02:00:00:6d:2a:64 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 549"
+[32;1m
+
+Testing sending to the HS network and Internet.[m
+
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=143.195.131.17 payload="Cardinal 517"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=143.195.131.17 payload="Cardinal 517"
+Transferring frame from hs4 to hs_router: dst=ff:ff:ff:ff:ff:ff src=02:00:00:20:4a:ba type=ARP payload: opcode=REQUEST, sender=02:00:00:20:4a:ba/143.195.0.2, target=00:00:00:00:00:00/143.195.0.1
+Transferring frame from hs_router to hs4: dst=02:00:00:20:4a:ba src=76:29:ef:30:a0:95 type=ARP payload: opcode=REPLY, sender=76:29:ef:30:a0:95/143.195.0.1, target=02:00:00:20:4a:ba/143.195.0.2
+Transferring frame from hs4 to hs_router: dst=76:29:ef:30:a0:95 src=02:00:00:20:4a:ba type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=143.195.131.17 payload="Cardinal 517"
+Host cherrypie trying to send datagram (with next hop = 192.168.0.1): IPv4 len=32 proto=144 ttl=64 src=192.168.0.2 dst=143.195.193.52 payload="Cardinal 183"
+Transferring frame from cherrypie to eth2: dst=02:00:00:83:53:25 src=d2:99:0f:28:94:39 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=192.168.0.2 dst=143.195.193.52 payload="Cardinal 183"
+Transferring frame from hs4 to hs_router: dst=76:29:ef:30:a0:95 src=02:00:00:20:4a:ba type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=192.168.0.2 dst=143.195.193.52 payload="Cardinal 183"
+Host cherrypie trying to send datagram (with next hop = 192.168.0.1): IPv4 len=32 proto=144 ttl=64 src=192.168.0.2 dst=143.195.223.255 payload="Cardinal 130"
+Transferring frame from cherrypie to eth2: dst=02:00:00:83:53:25 src=d2:99:0f:28:94:39 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=192.168.0.2 dst=143.195.223.255 payload="Cardinal 130"
+Transferring frame from hs4 to hs_router: dst=76:29:ef:30:a0:95 src=02:00:00:20:4a:ba type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=192.168.0.2 dst=143.195.223.255 payload="Cardinal 130"
+Host cherrypie trying to send datagram (with next hop = 192.168.0.1): IPv4 len=32 proto=144 ttl=64 src=192.168.0.2 dst=143.195.224.0 payload="Cardinal 571"
+Transferring frame from cherrypie to eth2: dst=02:00:00:83:53:25 src=d2:99:0f:28:94:39 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=192.168.0.2 dst=143.195.224.0 payload="Cardinal 571"
+Transferring frame from default to default_router: dst=3a:f3:cf:5d:83:12 src=02:00:00:6d:2a:64 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=192.168.0.2 dst=143.195.224.0 payload="Cardinal 571"
+[32;1m
+
+Testing two hosts on the same network (dm42 to dm43)...[m
+
+Host dm42 trying to send datagram (with next hop = 198.178.229.1): IPv4 len=32 proto=144 ttl=64 src=198.178.229.42 dst=198.178.229.43 payload="Cardinal 686"
+Transferring frame from dm42 to uun3: dst=ff:ff:ff:ff:ff:ff src=8e:ba:e3:61:f5:91 type=ARP payload: opcode=REQUEST, sender=8e:ba:e3:61:f5:91/198.178.229.42, target=00:00:00:00:00:00/198.178.229.1
+Transferring frame from dm42 to dm43: dst=ff:ff:ff:ff:ff:ff src=8e:ba:e3:61:f5:91 type=ARP payload: opcode=REQUEST, sender=8e:ba:e3:61:f5:91/198.178.229.42, target=00:00:00:00:00:00/198.178.229.1
+Transferring frame from uun3 to dm42: dst=8e:ba:e3:61:f5:91 src=02:00:00:51:d1:93 type=ARP payload: opcode=REPLY, sender=02:00:00:51:d1:93/198.178.229.1, target=8e:ba:e3:61:f5:91/198.178.229.42
+Transferring frame from uun3 to dm43: dst=8e:ba:e3:61:f5:91 src=02:00:00:51:d1:93 type=ARP payload: opcode=REPLY, sender=02:00:00:51:d1:93/198.178.229.1, target=8e:ba:e3:61:f5:91/198.178.229.42
+Transferring frame from dm42 to uun3: dst=02:00:00:51:d1:93 src=8e:ba:e3:61:f5:91 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=198.178.229.42 dst=198.178.229.43 payload="Cardinal 686"
+Transferring frame from dm42 to dm43: dst=02:00:00:51:d1:93 src=8e:ba:e3:61:f5:91 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=198.178.229.42 dst=198.178.229.43 payload="Cardinal 686"
+Transferring frame from uun3 to dm42: dst=ff:ff:ff:ff:ff:ff src=02:00:00:51:d1:93 type=ARP payload: opcode=REQUEST, sender=02:00:00:51:d1:93/198.178.229.1, target=00:00:00:00:00:00/198.178.229.43
+Transferring frame from uun3 to dm43: dst=ff:ff:ff:ff:ff:ff src=02:00:00:51:d1:93 type=ARP payload: opcode=REQUEST, sender=02:00:00:51:d1:93/198.178.229.1, target=00:00:00:00:00:00/198.178.229.43
+Transferring frame from dm43 to uun3: dst=02:00:00:51:d1:93 src=5e:ae:1b:d4:15:09 type=ARP payload: opcode=REPLY, sender=5e:ae:1b:d4:15:09/198.178.229.43, target=02:00:00:51:d1:93/198.178.229.1
+Transferring frame from dm43 to dm42: dst=02:00:00:51:d1:93 src=5e:ae:1b:d4:15:09 type=ARP payload: opcode=REPLY, sender=5e:ae:1b:d4:15:09/198.178.229.43, target=02:00:00:51:d1:93/198.178.229.1
+Transferring frame from uun3 to dm42: dst=5e:ae:1b:d4:15:09 src=02:00:00:51:d1:93 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=198.178.229.42 dst=198.178.229.43 payload="Cardinal 686"
+Transferring frame from uun3 to dm43: dst=5e:ae:1b:d4:15:09 src=02:00:00:51:d1:93 type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=198.178.229.42 dst=198.178.229.43 payload="Cardinal 686"
+[32;1m
+
+Testing TTL expiration...[m
+
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=1 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 622"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=1 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 622"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=0 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 231"
+Transferring frame from applesauce to eth0: dst=02:00:00:49:41:12 src=4e:12:7e:8e:d9:f6 type=IPv4 payload: IPv4 len=32 proto=144 ttl=0 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 231"
+[32;1m
+
+Testing network with no default route...[m
+
+DEBUG: Network interface has Ethernet address 02:00:00:b7:11:b1 and IP address 18.241.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:b4:93:26 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:b3:ca:56 and IP address 192.168.0.1
+DEBUG: adding route 10.0.0.0/8 => (direct) on interface 1
+
+
+[32;1mCongratulations! All datagrams were routed successfully.[m
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"router" end time: Nov 24 16:54 CST
+"router" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/40 Testing: no_skip
+37/40 Test: no_skip
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/no_skip_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"no_skip" start time: Nov 24 16:54 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"no_skip" end time: Nov 24 16:54 CST
+"no_skip" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 24 16:54 CST

@@ -1,0 +1,285 @@
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/0 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/1 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/2 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/3 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/4 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/5 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/6 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/7 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/8 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/9 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/10 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/11 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/12 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/13 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/14 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/15 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/16 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/17 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/18 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/19 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/20 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/21 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/22 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/23 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/24 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/25 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/26 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/27 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/28 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/29 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/30 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/31 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 171.165.254.115/32 => 198.51.100.1 on interface 1
+[PASS] all 33 prefix lengths, host bits, exact /32 and /0
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 203.0.113.7/32 => 198.51.100.1 on interface 2
+DEBUG: adding route 1.251.107.141/3 => 198.51.100.1 on interface 0
+DEBUG: adding route 231.220.29.53/11 => 198.51.100.1 on interface 1
+DEBUG: adding route 190.235.145.203/31 => 198.51.100.1 on interface 2
+DEBUG: adding route 49.14.59.218/32 => 198.51.100.1 on interface 0
+DEBUG: adding route 244.95.187.77/31 => 198.51.100.1 on interface 2
+DEBUG: adding route 127.153.194.59/5 => 198.51.100.1 on interface 0
+DEBUG: adding route 189.29.134.210/22 => 198.51.100.1 on interface 1
+DEBUG: adding route 30.58.50.63/30 => 198.51.100.1 on interface 1
+DEBUG: adding route 234.239.0.25/10 => 198.51.100.1 on interface 0
+DEBUG: adding route 229.98.164.92/13 => 198.51.100.1 on interface 2
+DEBUG: adding route 122.248.160.135/7 => 198.51.100.1 on interface 0
+DEBUG: adding route 202.122.185.2/31 => 198.51.100.1 on interface 2
+DEBUG: adding route 255.112.228.173/13 => 198.51.100.1 on interface 0
+DEBUG: adding route 9.76.35.73/31 => 198.51.100.1 on interface 0
+DEBUG: adding route 13.191.43.233/4 => 198.51.100.1 on interface 2
+DEBUG: adding route 33.25.237.82/20 => 198.51.100.1 on interface 2
+DEBUG: adding route 179.181.106.164/9 => 198.51.100.1 on interface 2
+DEBUG: adding route 47.250.237.148/5 => 198.51.100.1 on interface 0
+DEBUG: adding route 218.38.112.132/26 => 198.51.100.1 on interface 1
+DEBUG: adding route 234.68.19.120/9 => 198.51.100.1 on interface 2
+DEBUG: adding route 107.37.237.25/20 => 198.51.100.1 on interface 2
+DEBUG: adding route 164.96.255.245/4 => 198.51.100.1 on interface 0
+DEBUG: adding route 212.170.160.233/10 => 198.51.100.1 on interface 2
+DEBUG: adding route 80.90.143.0/23 => 198.51.100.1 on interface 2
+DEBUG: adding route 148.187.131.214/23 => 198.51.100.1 on interface 1
+DEBUG: adding route 9.155.99.250/16 => 198.51.100.1 on interface 1
+DEBUG: adding route 140.76.12.220/20 => 198.51.100.1 on interface 1
+DEBUG: adding route 94.43.79.73/12 => 198.51.100.1 on interface 0
+DEBUG: adding route 129.132.251.200/13 => 198.51.100.1 on interface 2
+DEBUG: adding route 33.76.103.3/29 => 198.51.100.1 on interface 1
+DEBUG: adding route 231.207.50.218/31 => 198.51.100.1 on interface 2
+DEBUG: adding route 250.120.215.63/28 => 198.51.100.1 on interface 0
+DEBUG: adding route 164.12.42.79/1 => 198.51.100.1 on interface 2
+DEBUG: adding route 3.245.249.124/13 => 198.51.100.1 on interface 0
+DEBUG: adding route 160.219.249.222/13 => 198.51.100.1 on interface 1
+DEBUG: adding route 108.121.119.59/19 => 198.51.100.1 on interface 2
+DEBUG: adding route 81.70.239.140/23 => 198.51.100.1 on interface 0
+DEBUG: adding route 140.227.109.170/4 => 198.51.100.1 on interface 1
+DEBUG: adding route 233.168.54.137/32 => 198.51.100.1 on interface 1
+DEBUG: adding route 208.25.156.234/16 => 198.51.100.1 on interface 0
+DEBUG: adding route 189.112.79.207/25 => 198.51.100.1 on interface 0
+DEBUG: adding route 142.193.182.251/22 => 198.51.100.1 on interface 2
+DEBUG: adding route 166.197.56.188/4 => 198.51.100.1 on interface 1
+DEBUG: adding route 67.167.95.89/20 => 198.51.100.1 on interface 1
+DEBUG: adding route 103.202.7.239/4 => 198.51.100.1 on interface 1
+DEBUG: adding route 94.139.56.178/4 => 198.51.100.1 on interface 0
+DEBUG: adding route 73.104.78.16/31 => 198.51.100.1 on interface 1
+DEBUG: adding route 114.92.169.157/30 => 198.51.100.1 on interface 1
+DEBUG: adding route 168.220.27.203/11 => 198.51.100.1 on interface 1
+DEBUG: adding route 33.222.132.244/17 => 198.51.100.1 on interface 0
+DEBUG: adding route 57.22.207.150/27 => 198.51.100.1 on interface 1
+DEBUG: adding route 120.197.5.82/4 => 198.51.100.1 on interface 2
+DEBUG: adding route 162.235.150.200/12 => 198.51.100.1 on interface 0
+DEBUG: adding route 82.21.81.211/31 => 198.51.100.1 on interface 0
+DEBUG: adding route 222.34.237.175/15 => 198.51.100.1 on interface 2
+DEBUG: adding route 232.224.128.202/8 => 198.51.100.1 on interface 2
+DEBUG: adding route 208.100.45.146/21 => 198.51.100.1 on interface 0
+DEBUG: adding route 161.19.5.226/16 => 198.51.100.1 on interface 1
+DEBUG: adding route 125.194.110.116/28 => 198.51.100.1 on interface 1
+DEBUG: adding route 14.188.47.140/7 => 198.51.100.1 on interface 1
+DEBUG: adding route 103.103.93.90/31 => 198.51.100.1 on interface 0
+DEBUG: adding route 93.156.117.54/9 => 198.51.100.1 on interface 2
+DEBUG: adding route 1.201.242.130/23 => 198.51.100.1 on interface 2
+DEBUG: adding route 63.109.237.186/8 => 198.51.100.1 on interface 1
+DEBUG: adding route 251.40.5.208/30 => 198.51.100.1 on interface 2
+DEBUG: adding route 222.192.231.196/32 => 198.51.100.1 on interface 1
+DEBUG: adding route 142.88.135.222/26 => 198.51.100.1 on interface 1
+DEBUG: adding route 68.149.73.233/20 => 198.51.100.1 on interface 1
+DEBUG: adding route 240.173.0.71/15 => 198.51.100.1 on interface 0
+DEBUG: adding route 192.94.158.200/6 => 198.51.100.1 on interface 2
+DEBUG: adding route 189.175.255.71/8 => 198.51.100.1 on interface 2
+DEBUG: adding route 209.185.222.173/0 => 198.51.100.1 on interface 0
+DEBUG: adding route 101.58.79.100/32 => 198.51.100.1 on interface 2
+DEBUG: adding route 199.138.137.61/7 => 198.51.100.1 on interface 2
+DEBUG: adding route 32.133.119.182/24 => 198.51.100.1 on interface 1
+DEBUG: adding route 166.145.142.235/7 => 198.51.100.1 on interface 1
+DEBUG: adding route 233.68.162.38/4 => 198.51.100.1 on interface 0
+DEBUG: adding route 136.124.223.164/26 => 198.51.100.1 on interface 1
+DEBUG: adding route 86.200.101.114/11 => 198.51.100.1 on interface 1
+DEBUG: adding route 183.2.251.228/23 => 198.51.100.1 on interface 2
+DEBUG: adding route 47.36.127.6/13 => 198.51.100.1 on interface 1
+DEBUG: adding route 233.103.99.88/9 => 198.51.100.1 on interface 1
+DEBUG: adding route 217.119.123.160/21 => 198.51.100.1 on interface 2
+DEBUG: adding route 46.168.241.50/4 => 198.51.100.1 on interface 1
+DEBUG: adding route 76.211.156.234/29 => 198.51.100.1 on interface 1
+DEBUG: adding route 41.212.114.244/14 => 198.51.100.1 on interface 1
+DEBUG: adding route 51.92.76.192/31 => 198.51.100.1 on interface 1
+DEBUG: adding route 245.225.189.25/1 => 198.51.100.1 on interface 1
+DEBUG: adding route 242.1.193.176/26 => 198.51.100.1 on interface 2
+DEBUG: adding route 4.42.46.176/16 => 198.51.100.1 on interface 1
+DEBUG: adding route 47.125.21.2/30 => 198.51.100.1 on interface 2
+DEBUG: adding route 192.205.60.42/15 => 198.51.100.1 on interface 1
+DEBUG: adding route 201.153.63.190/21 => 198.51.100.1 on interface 0
+DEBUG: adding route 103.13.180.64/27 => 198.51.100.1 on interface 2
+DEBUG: adding route 241.196.20.88/12 => 198.51.100.1 on interface 2
+DEBUG: adding route 56.19.4.218/21 => 198.51.100.1 on interface 2
+DEBUG: adding route 62.222.253.91/29 => 198.51.100.1 on interface 0
+DEBUG: adding route 110.250.46.51/18 => 198.51.100.1 on interface 2
+DEBUG: adding route 72.136.199.182/21 => 198.51.100.1 on interface 0
+DEBUG: adding route 100.161.5.3/12 => 198.51.100.1 on interface 1
+DEBUG: adding route 118.252.92.138/17 => 198.51.100.1 on interface 1
+DEBUG: adding route 10.135.136.129/19 => 198.51.100.1 on interface 1
+DEBUG: adding route 25.217.11.237/28 => 198.51.100.1 on interface 0
+DEBUG: adding route 221.240.191.248/17 => 198.51.100.1 on interface 1
+DEBUG: adding route 232.98.201.230/1 => 198.51.100.1 on interface 1
+DEBUG: adding route 213.223.14.254/32 => 198.51.100.1 on interface 0
+DEBUG: adding route 204.182.106.208/26 => 198.51.100.1 on interface 1
+DEBUG: adding route 115.172.222.109/32 => 198.51.100.1 on interface 2
+DEBUG: adding route 97.141.72.4/8 => 198.51.100.1 on interface 1
+DEBUG: adding route 142.171.162.111/32 => 198.51.100.1 on interface 1
+DEBUG: adding route 160.143.174.196/7 => 198.51.100.1 on interface 0
+DEBUG: adding route 224.237.16.210/5 => 198.51.100.1 on interface 2
+DEBUG: adding route 239.133.76.210/15 => 198.51.100.1 on interface 1
+DEBUG: adding route 166.252.33.20/25 => 198.51.100.1 on interface 2
+DEBUG: adding route 21.155.50.13/18 => 198.51.100.1 on interface 0
+DEBUG: adding route 233.208.67.69/31 => 198.51.100.1 on interface 1
+DEBUG: adding route 19.233.181.228/0 => 198.51.100.1 on interface 2
+DEBUG: adding route 102.246.90.0/27 => 198.51.100.1 on interface 1
+DEBUG: adding route 132.121.182.221/15 => 198.51.100.1 on interface 2
+DEBUG: adding route 122.94.12.98/6 => 198.51.100.1 on interface 0
+DEBUG: adding route 203.203.184.182/27 => 198.51.100.1 on interface 1
+DEBUG: adding route 223.0.195.141/11 => 198.51.100.1 on interface 1
+DEBUG: adding route 123.70.240.153/4 => 198.51.100.1 on interface 1
+DEBUG: adding route 206.175.9.163/30 => 198.51.100.1 on interface 1
+DEBUG: adding route 37.45.33.78/20 => 198.51.100.1 on interface 2
+DEBUG: adding route 253.174.64.105/12 => 198.51.100.1 on interface 0
+DEBUG: adding route 0.0.0.0/0 => 198.51.100.1 on interface 0
+[PASS] 128 routes, 512 destinations against arithmetic LPM oracle
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 203.0.113.7/32 => 198.51.100.1 on interface 1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+[PASS] TTL 0/1/2, unmatched and empty tables, all input queues drained
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 192.0.2.55/32 => (direct) on interface 1
+DEBUG: adding route 203.0.113.45/32 => 198.51.100.254 on interface 2
+[PASS] direct/gateway ARP, queued forwarding and valid updated checksum
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:01 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:02 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:00:00:03 and IP address 10.0.0.3
+DEBUG: adding route 0.0.0.0/33 => (direct) on interface 0
+[PASS] invalid /33 rejected before bit shift
+5 supplementary scenarios passed with ASan/UBSan.

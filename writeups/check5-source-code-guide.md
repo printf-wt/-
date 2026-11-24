@@ -2,6 +2,7 @@
 
 这一阶段写的是 `NetworkInterface`，即 IP 层与以太网之间的接口。
 先读地址例子，再看发送、接收、计时三个入口，最后对照完整源码。
+后续 [Point 6 路由器讲解](check6-source-code-guide.md)继续说明怎样选择下一跳。
 前面阶段仍见 [Checkpoint 0–4 源码指南](check0-check4-source-code-guide.md)，
 操作步骤见[持续更新的实验指南](check0-4beginner-guide.md)。
 要求依据：[官方 Checkpoint 5 指导书](https://cs144.github.io/assignments/check5.pdf)。

@@ -1,0 +1,263 @@
+Start testing: Nov 24 16:55 CST
+----------------------------------------------------------
+1/40 Testing: compile with bug-checkers
+1/40 Test: compile with bug-checkers
+Command: "/usr/bin/cmake" "--build" "/mnt/d/计算机网络/课程设计/-/build/wsl" "-t" "functionality_testing" "webget"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"compile with bug-checkers" start time: Nov 24 16:55 CST
+Output:
+----------------------------------------------------------
+make[4]: warning: -j4 forced in submake: resetting jobserver mode.
+[  2%] Built target imp_testing_debug
+[  2%] Built target imp_testing_sanitized
+[  7%] Built target imp_debug
+[ 16%] Built target util_debug
+[ 20%] Built target imp_sanitized
+[ 28%] Built target no_skip
+[ 28%] Built target byte_stream_basics
+[ 28%] Built target util_sanitized
+[ 29%] Built target byte_stream_capacity
+[ 30%] Built target byte_stream_one_write
+[ 30%] Built target byte_stream_two_writes
+[ 32%] Built target byte_stream_many_writes
+[ 33%] Built target byte_stream_stress_test_sanitized
+[ 35%] Built target byte_stream_stress_test
+[ 35%] Built target reassembler_single_sanitized
+[ 35%] Built target reassembler_single
+[ 39%] Built target reassembler_cap_sanitized
+[ 39%] Built target reassembler_seq_sanitized
+[ 39%] Built target reassembler_cap
+[ 40%] Built target reassembler_seq
+[ 44%] Built target reassembler_holes_sanitized
+[ 44%] Built target reassembler_dup_sanitized
+[ 44%] Built target reassembler_dup
+[ 44%] Built target reassembler_holes
+[ 46%] Built target reassembler_win_sanitized
+[ 46%] Built target reassembler_overlapping_sanitized
+[ 48%] Built target reassembler_overlapping
+[ 51%] Built target reassembler_win
+[ 51%] Built target wrapping_integers_cmp_sanitized
+[ 51%] Built target wrapping_integers_cmp
+[ 53%] Built target wrapping_integers_wrap_sanitized
+[ 55%] Built target wrapping_integers_unwrap_sanitized
+[ 55%] Built target wrapping_integers_wrap
+[ 56%] Built target wrapping_integers_unwrap
+[ 58%] Built target wrapping_integers_roundtrip_sanitized
+[ 59%] Built target wrapping_integers_extra_sanitized
+[ 59%] Built target wrapping_integers_roundtrip
+[ 60%] Built target wrapping_integers_extra
+[ 61%] Built target recv_connect_sanitized
+[ 62%] Built target recv_connect
+[ 64%] Built target recv_transmit_sanitized
+[ 65%] Built target recv_transmit
+[ 65%] Built target recv_window_sanitized
+[ 66%] Built target recv_window
+[ 66%] Built target recv_reorder_sanitized
+[ 67%] Built target recv_reorder
+[ 69%] Built target recv_reorder_more_sanitized
+[ 70%] Built target recv_close_sanitized
+[ 70%] Built target recv_reorder_more
+[ 71%] Built target recv_close
+[ 72%] Built target recv_special_sanitized
+[ 75%] Built target send_connect_sanitized
+[ 75%] Built target recv_special
+[ 76%] Built target send_connect
+[ 77%] Built target send_transmit
+[ 77%] Built target send_transmit_sanitized
+[ 79%] Built target send_window_sanitized
+[ 80%] Built target send_window
+[ 82%] Built target send_ack
+[ 82%] Built target send_ack_sanitized
+[ 82%] Built target send_close_sanitized
+[ 86%] Built target send_close
+[ 86%] Built target send_retx
+[ 86%] Built target send_retx_sanitized
+[ 87%] Built target send_extra_sanitized
+[ 90%] Built target net_interface
+[ 90%] Built target net_interface_sanitized
+[ 91%] Built target send_extra
+[ 92%] Built target router_sanitized
+[ 93%] Built target no_skip_sanitized
+[ 95%] Built target router
+[ 96%] Built target byte_stream_basics_sanitized
+[ 97%] Built target byte_stream_capacity_sanitized
+[ 98%] Built target byte_stream_two_writes_sanitized
+[ 98%] Built target byte_stream_one_write_sanitized
+[100%] Built target byte_stream_many_writes_sanitized
+[100%] Built target functionality_testing
+[  7%] Built target stream_copy
+[ 38%] Built target imp_debug
+[ 92%] Built target util_debug
+[100%] Built target webget
+<end of output>
+Test time =   3.80 sec
+----------------------------------------------------------
+Test Passed.
+"compile with bug-checkers" end time: Nov 24 16:55 CST
+"compile with bug-checkers" time elapsed: 00:00:03
+----------------------------------------------------------
+
+2/40 Testing: t_webget
+2/40 Test: t_webget
+Command: "/mnt/d/计算机网络/课程设计/-/tests/webget_t.sh" "/mnt/d/计算机网络/课程设计/-/build/wsl"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"t_webget" start time: Nov 24 16:55 CST
+Output:
+----------------------------------------------------------
+HTTP/1.1 200 OK
+Content-type: text/plain
+
+7SmXqWkrLKzVBCEalbSPqBcvs11Pw263K7x4Wv3JckI
+<end of output>
+Test time =   1.08 sec
+----------------------------------------------------------
+Test Passed.
+"t_webget" end time: Nov 24 16:55 CST
+"t_webget" time elapsed: 00:00:01
+----------------------------------------------------------
+
+3/40 Testing: byte_stream_basics
+3/40 Test: byte_stream_basics
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_basics_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_basics" start time: Nov 24 16:55 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_basics" end time: Nov 24 16:55 CST
+"byte_stream_basics" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/40 Testing: byte_stream_capacity
+4/40 Test: byte_stream_capacity
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_capacity_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_capacity" start time: Nov 24 16:55 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_capacity" end time: Nov 24 16:55 CST
+"byte_stream_capacity" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/40 Testing: byte_stream_one_write
+5/40 Test: byte_stream_one_write
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_one_write_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_one_write" start time: Nov 24 16:55 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_one_write" end time: Nov 24 16:55 CST
+"byte_stream_one_write" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/40 Testing: byte_stream_two_writes
+6/40 Test: byte_stream_two_writes
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_two_writes_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_two_writes" start time: Nov 24 16:55 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_two_writes" end time: Nov 24 16:55 CST
+"byte_stream_two_writes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/40 Testing: byte_stream_many_writes
+7/40 Test: byte_stream_many_writes
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_many_writes_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_many_writes" start time: Nov 24 16:55 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_many_writes" end time: Nov 24 16:55 CST
+"byte_stream_many_writes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/40 Testing: byte_stream_stress_test
+8/40 Test: byte_stream_stress_test
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_stress_test_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_stress_test" start time: Nov 24 16:55 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.15 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_stress_test" end time: Nov 24 16:55 CST
+"byte_stream_stress_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/40 Testing: no_skip
+37/40 Test: no_skip
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/no_skip_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"no_skip" start time: Nov 24 16:55 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"no_skip" end time: Nov 24 16:55 CST
+"no_skip" time elapsed: 00:00:00
+----------------------------------------------------------
+
+38/40 Testing: compile with optimization
+38/40 Test: compile with optimization
+Command: "/usr/bin/cmake" "--build" "/mnt/d/计算机网络/课程设计/-/build/wsl" "-t" "speed_testing"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"compile with optimization" start time: Nov 24 16:55 CST
+Output:
+----------------------------------------------------------
+make[4]: warning: -j4 forced in submake: resetting jobserver mode.
+[ 53%] Built target util_optimized
+[ 84%] Built target imp_optimized
+[100%] Built target byte_stream_speed_test
+[100%] Built target reassembler_speed_test
+[100%] Built target speed_testing
+<end of output>
+Test time =   1.35 sec
+----------------------------------------------------------
+Test Passed.
+"compile with optimization" end time: Nov 24 16:55 CST
+"compile with optimization" time elapsed: 00:00:01
+----------------------------------------------------------
+
+39/40 Testing: byte_stream_speed_test
+39/40 Test: byte_stream_speed_test
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_speed_test"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_speed_test" start time: Nov 24 16:55 CST
+Output:
+----------------------------------------------------------
+ByteStream with capacity=32768, write_size=1500, read_size=4096 reached 20.00 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=128 reached 15.22 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=32 reached 7.17 Gbit/s.
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_speed_test" end time: Nov 24 16:55 CST
+"byte_stream_speed_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 24 16:55 CST

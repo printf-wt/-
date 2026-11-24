@@ -1,4 +1,4 @@
-# 从环境配置到 Checkpoint 0、1、2、3、4 和 5
+# 从环境配置到 Checkpoint 0、1、2、3、4、5 和 6
 
 本文面向计算机网络新手，按照本项目实际开发过程，说明环境怎样配置、
 各阶段实验分别解决什么问题、代码怎样验证，以及最后怎样提交到 GitHub。
@@ -18,6 +18,7 @@
 | Checkpoint 3 | TCPSender | 按窗口发送数据、处理 ACK，超时重传最早未确认的消息 |
 | Checkpoint 4 | 网络测量工具 | 采集 ping，统计交付率、RTT、连续丢失与相关性，生成图表和报告 |
 | Checkpoint 5 | NetworkInterface | 在 IPv4 与以太网之间封装、解析，并用 ARP 寻找下一跳 MAC |
+| Checkpoint 6 | Router | 按最长前缀选择出口与下一跳，递减 TTL 并重算首部校验和 |
 
 webget 目前使用 Linux 自带的 TCP。ByteStream 和 Reassembler 是我们
 实现的基础模块；Checkpoint 2 已将它们接入自己的 TCP 接收端。
@@ -25,9 +26,10 @@ Checkpoint 3 又完成了自己的 TCP 发送端；完整实网互操作安排�
 TCP 编程部分已完成自动化验证；TCP 实网互操作、手工 SMTP 会话与 TCP 抓包尚未执行。
 Checkpoint 4 的实际 ICMP 网络测量另见后文。
 
-“Checkpoint 0/1/2/3/4/5”是阶段名称。check0 到 check3 检查前四个编程阶段，
-check5 单独检查网络接口；Checkpoint 4 是测量实验，没有 check4 构建目标。
-Checkpoint 5 已完成内存模拟端口验证，真实网卡/TAP 通信尚未验证。
+“Checkpoint 0/1/2/3/4/5/6”是阶段名称。check0 到 check3 检查早期编程阶段，
+check5 单独检查网络接口，check6 检查网络接口与路由器。
+Checkpoint 4 是测量实验，没有 check4 构建目标。
+Checkpoint 5 和 6 已完成内存模拟网络验证，真实网卡/TAP 与实网路由尚未验证。
 
 ## 2 先认识开发环境
 
@@ -882,7 +884,55 @@ check5 独立测试网络接口，不包含先前 TCP 模块，回归要另跑 c
 - [实现报告与实际代码截图](check5.md)
 - [验证摘要与日志索引](check5-screenshots/validation.txt)
 
-## 15 怎样判断代码正确
+## 15 Checkpoint 6 的 IPv4 路由器
+
+### 15.1 获取框架与明确分工
+
+本次合入 upstream/check6-startercode，基准提交 87b5778a。
+新增 Router 框架和官方路由模拟测试，保留已经通过的 Point 5 网络接口。
+
+```bash
+git fetch upstream check6-startercode
+git merge --no-commit --no-ff upstream/check6-startercode
+```
+
+这是取得框架的实际步骤，当前项目已经完成，不需要再重复合并。
+Point 5 负责向已知下一跳投递，Point 6 根据最终目的 IP 决定下一跳和出口。
+路由表由调用者配置，本阶段不实现 OSPF 或 BGP。
+
+### 15.2 从一条路由认识最长前缀匹配
+
+192.168.10.0/24 表示比较地址最高 24 位；/32 只匹配一个地址，/0 可以做默认路由。
+多条规则都匹配时选前缀长度最大的，无匹配则丢弃。
+例如 10.1.2.9 同时匹配 10.0.0.0/8 与 10.1.2.0/24，应选后者。
+下一跳为空表示直连，查询最终目的主机 MAC；有值则交给指定网关。
+
+### 15.3 实现与验证顺序
+
+1. router.hh 增加 Route 记录和向量，保存规则。
+2. add_route 预计算掩码、清除主机位；/0 单独处理，避免移动 32 位。
+3. route 从每个接口的接收队列取数据，TTL 为 0 或 1 时丢弃。
+4. 扫描全表选最长匹配，TTL 减一并重算 IP 首部校验和。
+5. 调用选定出口的 send_datagram，继续复用 Point 5 的 ARP 和以太网封装。
+
+```bash
+cmake -S . -B build/wsl
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check6
+python3 writeups/check6-screenshots/boundary-validation.py
+```
+
+官方 check6 的 4 个 CTest 任务通过；该目标已经覆盖网络接口，无需重复跑 check5。
+另外通过 check3 的 37 项与 check0 的 11 项回归，以及 5 个 ASan/UBSan 补充场景。
+补充场景覆盖全部 33 种长度，使用 128 条路由、512 个目的地址核对选路。
+静态分析与两份新源码格式检查通过，官方测试保持原样。
+
+### 15.4 主要学习材料
+
+- [Point 6 逐函数源码讲解、手算流程和完整源码](check6-source-code-guide.md)
+- [实现报告与两张实际代码截图](check6.md)
+- [验证摘要与原始日志索引](check6-screenshots/validation.txt)
+
+## 16 怎样判断代码正确
 
 官方测试会自动构造输入，并核对输出、容量、结束状态和性能。
 测试结果中的一项可能是构建或基准任务，不等于一个单独的网络功能。
@@ -906,6 +956,7 @@ check5 独立测试网络接口，不包含先前 TCP 模块，回归要另跑 c
 - 合入 Checkpoint 2 后，另跑 Checkpoint 0 的 11 项检查通过，补充边界检查 10 项通过。
 - Checkpoint 3 的 37 项官方检查、11 项 HTTP 回归和 6 个补充场景均通过。
 - Checkpoint 5 的 3 个官方任务、37 项 check3 回归、11 项 check0 回归及 5 个补充场景通过。
+- Checkpoint 6 的 4 个官方任务、37 项 check3 回归、11 项 check0 回归及 5 个补充场景通过。
 - 编译中的 ASan 检查常见内存访问错误，UBSan 检查未定义行为。
 - 静态检查曾提示重组器有不必要的数据复制，我增加整块移动处理后重新验证通过。
 - 最终通过相关静态分析与格式检查，官方测试内容保持原样。
@@ -932,11 +983,13 @@ check2、check3 同样不包含远端 HTTP 请求，因此也另跑 check0。
 - [Checkpoint 3 实现报告与截图](check3.md)
 - [Checkpoint 5 验证摘要](check5-screenshots/validation.txt)
 - [Checkpoint 5 实现报告与截图](check5.md)
+- [Checkpoint 6 验证摘要](check6-screenshots/validation.txt)
+- [Checkpoint 6 实现报告与截图](check6.md)
 
 重组器官方基准的输出使用了不同于实际输入字节数的计算分子。
 报告中同时保留原始输出和折算后的有效载荷吞吐，避免混淆两种口径。
 
-## 16 截图、提交与推送
+## 17 截图、提交与推送
 
 功能验证后，我在 Windows 编辑器中打开主要代码并保存实际截图，
 再把源码、报告、截图和测试日志一起纳入 Git。
@@ -972,7 +1025,7 @@ git remote -v
 git log -1 --format=full
 ```
 
-## 17 可以亲手复现的最短流程
+## 18 可以亲手复现的最短流程
 
 工具和框架已经配置完成。先在 **Windows PowerShell** 中进入 Ubuntu：
 
@@ -993,14 +1046,16 @@ CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check1
 CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check2
 CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check3
 CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check5
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check6
 ```
 
 先观察每条命令的输出，再读源码。建议顺序为：webget.cc、byte_stream.hh、
 byte_stream.cc、reassembler.hh、reassembler.cc、wrapping_integers.hh/.cc、
-tcp_receiver.hh/.cc、tcp_sender.hh/.cc、network_interface.hh/.cc，最后阅读 tests 中的测试。
+tcp_receiver.hh/.cc、tcp_sender.hh/.cc、network_interface.hh/.cc、router.hh/.cc，
+最后阅读 tests 中的测试。
 
 学习时可分别观察各编程阶段输出。check3 覆盖早期 TCP 模块，check0 另检查 HTTP，
-check5 检查新增网络接口；无需每次重复运行 check1 和 check2。
+check6 同时检查网络接口和路由器；日常不必重复跑 check1、check2、check5。
 网络测量另按第 13 节运行 Python 工具，不执行不存在的 check4 构建目标。
 
 阅读 ByteStream 时，尝试手工计算每次 push/pop 后的剩余容量；
@@ -1008,7 +1063,7 @@ check5 检查新增网络接口；无需每次重复运行 check1 和 check2。
 阅读 TCPReceiver 时，再加入 SYN、FIN 的序号占用，逐步算出 ACK=101、103、108。
 阅读 TCPSender 时，画出未确认队列，计算每次 ACK 和超时后窗口、在途数及 RTO 的变化。
 
-## 18 阶段完成记录
+## 19 阶段完成记录
 
 | 提交 | 内容 |
 |---|---|
@@ -1019,5 +1074,6 @@ check5 检查新增网络接口；无需每次重复运行 check1 和 check2。
 
 Checkpoint 4 的实测范围、图表与原始记录见[测量报告](check4.md)。
 Checkpoint 5 的实现、四张代码截图与验证记录见[网络接口报告](check5.md)。
+Checkpoint 6 的实现、两张代码截图与验证记录见[路由器报告](check6.md)。
 
 实现、验证与本文整理由 Codex 按用户请求辅助完成。

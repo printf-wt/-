@@ -1,0 +1,14 @@
+Test project /mnt/d/计算机网络/课程设计/-/build/wsl
+    Start  1: compile with bug-checkers
+1/4 Test  #1: compile with bug-checkers ........   Passed   45.04 sec
+    Start 35: net_interface
+2/4 Test #35: net_interface ....................   Passed    0.09 sec
+    Start 36: router
+3/4 Test #36: router ...........................   Passed    0.06 sec
+    Start 37: no_skip
+4/4 Test #37: no_skip ..........................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =  45.29 sec
+Built target check6

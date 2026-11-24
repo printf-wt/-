@@ -1,0 +1,35 @@
+Checkpoint 6 验证摘要
+日期：2026-11-24（Asia/Shanghai）
+官方框架：CS144/imp check6-startercode 87b5778a009a63f86f35c7b79ae9fee735e4fb98
+实现源码：src/router.hh、src/router.cc，公共接口未改。
+前置 Point 5 NetworkInterface 源码本阶段无改动。
+环境：WSL2 Ubuntu 24.04.4，g++ 13.3，CMake 3.28.3，C++23。
+工具：clang-tidy 20.1.2，clang-format 18.1.3。
+
+官方 check6：4/4 CTest 任务通过，退出码 0。
+任务为 compile with bug-checkers、net_interface、router、no_skip。
+4 是任务数，net_interface/router 内各有多个场景；check6 包含 check5 功能检查。
+记录：configure.log、check6-build.log、check6-ctest.log。
+官方 tests 目录与 check6-startercode 对照无差异。
+
+早期模块回归：check3 37/37、check0 11/11，命令退出码均为 0。
+记录：check3-build.log、check3-regression.log、check0-build.log、check0-regression.log。
+
+独立补充：5/5 场景通过，ASan/UBSan，无恢复模式，命令退出码 0。
+1. 全部 33 种前缀长度、带主机位前缀、/0 与 /32 及前缀边界反例。
+2. 固定种子 1446，128 条路由、512 个目的地址，与 64 位除法的独立最长匹配算法对照。
+3. TTL 0/1/2、无匹配、空表、三个入口队列排空、重复调用无重发。
+4. 直连与指定网关 ARP 目标、ARP 后队列释放、目的 IP 和载荷保持、校验和正确。
+5. 非法 /33 在移位前被拒绝。
+源码及最终结果：boundary-validation.py、boundary-validation.log。
+复现须先构建 check6，再运行 python3 writeups/check6-screenshots/boundary-validation.py。
+首次补充脚本注入借用载荷，解析器拒绝；使用 clone(frame) 生成拥有缓冲区的帧后重跑通过。
+
+静态检查：cmake --build build/wsl --target tidy，退出码 0。
+记录：static-analysis.log；系统头文件过滤警告计数保留，项目源文件无最终诊断。
+格式：clang-format --dry-run --Werror src/router.hh src/router.cc，退出码 0。
+
+两张实际编辑器截图：01-add-route.jpg、02-route-forwarding.jpg。
+Windows 编辑器提示与 WSL 头文件环境不同，编译结果以 WSL 为准。
+本阶段验证基于内存模拟网络，未进行实网路由、TAP、抓包或路由吞吐测量。
+实现、验证与文档由 Codex 按用户请求辅助完成。
