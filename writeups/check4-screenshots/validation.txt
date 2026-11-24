@@ -1,6 +1,6 @@
 Checkpoint 4 validation - 2026-11-24
 Official checkpoint: measurement lab; no check4-startercode or check4 CMake target.
-Final sessions: writeups/check4-data/network2. Previous network records are incomplete and excluded.
+Final sessions: writeups/check4-data/network2. Previous incomplete network records have been removed.
 
 PASS 1.1.1.1: 3602.015s, 16985/17926 replies, delivery 94.750642%; raw SHA-256 and CSV verified.
 PASS 8.8.8.8: 3602.013s, 17262/17931 replies, delivery 96.269031%; raw SHA-256 and CSV verified.

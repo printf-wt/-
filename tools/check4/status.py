@@ -10,7 +10,7 @@ from metrics import parse_ping
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--root", type=Path, default=Path("writeups/check4-data"))
+    parser.add_argument("--root", type=Path, default=Path("writeups/check4-data/network2"))
     args = parser.parse_args()
     now = datetime.now(timezone.utc)
     paths = sorted(args.root.glob("*/metadata.json"))

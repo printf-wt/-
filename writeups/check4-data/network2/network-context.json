@@ -3,7 +3,7 @@
   "windows_ipv4": "172.20.10.3",
   "prefix_length": 28,
   "gateway": "172.20.10.1",
-  "reason": "User changed LAN and requested retry. Prior measurements are preserved separately and were shorter than one hour.",
+  "reason": "User changed LAN and requested retry. Prior measurements were shorter than one hour and have been removed; final sessions remain in network2.",
   "classmate_ipv4": "172.20.10.2",
   "classmate_preflight": "After classmate updated the firewall source to 172.20.10.3, Windows and Ubuntu each received 3/3 replies.",
   "preflight_wsl_rtt_ms": [

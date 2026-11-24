@@ -141,7 +141,7 @@ python tools/check4/build_report.py writeups/check4-results/cloudflare writeups/
 python tools/check4/status.py --root writeups/check4-data/network2
 ```
 
-原目录三条测量不足一小时，仅作历史记录保留。
+原网络三条不足一小时的测量已清理。
 本次正式分析、图表与报告只使用 network2 中完成的会话。
 
 Ubuntu 中运行 `python3 tools/check4/test_lifecycle.py` 可复现采集提前退出与主动中断检查。
