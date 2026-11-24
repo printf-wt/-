@@ -1,0 +1,32 @@
+Checkpoint 3 validation — 2026-11-24
+Environment: Windows host; WSL2 Ubuntu 24.04.4; GCC 13.3; CMake 3.28.3;
+clang-format 18.1.3; clang-tidy 20.1.2; C++23.
+Starter: upstream/check3-startercode 0794b5dd521963bd479d3136080aab3f62fdf7db
+Implementation: src/tcp_sender.hh, src/tcp_sender.cc
+
+PASS check3: 37/37 official checks (including seven send_* groups and prior modules)
+  Summary/build: check3-build.log
+  Raw CTest: check3-ctest.log (copied before running check0)
+PASS check0 HTTP/ByteStream regression: 11/11
+  Summary/build: check0-build.log
+  Raw CTest: check0-regression.log
+PASS supplementary ASan/UBSan scenarios: 6/6
+  Reproduce: python3 writeups/check3-screenshots/scenario-validation.py
+  Output: scenario-validation.log
+  Cases: lost payload and ACK; zero-window probes/reopening; partial/duplicate ACK;
+         UINT64 timer/backoff boundary; invalid future ACK; sequence wrap + reordering.
+PASS static analysis: cmake --build build/wsl --target tidy (exit 0)
+  Raw output: static-analysis.log
+  Generated warning counts are filtered compiler/system-header diagnostics;
+  no project-source warning/error diagnostics are present.
+PASS formatting: clang-format --dry-run --Werror src/tcp_sender.hh src/tcp_sender.cc
+
+Screenshots: actual Windows VS Code captures; no synthetic code renders.
+  01-sender-push.jpg: window filling, SYN/FIN and outstanding queue
+  02-sender-ack.jpg: ACK validation, window updates and queue removal
+  03-sender-timer.jpg: timeout, zero-window rules and exponential backoff
+
+Official tests/util and newly added/updated apps files match the starter branch.
+The earlier Checkpoint 0 implementation of apps/webget.cc is preserved.
+Supplementary tests simulate messages in memory; live TCP interoperability and
+manual packet capture have not been performed in this checkpoint.

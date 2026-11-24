@@ -1,0 +1,647 @@
+Start testing: Nov 24 10:46 CST
+----------------------------------------------------------
+1/40 Testing: compile with bug-checkers
+1/40 Test: compile with bug-checkers
+Command: "/usr/bin/cmake" "--build" "/mnt/d/计算机网络/课程设计/-/build/wsl" "-t" "functionality_testing" "webget"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"compile with bug-checkers" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+make[4]: warning: -j4 forced in submake: resetting jobserver mode.
+[  2%] Built target imp_testing_debug
+[  2%] Built target imp_testing_sanitized
+[  6%] Built target imp_debug
+[ 16%] Built target util_debug
+[ 23%] Built target no_skip
+[ 23%] Built target byte_stream_basics
+[ 25%] Built target util_sanitized
+[ 28%] Built target byte_stream_capacity
+[ 28%] Built target byte_stream_one_write
+[ 29%] Built target byte_stream_two_writes
+[ 30%] Built target byte_stream_stress_test
+[ 30%] Built target byte_stream_many_writes
+[ 30%] Built target reassembler_single
+[ 33%] Built target reassembler_seq
+[ 33%] Built target reassembler_cap
+[ 34%] Built target reassembler_dup
+[ 37%] Built target reassembler_holes
+[ 37%] Built target reassembler_overlapping
+[ 38%] Built target reassembler_win
+[ 41%] Built target wrapping_integers_cmp
+[ 43%] Built target wrapping_integers_wrap
+[ 44%] Built target imp_sanitized
+[ 45%] Built target wrapping_integers_unwrap
+[ 48%] Built target wrapping_integers_extra
+[ 48%] Built target wrapping_integers_roundtrip
+[ 49%] Built target recv_connect
+[ 51%] Built target recv_transmit_sanitized
+[ 51%] Built target recv_window_sanitized
+[ 51%] Built target recv_transmit
+[ 53%] Built target recv_window
+[ 54%] Built target recv_reorder
+[ 54%] Built target recv_reorder_sanitized
+[ 55%] Built target recv_reorder_more_sanitized
+[ 56%] Built target recv_reorder_more
+[ 60%] Built target recv_close_sanitized
+[ 60%] Built target recv_special_sanitized
+[ 60%] Built target recv_close
+[ 61%] Built target recv_special
+[ 64%] Built target send_transmit_sanitized
+[ 64%] Built target send_connect
+[ 65%] Built target send_connect_sanitized
+[ 66%] Built target send_transmit
+[ 69%] Built target send_window
+[ 69%] Built target send_window_sanitized
+[ 70%] Built target send_ack_sanitized
+[ 71%] Built target send_ack
+[ 74%] Built target send_close_sanitized
+[ 74%] Built target send_close
+[ 75%] Built target send_retx_sanitized
+[ 76%] Built target no_skip_sanitized
+[ 76%] Built target send_retx
+[ 79%] Built target byte_stream_capacity_sanitized
+[ 79%] Built target byte_stream_basics_sanitized
+[ 81%] Built target byte_stream_two_writes_sanitized
+[ 81%] Built target byte_stream_one_write_sanitized
+[ 83%] Built target send_extra_sanitized
+[ 83%] Built target send_extra
+[ 85%] Built target byte_stream_stress_test_sanitized
+[ 86%] Built target byte_stream_many_writes_sanitized
+[ 87%] Built target reassembler_cap_sanitized
+[ 87%] Built target reassembler_single_sanitized
+[ 88%] Built target reassembler_seq_sanitized
+[ 90%] Built target reassembler_dup_sanitized
+[ 92%] Built target reassembler_holes_sanitized
+[ 92%] Built target reassembler_overlapping_sanitized
+[ 93%] Built target wrapping_integers_cmp_sanitized
+[ 93%] Built target reassembler_win_sanitized
+[ 96%] Built target wrapping_integers_unwrap_sanitized
+[ 96%] Built target wrapping_integers_wrap_sanitized
+[ 98%] Built target wrapping_integers_extra_sanitized
+[ 98%] Built target wrapping_integers_roundtrip_sanitized
+[100%] Built target recv_connect_sanitized
+[100%] Built target functionality_testing
+[  7%] Built target stream_copy
+[ 30%] Built target imp_debug
+[ 92%] Built target util_debug
+[100%] Built target webget
+<end of output>
+Test time =   5.32 sec
+----------------------------------------------------------
+Test Passed.
+"compile with bug-checkers" end time: Nov 24 10:46 CST
+"compile with bug-checkers" time elapsed: 00:00:05
+----------------------------------------------------------
+
+3/40 Testing: byte_stream_basics
+3/40 Test: byte_stream_basics
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_basics_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_basics" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_basics" end time: Nov 24 10:46 CST
+"byte_stream_basics" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/40 Testing: byte_stream_capacity
+4/40 Test: byte_stream_capacity
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_capacity_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_capacity" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_capacity" end time: Nov 24 10:46 CST
+"byte_stream_capacity" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/40 Testing: byte_stream_one_write
+5/40 Test: byte_stream_one_write
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_one_write_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_one_write" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_one_write" end time: Nov 24 10:46 CST
+"byte_stream_one_write" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/40 Testing: byte_stream_two_writes
+6/40 Test: byte_stream_two_writes
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_two_writes_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_two_writes" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_two_writes" end time: Nov 24 10:46 CST
+"byte_stream_two_writes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/40 Testing: byte_stream_many_writes
+7/40 Test: byte_stream_many_writes
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_many_writes_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_many_writes" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_many_writes" end time: Nov 24 10:46 CST
+"byte_stream_many_writes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/40 Testing: byte_stream_stress_test
+8/40 Test: byte_stream_stress_test
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_stress_test_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_stress_test" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.13 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_stress_test" end time: Nov 24 10:46 CST
+"byte_stream_stress_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/40 Testing: reassembler_single
+9/40 Test: reassembler_single
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_single_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_single" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_single" end time: Nov 24 10:46 CST
+"reassembler_single" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/40 Testing: reassembler_cap
+10/40 Test: reassembler_cap
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_cap_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_cap" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_cap" end time: Nov 24 10:46 CST
+"reassembler_cap" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/40 Testing: reassembler_seq
+11/40 Test: reassembler_seq
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_seq_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_seq" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_seq" end time: Nov 24 10:46 CST
+"reassembler_seq" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/40 Testing: reassembler_dup
+12/40 Test: reassembler_dup
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_dup_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_dup" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_dup" end time: Nov 24 10:46 CST
+"reassembler_dup" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/40 Testing: reassembler_holes
+13/40 Test: reassembler_holes
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_holes_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_holes" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_holes" end time: Nov 24 10:46 CST
+"reassembler_holes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/40 Testing: reassembler_overlapping
+14/40 Test: reassembler_overlapping
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_overlapping_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_overlapping" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_overlapping" end time: Nov 24 10:46 CST
+"reassembler_overlapping" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/40 Testing: reassembler_win
+15/40 Test: reassembler_win
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_win_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_win" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.24 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_win" end time: Nov 24 10:46 CST
+"reassembler_win" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/40 Testing: wrapping_integers_cmp
+16/40 Test: wrapping_integers_cmp
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/wrapping_integers_cmp_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"wrapping_integers_cmp" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"wrapping_integers_cmp" end time: Nov 24 10:46 CST
+"wrapping_integers_cmp" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/40 Testing: wrapping_integers_wrap
+17/40 Test: wrapping_integers_wrap
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/wrapping_integers_wrap_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"wrapping_integers_wrap" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"wrapping_integers_wrap" end time: Nov 24 10:46 CST
+"wrapping_integers_wrap" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/40 Testing: wrapping_integers_unwrap
+18/40 Test: wrapping_integers_unwrap
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/wrapping_integers_unwrap_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"wrapping_integers_unwrap" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"wrapping_integers_unwrap" end time: Nov 24 10:46 CST
+"wrapping_integers_unwrap" time elapsed: 00:00:00
+----------------------------------------------------------
+
+19/40 Testing: wrapping_integers_roundtrip
+19/40 Test: wrapping_integers_roundtrip
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/wrapping_integers_roundtrip_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"wrapping_integers_roundtrip" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.22 sec
+----------------------------------------------------------
+Test Passed.
+"wrapping_integers_roundtrip" end time: Nov 24 10:46 CST
+"wrapping_integers_roundtrip" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/40 Testing: wrapping_integers_extra
+20/40 Test: wrapping_integers_extra
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/wrapping_integers_extra_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"wrapping_integers_extra" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Passed.
+"wrapping_integers_extra" end time: Nov 24 10:46 CST
+"wrapping_integers_extra" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/40 Testing: recv_connect
+21/40 Test: recv_connect
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_connect_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_connect" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"recv_connect" end time: Nov 24 10:46 CST
+"recv_connect" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/40 Testing: recv_transmit
+22/40 Test: recv_transmit
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_transmit_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_transmit" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.34 sec
+----------------------------------------------------------
+Test Passed.
+"recv_transmit" end time: Nov 24 10:46 CST
+"recv_transmit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/40 Testing: recv_window
+23/40 Test: recv_window
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_window_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_window" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"recv_window" end time: Nov 24 10:46 CST
+"recv_window" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/40 Testing: recv_reorder
+24/40 Test: recv_reorder
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_reorder_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_reorder" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"recv_reorder" end time: Nov 24 10:46 CST
+"recv_reorder" time elapsed: 00:00:00
+----------------------------------------------------------
+
+25/40 Testing: recv_reorder_more
+25/40 Test: recv_reorder_more
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_reorder_more_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_reorder_more" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.76 sec
+----------------------------------------------------------
+Test Passed.
+"recv_reorder_more" end time: Nov 24 10:46 CST
+"recv_reorder_more" time elapsed: 00:00:00
+----------------------------------------------------------
+
+26/40 Testing: recv_close
+26/40 Test: recv_close
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_close_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_close" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"recv_close" end time: Nov 24 10:46 CST
+"recv_close" time elapsed: 00:00:00
+----------------------------------------------------------
+
+27/40 Testing: recv_special
+27/40 Test: recv_special
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_special_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_special" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"recv_special" end time: Nov 24 10:46 CST
+"recv_special" time elapsed: 00:00:00
+----------------------------------------------------------
+
+28/40 Testing: send_connect
+28/40 Test: send_connect
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_connect_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_connect" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"send_connect" end time: Nov 24 10:46 CST
+"send_connect" time elapsed: 00:00:00
+----------------------------------------------------------
+
+29/40 Testing: send_transmit
+29/40 Test: send_transmit
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_transmit_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_transmit" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.46 sec
+----------------------------------------------------------
+Test Passed.
+"send_transmit" end time: Nov 24 10:46 CST
+"send_transmit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+30/40 Testing: send_window
+30/40 Test: send_window
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_window_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_window" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"send_window" end time: Nov 24 10:46 CST
+"send_window" time elapsed: 00:00:00
+----------------------------------------------------------
+
+31/40 Testing: send_ack
+31/40 Test: send_ack
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_ack_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_ack" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.16 sec
+----------------------------------------------------------
+Test Passed.
+"send_ack" end time: Nov 24 10:46 CST
+"send_ack" time elapsed: 00:00:00
+----------------------------------------------------------
+
+32/40 Testing: send_close
+32/40 Test: send_close
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_close_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_close" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"send_close" end time: Nov 24 10:46 CST
+"send_close" time elapsed: 00:00:00
+----------------------------------------------------------
+
+33/40 Testing: send_retx
+33/40 Test: send_retx
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_retx_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_retx" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"send_retx" end time: Nov 24 10:46 CST
+"send_retx" time elapsed: 00:00:00
+----------------------------------------------------------
+
+34/40 Testing: send_extra
+34/40 Test: send_extra
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_extra_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_extra" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"send_extra" end time: Nov 24 10:46 CST
+"send_extra" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/40 Testing: no_skip
+37/40 Test: no_skip
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/no_skip_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"no_skip" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"no_skip" end time: Nov 24 10:46 CST
+"no_skip" time elapsed: 00:00:00
+----------------------------------------------------------
+
+38/40 Testing: compile with optimization
+38/40 Test: compile with optimization
+Command: "/usr/bin/cmake" "--build" "/mnt/d/计算机网络/课程设计/-/build/wsl" "-t" "speed_testing"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"compile with optimization" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+make[4]: warning: -j4 forced in submake: resetting jobserver mode.
+[ 53%] Built target util_optimized
+[ 84%] Built target imp_optimized
+[100%] Built target byte_stream_speed_test
+[100%] Built target reassembler_speed_test
+[100%] Built target speed_testing
+<end of output>
+Test time =   1.10 sec
+----------------------------------------------------------
+Test Passed.
+"compile with optimization" end time: Nov 24 10:46 CST
+"compile with optimization" time elapsed: 00:00:01
+----------------------------------------------------------
+
+39/40 Testing: byte_stream_speed_test
+39/40 Test: byte_stream_speed_test
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_speed_test"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_speed_test" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+ByteStream with capacity=32768, write_size=1500, read_size=4096 reached 18.50 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=128 reached 16.92 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=32 reached 8.20 Gbit/s.
+<end of output>
+Test time =   0.18 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_speed_test" end time: Nov 24 10:46 CST
+"byte_stream_speed_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+40/40 Testing: reassembler_speed_test
+40/40 Test: reassembler_speed_test
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_speed_test"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_speed_test" start time: Nov 24 10:46 CST
+Output:
+----------------------------------------------------------
+Reassembler to ByteStream with capacity=32768 reached 149.12 Gbit/s.
+Reassembler to ByteStream with capacity=32768 reached 15.09 Gbit/s.
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_speed_test" end time: Nov 24 10:46 CST
+"reassembler_speed_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 24 10:46 CST

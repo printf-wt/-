@@ -1,4 +1,4 @@
-# 从环境配置到 Checkpoint 0、1 和 2
+# 从环境配置到 Checkpoint 0、1、2 和 3
 
 本文面向计算机网络新手，按照本项目实际开发过程，说明环境怎样配置、
 各阶段实验分别解决什么问题、代码怎样验证，以及最后怎样提交到 GitHub。
@@ -15,13 +15,14 @@
 | Checkpoint 1 | Reassembler | 整理带索引的乱序、重复、重叠子串，交付连续字节 |
 | Checkpoint 2 | Wrap32 | 在 32 位 TCP 序号和内部 64 位绝对序号之间换算 |
 | Checkpoint 2 | TCPReceiver | 处理收到的 TCP 消息，生成确认号、接收窗口和复位标志 |
+| Checkpoint 3 | TCPSender | 按窗口发送数据、处理 ACK，超时重传最早未确认的消息 |
 
 webget 目前使用 Linux 自带的 TCP。ByteStream 和 Reassembler 是我们
 实现的基础模块；Checkpoint 2 已将它们接入自己的 TCP 接收端。
-TCP 发送端与完整实网互操作安排在后续阶段。
+Checkpoint 3 又完成了自己的 TCP 发送端；完整实网互操作安排在后续阶段。
 本次已经完成编程和自动化验证，手工联机、SMTP 会话和抓包部分尚未执行。
 
-“Checkpoint 0/1/2”是实验阶段名称；命令中的 `check0`、`check1`、`check2` 则是
+“Checkpoint 0/1/2/3”是实验阶段名称；命令中的 `check0` 到 `check3` 则是
 工程为这些阶段提供的构建与自动检查任务。
 
 ## 2 先认识开发环境
@@ -539,7 +540,138 @@ check0 的 11 项回归检查通过，包含远端 HTTP 请求。
 最后对照上面的表格，手工算出每次 send() 的确认号和窗口。
 更多细节见 [Checkpoint 2 实现报告](check2.md)。
 
-## 12 怎样判断代码正确
+## 12 Checkpoint 3 的 TCP 发送端
+
+### 12.1 这个实验解决什么问题
+
+Checkpoint 2 解决“收到的数据怎样整理”。Checkpoint 3 解决“数据怎样发出去，
+以及发出去之后怎样知道对方收到了”。网络可能丢包，也可能让 ACK 丢失，
+所以发送端必须保存尚未确认的消息，并在等待超时后再次发送。
+
+```text
+应用写入 → ByteStream → TCPSender.push → 消息 → 对方 TCPReceiver
+                              ↑                        ↓
+                         receive ← ACK 和窗口 ← 接收方状态
+                              ↑
+                      tick：时间到了就重传
+```
+
+push 的 transmit 参数是一个“发送消息的回调函数”。本阶段只负责生成消息，
+网络封装由框架完成。tick 由框架告知经过了多少毫秒，不需要在源码中等待。
+
+### 12.2 怎样获取和阅读框架
+
+先保存前一阶段的文档，再获取并合入官方 check3-startercode。
+本次 HTTPS 获取遇到超时，改用已配置好的 GitHub SSH 连接完成下载。
+以下是在 Windows PowerShell 中实际采用的核心操作：
+
+```powershell
+git status
+git fetch git@github.com:CS144/imp.git refs/heads/check3-startercode:refs/remotes/upstream/check3-startercode
+git merge --no-commit --no-ff upstream/check3-startercode
+```
+
+--no-commit 表示暂不生成合并提交，便于把本阶段实现、验证和文档一起提交。
+框架提交是 0794b5dd521963bd479d3136080aab3f62fdf7db。
+阅读顺序是 tcp_sender.hh、tcp_sender_message.hh、tcp_receiver_message.hh，
+然后看 tests 中的 send_connect、send_window、send_ack、send_retx 等测试。
+
+### 12.3 先理解窗口和在途数据
+
+接收端公布 window_size，表示允许发送方在 ACK 位置之后发送多少个序号。
+发送后尚未收到累计确认的内容叫“在途数据”。
+
+```text
+已经确认的内容 | 已发送、尚未确认的内容 | 窗口内还能新发的内容
+              ↑                      ↑
+       acknowledged_seqno_       next_seqno_
+```
+
+在途数 = next_seqno_ - acknowledged_seqno_。
+剩余可发空间 = 窗口 - 在途数；如果在途数已达到或超过窗口，就停止新发送。
+SYN 和 FIN 也各占一个位置，不能只统计 payload。
+
+我在头文件中用 deque 保存尚未完整确认的消息，每项还记录消息末尾的下一绝对序号。
+只要收到的 ACK 达到这个末尾，就能从队头删除这项。
+ByteStream 中的数据被读走后仍保存在这个队列里，以便丢包后重传。
+
+### 12.4 实现 push
+
+1. 初始窗口按 1 处理，第一次通常只发送 SYN。
+2. 根据窗口和在途数计算余量，为 SYN 预留空间后再取数据。
+3. 每条 payload 最多 1000 字节，这是当前源码 TCPConfig 的值。
+4. 应用关闭、所有字节都取完且窗口还空出一个位置时，附加 FIN。
+5. 更新序号、保存消息，再通过 transmit 发出；继续循环填充余下窗口。
+
+FIN 发过后不再生成新消息；重传已保存的 FIN 则仍然允许。
+空消息不占用序号，也不进入未确认队列。
+
+### 12.5 实现 receive
+
+对方回复的 ACK 是 32 位序号，因此先用上个实验的 unwrap 还原绝对位置。
+ACK 如果超过实际已发送的位置，不能接受；否则可能把尚未发送的数据当成已确认。
+合法消息先更新窗口，再判断 ACK 是否真的前进。
+
+新 ACK 前进时，回收完整确认的消息，重置超时等待和连续重传次数。
+重复 ACK 或旧 ACK 可以带来窗口变化，但不会重置计时器。
+部分确认的消息保留整条，超时后允许重传原消息；接收端会去掉重复字节。
+收到 RST 时，将输入流标为错误。
+
+### 12.6 实现 tick 和零窗口探测
+
+第一次出现未确认消息时开始计时；队列空了就停止。
+累计等待达到 RTO，即“重传超时”，就重传队头消息。
+窗口不为零时，连续超时会让 RTO 翻倍，例如 10 → 20 → 40 毫秒。
+收到新的确认后恢复最初的 RTO。
+
+零窗口表示对方暂时没有接收空间。发送端允许一个序号的探测，
+以便对方重新告诉自己窗口是否打开。探测未确认时不会一直生成新数据。
+零窗口期间的重传不增加失败次数，也不让 RTO 翻倍。
+代码只在计算可发空间时把 0 临时当成 1，保存的实际窗口仍为 0。
+
+计时采用“本次经过时间与剩余等待时间比较”，避免大整数相加回绕；
+翻倍达到 uint64_t 最大值时则保持在上限。
+
+### 12.7 手工推演丢失 ABCDEF 的过程
+
+沿用 ISN=100。应用写入 ABCDEF 后关闭，接收窗口为 8，初始 RTO=10 毫秒。
+
+| 顺序 | 行为 | 发送端在途数 |
+|---|---|---|
+| 1 | 发送 SYN，seqno=100 | 1 |
+| 2 | 收到 ACK=101、窗口 8，确认 SYN | 0 |
+| 3 | 发送 seqno=101 的 ABCDEF+FIN，假设丢包 | 7 |
+| 4 | 等待满 10 毫秒，重传 ABCDEF+FIN；RTO 变为 20 | 7 |
+| 5 | 对方连续收到 6 个数据字节及 FIN，返回 ACK=108 | 7，尚未收到确认 |
+| 6 | ACK 抵达发送端，删除未确认消息、停止计时 | 0 |
+
+如果第 5 步的 ACK 丢了，发送端会在重传后再等 20 毫秒，再次重传原消息。
+接收端不会重复输出 ABCDEF，而会再次返回累计确认。
+这说明可靠传输需要发送端和接收端共同配合。
+
+### 12.8 实际验证与学习材料
+
+在 Ubuntu 的项目根目录执行：
+
+```bash
+cmake -S . -B build/wsl
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check3
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check0
+python3 writeups/check3-screenshots/scenario-validation.py
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target tidy
+clang-format --dry-run --Werror src/tcp_sender.hh src/tcp_sender.cc
+```
+
+本次 check3 的 37 项官方检查、check0 的 11 项回归检查，以及 6 个补充场景全部通过。
+补充场景把发送端和接收端接在内存队列上，模拟丢包、丢 ACK、乱序及序号回绕，
+并检查部分确认、零窗口、无效确认和计时上限。
+完整实网互操作尚未执行。
+
+- [Checkpoint 3 详细报告与三张主要代码截图](check3.md)
+- [验证摘要](check3-screenshots/validation.txt)
+- [可亲手重跑的补充场景](check3-screenshots/scenario-validation.py)
+
+## 13 怎样判断代码正确
 
 官方测试会自动构造输入，并核对输出、容量、结束状态和性能。
 测试结果中的一项可能是构建或基准任务，不等于一个单独的网络功能。
@@ -561,13 +693,14 @@ check0 的 11 项回归检查通过，包含远端 HTTP 请求。
 - 合入 Checkpoint 1 后，再运行 Checkpoint 0，其 11 项检查也全部通过。
 - Checkpoint 2 的 30 项官方检查通过，包含前两阶段的模块回归。
 - 合入 Checkpoint 2 后，另跑 Checkpoint 0 的 11 项检查通过，补充边界检查 10 项通过。
+- Checkpoint 3 的 37 项官方检查、11 项 HTTP 回归和 6 个补充场景均通过。
 - 编译中的 ASan 检查常见内存访问错误，UBSan 检查未定义行为。
 - 静态检查曾提示重组器有不必要的数据复制，我增加整块移动处理后重新验证通过。
 - 最终通过相关静态分析与格式检查，官方测试内容保持原样。
 
 “回归检查”表示新增功能后，再检查以前的功能是否仍然正常。
 check1 本身不包含远端 HTTP 请求，因此另跑 check0 有明确作用。
-check2 同样不包含远端 HTTP 请求，所以本阶段也另跑 check0。
+check2、check3 同样不包含远端 HTTP 请求，因此也另跑 check0。
 
 原始记录：
 
@@ -581,11 +714,15 @@ check2 同样不包含远端 HTTP 请求，所以本阶段也另跑 check0。
 - [Checkpoint 2 的 HTTP 回归日志](check2-screenshots/check0-regression.log)
 - [Checkpoint 2 补充边界检查](check2-screenshots/boundary-validation.log)
 - [Checkpoint 2 实现报告](check2.md)
+- [Checkpoint 3 验证摘要](check3-screenshots/validation.txt)
+- [Checkpoint 3 官方检查日志](check3-screenshots/check3-ctest.log)
+- [Checkpoint 3 补充场景结果](check3-screenshots/scenario-validation.log)
+- [Checkpoint 3 实现报告与截图](check3.md)
 
 重组器官方基准的输出使用了不同于实际输入字节数的计算分子。
 报告中同时保留原始输出和折算后的有效载荷吞吐，避免混淆两种口径。
 
-## 13 截图、提交与推送
+## 14 截图、提交与推送
 
 功能验证后，我在 Windows 编辑器中打开主要代码并保存实际截图，
 再把源码、报告、截图和测试日志一起纳入 Git。
@@ -621,7 +758,7 @@ git remote -v
 git log -1 --format=full
 ```
 
-## 14 可以亲手复现的最短流程
+## 15 可以亲手复现的最短流程
 
 工具和框架已经配置完成。先在 **Windows PowerShell** 中进入 Ubuntu：
 
@@ -640,25 +777,30 @@ cmake -S . -B build/wsl
 CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check0
 CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check1
 CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check2
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check3
 ```
 
 先观察每条命令的输出，再读源码。建议顺序为：webget.cc、byte_stream.hh、
 byte_stream.cc、reassembler.hh、reassembler.cc、wrapping_integers.hh/.cc、
-tcp_receiver.hh/.cc，最后阅读 tests 中的测试。
+tcp_receiver.hh/.cc、tcp_sender.hh/.cc，最后阅读 tests 中的测试。
 
-学习时可分别观察三个阶段的输出；日常验收时，check2 已覆盖旧模块的回归，
-配合 check0 检查 HTTP 即可，不必每次重复运行 check1。
+学习时可分别观察四个阶段的输出；日常验收时，check3 已覆盖旧模块的回归，
+配合 check0 检查 HTTP 即可，不必每次重复运行 check1 和 check2。
 
 阅读 ByteStream 时，尝试手工计算每次 push/pop 后的剩余容量；
 阅读 Reassembler 时，按前面的 ABCDEF 示例画出暂存区间和已交付位置。
 阅读 TCPReceiver 时，再加入 SYN、FIN 的序号占用，逐步算出 ACK=101、103、108。
+阅读 TCPSender 时，画出未确认队列，计算每次 ACK 和超时后窗口、在途数及 RTO 的变化。
 
-## 15 阶段完成记录
+## 16 阶段完成记录
 
 | 提交 | 内容 |
 |---|---|
 | [c0e5235](https://github.com/printf-wt/-/commit/c0e5235847d6c1ca3eccf1082f93e50b50885dc9) | 完成 Checkpoint 0 的 HTTP 客户端、字节流、截图及验证记录 |
 | [2979d12](https://github.com/printf-wt/-/commit/2979d12740c91fc858f2920ca12abc1daae57395) | 合入 Checkpoint 1 框架，完成重组器、报告、截图和测试记录 |
 | [5a2442f](https://github.com/printf-wt/-/commit/5a2442f1dc172788c396d2e2d054342284d2f4f8) | 合入 Checkpoint 2 框架，完成序号换算、TCP 接收端及验证记录 |
+
+Checkpoint 3 的实现、截图与验证记录见[本阶段报告](check3.md)，
+对应提交可用 git log --oneline 查看。
 
 实现、验证与本文整理由 Codex 按用户请求辅助完成。

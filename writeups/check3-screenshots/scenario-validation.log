@@ -1,0 +1,7 @@
+[PASS] lost data and lost ACK: exactly-once delivery
+[PASS] zero-window probes and window reopening
+[PASS] partial ACK and duplicate ACK timing
+[PASS] UINT64 timer boundary and saturated backoff
+[PASS] impossible future ACK rejected
+[PASS] 2500 binary bytes, sequence wrap and reverse delivery
+6 supplementary scenarios passed with ASan/UBSan.
