@@ -1,24 +1,27 @@
-# 从环境配置到 Checkpoint 0 和 Checkpoint 1
+# 从环境配置到 Checkpoint 0、1 和 2
 
 本文面向计算机网络新手，按照本项目实际开发过程，说明环境怎样配置、
-两个实验分别解决什么问题、代码怎样验证，以及最后怎样提交到 GitHub。
+各阶段实验分别解决什么问题、代码怎样验证，以及最后怎样提交到 GitHub。
 命令会标明运行位置，阅读时先分清 Windows PowerShell 和 Ubuntu 终端。
 
 记录日期：2026 年 11 月 24 日。
 
-## 1 两个实验完成了什么
+## 1 各阶段实验完成了什么
 
 | 阶段 | 本次编写的模块 | 作用 |
 |---|---|---|
 | Checkpoint 0 | webget | 连接服务器、发送 HTTP 请求、读取并输出响应 |
 | Checkpoint 0 | ByteStream | 在有限容量的内存缓冲区中，按顺序写入和读取字节 |
 | Checkpoint 1 | Reassembler | 整理带索引的乱序、重复、重叠子串，交付连续字节 |
+| Checkpoint 2 | Wrap32 | 在 32 位 TCP 序号和内部 64 位绝对序号之间换算 |
+| Checkpoint 2 | TCPReceiver | 处理收到的 TCP 消息，生成确认号、接收窗口和复位标志 |
 
 webget 目前使用 Linux 自带的 TCP。ByteStream 和 Reassembler 是我们
-实现的基础模块；后续实验会把它们接入自己的 TCP 接收端和发送端。
+实现的基础模块；Checkpoint 2 已将它们接入自己的 TCP 接收端。
+TCP 发送端与完整实网互操作安排在后续阶段。
 本次已经完成编程和自动化验证，手工联机、SMTP 会话和抓包部分尚未执行。
 
-“Checkpoint 0/1”是实验阶段名称；命令中的 `check0`、`check1` 则是
+“Checkpoint 0/1/2”是实验阶段名称；命令中的 `check0`、`check1`、`check2` 则是
 工程为这些阶段提供的构建与自动检查任务。
 
 ## 2 先认识开发环境
@@ -151,6 +154,7 @@ CMake 会检查编译器，读取工程配置，并生成后续编译所需的�
 ```bash
 cmake --build build/wsl --target check0
 cmake --build build/wsl --target check1
+cmake --build build/wsl --target check2
 ```
 
 实际开发时，我还使用了下面的形式，限制并行构建任务数为 4：
@@ -340,7 +344,202 @@ Reassembler 根据每段数据的流索引，把它们恢复成连续的字节�
 
 ![Reassembler 去重与连续交付代码](check1-screenshots/02-deduplication-and-delivery.jpg)
 
-## 11 怎样判断代码正确
+## 11 Checkpoint 2 的序号换算与 TCP 接收端
+
+### 11.1 为什么还要做接收端
+
+Checkpoint 1 的重组器能够整理数据，但它接收的是“流索引 + 子串”。
+真实 TCP 消息携带的却是报文序号、开始标志、结束标志和载荷。
+本阶段需要在这两种表示之间衔接，并告诉对方“还缺哪个位置、还能接收多少”。
+
+```text
+TCP 消息：seqno、SYN、payload、FIN、RST
+                    ↓
+TCPReceiver：识别标志，换算数据位置
+                    ↓
+Reassembler：整理乱序、重复与重叠片段
+                    ↓
+ByteStream：暂存连续数据，交给应用读取
+```
+
+先认识消息中的几个字段：
+
+| 字段 | 可以怎样理解 |
+|---|---|
+| seqno | 这条消息开头的序号 |
+| SYN | 字节流的开始标志，携带初始序号 ISN |
+| payload | 真正要交给应用的数据字节 |
+| FIN | 字节流的结束标志 |
+| RST | 发生错误，要求复位连接的标志 |
+
+TCPReceiver 的 send() 负责生成确认信息对象，实际封装和网络发送由框架上层负责。
+
+### 11.2 当时怎样获取框架
+
+沿用前面已经配置好的 upstream，我在本地工程中执行：
+
+```bash
+git fetch upstream check2-startercode
+git merge --no-commit --no-ff upstream/check2-startercode
+```
+
+这是本次开发时的合入步骤，当前 main 已经包含这些修改。
+框架提交是 d4aea19a311753ac47bd074cb1c5bf778191962b，带来了：
+
+- wrapping_integers.hh/.cc：32 位序号包装类型及待实现的换算函数。
+- tcp_receiver.hh/.cc：TCP 接收端接口及待实现的处理函数。
+- 五组序号测试、七组接收端测试，以及报文结构与适配基础设施。
+- 与新报文类型配套的编译开关和 Checkpoint 2 报告模板。
+
+已有字节流和重组器继续使用，官方 tests、util、etc 内容保持合入后的原样。
+
+### 11.3 先分清三种编号
+
+TCP 报文的序号只有 32 位，从 0 数到 4294967295 后会重新回到 0。
+而且每条流从一个初始序号 ISN 开始，不固定从 0 开始。
+
+为了便于内部计算，我们还使用从 0 开始的 64 位绝对序号。
+Reassembler 使用的流索引则只给数据字节编号，不给 SYN、FIN 编号。
+
+例如，设 ISN=100，原始内容是 ABCDEF：
+
+| 元素 | SYN | A | B | C | D | E | F | FIN |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| TCP 序号 | 100 | 101 | 102 | 103 | 104 | 105 | 106 | 107 |
+| 绝对序号 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| 流索引 | 无 | 0 | 1 | 2 | 3 | 4 | 5 | 无 |
+
+这里最重要的是：SYN 和 FIN 各占一个序号位置，但不属于应用的数据。
+因此普通数据的流索引等于其绝对序号减 1。
+
+### 11.4 实现 wrap 和 unwrap
+
+阅读文件：[wrapping_integers.hh](../src/wrapping_integers.hh)、
+[wrapping_integers.cc](../src/wrapping_integers.cc)。
+
+wrap 的方向是“绝对序号 → TCP 序号”：
+
+```text
+TCP 序号 = (ISN + 绝对序号) 对 2^32 取余
+```
+
+“取余”就是保留除法的余数，保证结果落在 32 位范围内。
+例如 ISN=4294967294，绝对序号为 3，相加后越过最大值，最后得到序号 1。
+实现中通过转换为 32 位无符号数并相加，完成这种回绕。
+
+unwrap 的方向是“TCP 序号 → 绝对序号”，但它还需要一个 checkpoint。
+这个 checkpoint 是当前大致走到的位置，用于判断已经绕了几圈。
+
+例如 ISN=100，收到序号 105，它可能对应绝对序号 5，也可能对应 2^32+5：
+
+| checkpoint 靠近哪里 | 应还原出的绝对序号 |
+|---|---:|
+| 3 | 5 |
+| 4294967299，即 2^32+3 | 4294967301，即 2^32+5 |
+
+我的实现先构造当前周期中的候选，再比较相邻周期，选择最近的合法值。
+调整周期前检查 64 位上下界，避免下溢或上溢；距离相同时选择较小候选。
+
+![序号换算的实际代码](check2-screenshots/01-wrapping-integers.jpg)
+
+### 11.5 实现 receive 接收逻辑
+
+阅读文件：[tcp_receiver.hh](../src/tcp_receiver.hh)、
+[tcp_receiver.cc](../src/tcp_receiver.cc)。
+
+我只额外保存一个可选的 isn_ 状态，用于区分“还没收到 SYN”和“已知初始序号”。
+其余进度、关闭和错误状态从重组器或字节流查询。
+
+receive 的处理步骤如下：
+
+1. 收到 RST 时，将字节流标记为错误；已处于错误状态时停止继续接收。
+2. 第一次收到 SYN 时记录 ISN。还不知道 ISN 的普通数据暂不接收。
+3. 以“已连续交付字节数 + 1”为 checkpoint，将 TCP 序号还原为绝对序号。
+4. 排除把 SYN 的位置当作普通数据的无效消息，避免错误地减出极大流索引。
+5. 根据是否携带 SYN，换算载荷首字节的流索引。
+6. 把流索引、载荷和 FIN 标志交给 Reassembler。
+
+例如，普通数据的绝对序号为 4，说明其流索引为 3，应从原始内容的 D 开始。
+如果 SYN 和数据在同一条消息中到达，则先跨过 SYN 的位置，再交付数据。
+重复到达同一个 SYN 时，已经收到的数据和已记录的 ISN 都不会被重新初始化。
+
+接收端认识 TCP 的标志和编号；乱序、重叠、去重、容量裁剪仍由重组器完成。
+这样可以直接复用前一个实验的实现和验证结果。
+
+### 11.6 实现确认号和接收窗口
+
+send() 返回三个字段：
+
+| 字段 | 表达的意思 |
+|---|---|
+| ackno | 接下来期待的 TCP 序号 |
+| window_size | 从确认位置开始还愿意接收的序号范围宽度 |
+| RST | 当前字节流是否已经发生错误 |
+
+确认号需要以“连续收齐”为依据。收到后面的片段，但前面仍有空洞时，
+确认号应停在第一个缺失的位置。
+
+收到 SYN 后，先计算绝对确认位置：
+
+```text
+绝对确认位置 = 已连续交付的数据字节数 + 1（SYN）
+             + 1（仅当完整重组到结束位置、需要确认 FIN 时）
+```
+
+再通过 wrap 转回 32 位序号。收到 SYN 前，确认号为空。
+确认 FIN 使用 Writer 是否关闭来判断；应用暂时还没读完缓冲数据，不影响确认 FIN。
+
+窗口来自 ByteStream 的当前可用容量，并限制到 16 位字段最大值 65535。
+缓冲区满时窗口为 0，应用读取并腾出空间后窗口增大。
+乱序数据已经位于当前接收序号范围内，不再从窗口宽度中重复扣减。
+
+![确认号与窗口的实际代码](check2-screenshots/03-receiver-ack-window.jpg)
+
+### 11.7 把三个模块串起来推演
+
+继续设 ISN=100、内容为 ABCDEF、容量为 8。假设应用最初还没有读取：
+
+| 收到的消息或发生的操作 | 连续交付进度 | ackno | 窗口 |
+|---|---|---:|---:|
+| 刚创建接收端 | 空 | 无 | 8 |
+| SYN，seqno=100 | 空 | 101 | 8 |
+| DEF+FIN，seqno=104 | 前面有空洞，DEF 暂存 | 101 | 8 |
+| AB，seqno=101 | AB 已交付 | 103 | 6 |
+| CD，seqno=103 | ABCDEF 全部交付并确认 FIN | 108 | 2 |
+| 应用读取全部 6 字节 | 数据已读出 | 108 | 8 |
+
+可以重点观察三个地方：
+
+- DEF+FIN 先到时，确认号仍然是 101，因为还缺 A 开始的数据。
+- CD 到达后，C 补齐空洞，D 与已有片段重复，最终连续交付 ABCDEF。
+- ACK=108 计入了 SYN、六个数据字节和 FIN；应用读取后，ACK 不变而窗口恢复。
+
+### 11.8 怎样编译和验证本阶段
+
+在 Ubuntu 的项目根目录执行：
+
+```bash
+cmake -S . -B build/wsl
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check2
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check0
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target tidy
+clang-format --dry-run --Werror src/wrapping_integers.hh src/wrapping_integers.cc src/tcp_receiver.hh src/tcp_receiver.cc
+python3 writeups/check2-screenshots/boundary-validation.py
+```
+
+check2 的 30 项官方检查通过，覆盖旧模块、序号换算、接收端和已有性能基准。
+check0 的 11 项回归检查通过，包含远端 HTTP 请求。
+补充脚本在临时目录编译实际 Wrap32 实现，运行 10 项 64 位边界检查，
+覆盖最大值、非零 ISN、相邻周期和等距候选，也全部通过。
+
+30 项官方检查与 10 项补充检查是两组不同记录，后者没有改动官方测试。
+全部 src 实现通过静态分析，本阶段四个源码文件通过格式检查。
+
+阅读代码时，建议先看 wrap，再看 unwrap，然后沿 receive 到 Reassembler 的调用阅读，
+最后对照上面的表格，手工算出每次 send() 的确认号和窗口。
+更多细节见 [Checkpoint 2 实现报告](check2.md)。
+
+## 12 怎样判断代码正确
 
 官方测试会自动构造输入，并核对输出、容量、结束状态和性能。
 测试结果中的一项可能是构建或基准任务，不等于一个单独的网络功能。
@@ -360,12 +559,15 @@ Reassembler 根据每段数据的流索引，把它们恢复成连续的字节�
 - Checkpoint 0 初次实现后，11 项检查全部通过。
 - Checkpoint 1 实现后，18 项检查全部通过，其中也包含 ByteStream 回归检查。
 - 合入 Checkpoint 1 后，再运行 Checkpoint 0，其 11 项检查也全部通过。
+- Checkpoint 2 的 30 项官方检查通过，包含前两阶段的模块回归。
+- 合入 Checkpoint 2 后，另跑 Checkpoint 0 的 11 项检查通过，补充边界检查 10 项通过。
 - 编译中的 ASan 检查常见内存访问错误，UBSan 检查未定义行为。
 - 静态检查曾提示重组器有不必要的数据复制，我增加整块移动处理后重新验证通过。
 - 最终通过相关静态分析与格式检查，官方测试内容保持原样。
 
 “回归检查”表示新增功能后，再检查以前的功能是否仍然正常。
 check1 本身不包含远端 HTTP 请求，因此另跑 check0 有明确作用。
+check2 同样不包含远端 HTTP 请求，所以本阶段也另跑 check0。
 
 原始记录：
 
@@ -374,11 +576,16 @@ check1 本身不包含远端 HTTP 请求，因此另跑 check0 有明确作用�
 - [Checkpoint 1 完整测试日志](check1-screenshots/check1-ctest.log)
 - [Checkpoint 0 回归日志](check1-screenshots/check0-regression.log)
 - [Checkpoint 1 实现报告](check1.md)
+- [Checkpoint 2 验证摘要](check2-screenshots/validation.txt)
+- [Checkpoint 2 完整测试日志](check2-screenshots/check2-ctest.log)
+- [Checkpoint 2 的 HTTP 回归日志](check2-screenshots/check0-regression.log)
+- [Checkpoint 2 补充边界检查](check2-screenshots/boundary-validation.log)
+- [Checkpoint 2 实现报告](check2.md)
 
 重组器官方基准的输出使用了不同于实际输入字节数的计算分子。
 报告中同时保留原始输出和折算后的有效载荷吞吐，避免混淆两种口径。
 
-## 12 截图、提交与推送
+## 13 截图、提交与推送
 
 功能验证后，我在 Windows 编辑器中打开主要代码并保存实际截图，
 再把源码、报告、截图和测试日志一起纳入 Git。
@@ -414,7 +621,7 @@ git remote -v
 git log -1 --format=full
 ```
 
-## 13 可以亲手复现的最短流程
+## 14 可以亲手复现的最短流程
 
 工具和框架已经配置完成。先在 **Windows PowerShell** 中进入 Ubuntu：
 
@@ -432,19 +639,26 @@ cmake --version
 cmake -S . -B build/wsl
 CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check0
 CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check1
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target check2
 ```
 
 先观察每条命令的输出，再读源码。建议顺序为：webget.cc、byte_stream.hh、
-byte_stream.cc、reassembler.hh、reassembler.cc，最后阅读 tests 中的测试。
+byte_stream.cc、reassembler.hh、reassembler.cc、wrapping_integers.hh/.cc、
+tcp_receiver.hh/.cc，最后阅读 tests 中的测试。
+
+学习时可分别观察三个阶段的输出；日常验收时，check2 已覆盖旧模块的回归，
+配合 check0 检查 HTTP 即可，不必每次重复运行 check1。
 
 阅读 ByteStream 时，尝试手工计算每次 push/pop 后的剩余容量；
 阅读 Reassembler 时，按前面的 ABCDEF 示例画出暂存区间和已交付位置。
+阅读 TCPReceiver 时，再加入 SYN、FIN 的序号占用，逐步算出 ACK=101、103、108。
 
-## 14 本次修改记录
+## 15 阶段完成记录
 
 | 提交 | 内容 |
 |---|---|
 | [c0e5235](https://github.com/printf-wt/-/commit/c0e5235847d6c1ca3eccf1082f93e50b50885dc9) | 完成 Checkpoint 0 的 HTTP 客户端、字节流、截图及验证记录 |
 | [2979d12](https://github.com/printf-wt/-/commit/2979d12740c91fc858f2920ca12abc1daae57395) | 合入 Checkpoint 1 框架，完成重组器、报告、截图和测试记录 |
+| [5a2442f](https://github.com/printf-wt/-/commit/5a2442f1dc172788c396d2e2d054342284d2f4f8) | 合入 Checkpoint 2 框架，完成序号换算、TCP 接收端及验证记录 |
 
 实现、验证与本文整理由 Codex 按用户请求辅助完成。
