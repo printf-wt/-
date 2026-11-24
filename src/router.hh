@@ -35,11 +35,11 @@ public:
 private:
   struct Route
   {
-    uint32_t prefix;
-    uint32_t mask;
-    uint8_t prefix_length;
-    std::optional<Address> next_hop;
-    size_t interface_num;
+    uint32_t prefix {};
+    uint32_t mask {};
+    uint8_t prefix_length {};
+    std::optional<Address> next_hop {};
+    size_t interface_num {};
   };
 
   std::vector<Route> routes_ {};
