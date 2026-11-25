@@ -1,7 +1,7 @@
 *.sh text eol=lf
 
 # Preserve raw measurement bytes and tool-generated whitespace for SHA-256 verification.
-writeups/check4-data/** -text -whitespace
+writeups/check4/data/** -text -whitespace
 
 # PDFs contain byte offsets and must never undergo text conversion.
 *.pdf binary
@@ -9,4 +9,4 @@ writeups/check4-data/** -text -whitespace
 # Keep packet captures and hashed experiment evidence byte-for-byte stable.
 *.pcap binary
 *.zip binary
-writeups/check7-data/** -text -whitespace
+writeups/check7/data/** -text -whitespace

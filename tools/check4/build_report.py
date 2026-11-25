@@ -37,11 +37,11 @@ def relative_link(path, markdown):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("results", nargs="+", type=Path)
-    parser.add_argument("--output", type=Path, default=Path("writeups/check4.md"))
-    parser.add_argument("--pdf", type=Path, default=Path("output/pdf/check4-report.pdf"))
+    parser.add_argument("--output", type=Path, default=Path("writeups/check4/report.md"))
+    parser.add_argument("--pdf", type=Path, default=Path("output/check4/report.pdf"))
     parser.add_argument("--font", type=Path)
     parser.add_argument("--peer", help="Exact host/IP of the measured classmate path")
-    parser.add_argument("--routes", type=Path, default=Path("writeups/check4-data/network2/routes"))
+    parser.add_argument("--routes", type=Path, default=Path("writeups/check4/data/network2/routes"))
     parser.add_argument("--preview", action="store_true")
     args = parser.parse_args()
     rows = [(path, json.loads((path / "statistics.json").read_text(encoding="utf-8"))) for path in args.results]
@@ -203,15 +203,15 @@ def main():
                      f'- [PDF 报告]({relative_link(args.pdf, args.output)})', ""])
     markdown.extend([
         '## 实现、配置与代码截图\n',
-        '- [测量工具与复现命令](../tools/check4/README.md)',
-        '- [同学 Windows 主机配置记录](check4-peer-setup.md)',
-        '- [持续更新的新手指南](check0-4beginner-guide.md)',
-        '- [验证记录](check4-screenshots/validation.txt)\n',
-        '![采集命令与实际计时](check4-screenshots/01-collector.jpg)\n',
-        '![最终发送数、去重与完整性检查](check4-screenshots/02-ping-parser.jpg)\n',
-        '![条件概率分母与相邻序号配对](check4-screenshots/03-conditional-and-adjacent.jpg)\n',
+        '- [测量工具与复现命令](../../tools/check4/README.md)',
+        '- [同学 Windows 主机配置记录](peer-setup.md)',
+        '- [持续更新的新手指南](../guides/beginner-guide.md)',
+        '- [验证记录](logs/validation.txt)\n',
+        '![采集命令与实际计时](screenshots/01-collector.jpg)\n',
+        '![最终发送数、去重与完整性检查](screenshots/02-ping-parser.jpg)\n',
+        '![条件概率分母与相邻序号配对](screenshots/03-conditional-and-adjacent.jpg)\n',
     ])
-    args.output.write_text("\n".join(markdown), encoding="utf-8")
+    args.output.write_text("\n".join(markdown).rstrip() + "\n", encoding="utf-8")
 
     def footer(canvas, doc):
         canvas.saveState()

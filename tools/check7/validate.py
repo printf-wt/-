@@ -37,7 +37,7 @@ def read_capture(path):
 def main():
     report = []
     for name in ("tiny-final", "bigger", "loss", "chat"):
-        directory = ROOT / "writeups/check7-data" / name
+        directory = ROOT / "writeups/check7/data" / name
         run = json.loads((directory / "results.json").read_text(encoding="utf-8"))
         assert run["status"] == "passed" and not run["relay_errors"], name
         assert len(run["transfers"]) == (4 if name == "bigger" else 2), name
@@ -65,11 +65,11 @@ def main():
         report.append({"run": name, "status": "passed", "directions": len(run["transfers"]),
                        "capture_frames": sum(link["frames"] for link in run["links"]),
                        "observed_ttls": sorted(ttl_values)})
-    log = (ROOT / "writeups/check7-screenshots/all-ctest.log").read_text(encoding="utf-8")
+    log = (ROOT / "writeups/check7/logs/all-ctest.log").read_text(encoding="utf-8")
     assert log.count("Test Passed.") == 40 and "Test Failed." not in log
-    log = (ROOT / "writeups/check7-screenshots/chat-protocol-tests.log").read_text(encoding="utf-8")
+    log = (ROOT / "writeups/check7/logs/chat-protocol-tests.log").read_text(encoding="utf-8")
     assert "Ran 8 tests" in log and "\nOK" in log
-    peer_directory = ROOT / "writeups/check7-data/three-host-2026-11-25/attempt-01"
+    peer_directory = ROOT / "writeups/check7/data/three-host-2026-11-25/attempt-01"
     peer_config = json.loads((peer_directory / "config.json").read_text(encoding="utf-8"))
     assert peer_config.get("three_host_verified"), "Real three-host results still pending"
     peer_result = json.loads((peer_directory / peer_config["verification_file"]).read_text(encoding="utf-8"))
@@ -93,10 +93,10 @@ def main():
             assert len(receipt["files"]) == 1
             assert receipt["files"][0]["size"] == 1_048_576 and receipt["files"][0]["sha256"] == expected_hash
     manifest = {}
-    for path in sorted((ROOT / "writeups/check7-data").rglob("*")):
+    for path in sorted((ROOT / "writeups/check7/data").rglob("*")):
         if path.is_file() and path.name != "sha256-manifest.json" and path.suffix != ".pid":
             manifest[path.relative_to(ROOT).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
-    (ROOT / "writeups/check7-data/sha256-manifest.json").write_text(
+    (ROOT / "writeups/check7/data/sha256-manifest.json").write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"status": "passed", "runs": report, "official_tasks": 40,
                       "chat_protocol_tests": 8, "three_host": {"udp_replies": "A 3/3, B 3/3",

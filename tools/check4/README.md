@@ -10,7 +10,7 @@ Python 3.10 及以上可运行统计代码；采集需要 Ubuntu/WSL 的 iputils
 在 Ubuntu 的项目根目录执行，整个测量期间保持电脑联网且不休眠：
 
 ```bash
-cd "/mnt/d/计算机网络/课程设计/-"
+cd "/mnt/d/计算机网络/课程设计/cs144-network-lab"
 python3 tools/check4/collect.py 1.1.1.1 --output build/my-check4/cloudflare --duration 3602
 ```
 
@@ -102,10 +102,10 @@ k=0 时条件概率必然为 1，也不能用这根柱子证明存在突发性�
 可以把两条或更多完成的路径一起交给报告脚本，例如在 Windows PowerShell 中：
 
 ```powershell
-python tools/check4/build_report.py writeups/check4-results/cloudflare writeups/check4-results/google
+python tools/check4/build_report.py writeups/check4/results/cloudflare writeups/check4/results/google
 ```
 
-默认输出 writeups/check4.md 与 output/pdf/check4-report.pdf。
+默认输出 writeups/check4/report.md 与 output/check4/report.pdf。
 脚本优先使用 Windows 黑体或微软雅黑；Linux 可用文泉驿正黑字体，
 也可通过 --font 指定支持中文的 TrueType 字体路径。
 
@@ -127,18 +127,18 @@ python tools/check4/build_report.py writeups/check4-results/cloudflare writeups/
 | test_lifecycle.py | Ubuntu 回环上的真实进程中断检查 |
 
 测试数据仅用于验证统计函数，未混入实测日志或图表。
-源码截图另保存在 writeups/check4-screenshots；截图来自实际编辑器窗口。
+源码截图另保存在 writeups/check4/screenshots；截图来自实际编辑器窗口。
 
 参考：[官方实验要求](https://cs144.github.io/assignments/check4.pdf)、
 [iputils ping 参数](https://man7.org/linux/man-pages/man8/ping.8.html)。
 
 ## 7 本次重试数据
 
-更换局域网后，重新采集的数据位于 writeups/check4-data/network2。
+更换局域网后，重新采集的数据位于 writeups/check4/data/network2。
 查看本次进度：
 
 ```powershell
-python tools/check4/status.py --root writeups/check4-data/network2
+python tools/check4/status.py --root writeups/check4/data/network2
 ```
 
 原网络三条不足一小时的测量已清理。

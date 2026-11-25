@@ -1,6 +1,6 @@
 # Point 7 全栈实验工具
 
-先看[三机说明](../../writeups/check7-peer-setup.md)区分本机验证和跨电脑联调。
+先看[三机说明](../../writeups/check7/peer-setup.md)区分本机验证和跨电脑联调。
 本目录没有创建虚假的 check7 CMake 目标，实际使用官方应用和完整 CTest。
 
 ## 构建（Ubuntu）

@@ -5,3 +5,7 @@
 /.cache
 /.vs
 /out
+
+# Python helpers generate local bytecode caches.
+__pycache__/
+*.py[cod]

@@ -21,11 +21,11 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--pdf", type=Path, default=ROOT / "output/pdf/check7-report.pdf")
-    parser.add_argument("--markdown", type=Path, default=ROOT / "writeups/check7.md")
+    parser.add_argument("--pdf", type=Path, default=ROOT / "output/check7/report.pdf")
+    parser.add_argument("--markdown", type=Path, default=ROOT / "writeups/check7/report.md")
     parser.add_argument("--font", type=Path, default=Path("C:/Windows/Fonts/simhei.ttf"))
     parser.add_argument("--peer-config", type=Path,
-                        default=ROOT / "writeups/check7-data/three-host-2026-11-25/attempt-01/config.json")
+                        default=ROOT / "writeups/check7/data/three-host-2026-11-25/attempt-01/config.json")
     args = parser.parse_args()
     peer_config = json.loads(args.peer_config.read_text(encoding="utf-8"))
     peer_result = None
@@ -38,7 +38,7 @@ def main():
                 or len({item["saved_as"] for item in received}) != 2):
             raise ValueError("Three-host receipt evidence does not support a pass")
     names = ["tiny-final", "bigger", "loss", "chat"]
-    runs = {name: json.loads((ROOT / "writeups/check7-data" / name / "results.json").read_text(encoding="utf-8"))
+    runs = {name: json.loads((ROOT / "writeups/check7/data" / name / "results.json").read_text(encoding="utf-8"))
             for name in names}
     for name, run in runs.items():
         if run["status"] != "passed" or not run["transfers"] or not all(t["match"] for t in run["transfers"]):
@@ -199,16 +199,16 @@ def main():
         p("本次没有从缺少完整载荷的日志推算文件哈希，也不把日志中含 ACK、首部和重传的字节和当成有效吞吐。三路由器和并发多连接实验仍属于前述本机拓扑，三台电脑实际使用的是一个路由器、两个端点。")
     else:
         p("实际跨机聊天、双向文件及收据尚待核对，当前配置不作为已完成三人联网的证明。")
-    p("当前三机配置、实际错误与验证顺序见 writeups/check7-session-2026-11-25.md；旧 11 月 24 日地址已标注不可复用。")
+    p("当前三机配置、实际错误与验证顺序见 writeups/check7/sessions/2026-11-25.md；旧 11 月 24 日地址已标注不可复用。")
     h("8. 体会、复现与来源")
     p("从模块检查走到进程间实跑，主要学习点是区分两层 IP 地址、理解选路与 ARP 的分工，以及保留可检查的文件与报文证据。后续可加入拥塞控制和实时应用，比较吞吐、时延与丢包恢复之间的取舍；本次未开展这些测量。")
     p("源码、验证与本文由 Codex 按用户要求辅助完成，未虚构独立完成或到课情况。实验数据只取自保存的 JSON、日志、收据和 pcap，拓扑图对应实际启动配置。")
     p("复现：tools/check7/lab.py --sanitized --output 新目录；更大拓扑加 --topology bigger，定点丢包加 --drop-first-data，聊天室加 --chat。先按 tools/check7/README.md 构建。")
-    p("来源：CS144 官方 Checkpoint 7 指导书：https://cs144.github.io/assignments/check7.pdf；本地官方应用 apps/tcp_eth_udp.cc、apps/fun_router.cc；原始实验记录 writeups/check7-data。")
-    markdown.append("\n学习入口：[源码新手讲解](check7-source-code-guide.md) · [三机启动说明](check7-peer-setup.md) · [验证摘要](check7-screenshots/validation.txt)\n")
-    shots = [ROOT / "writeups/check7-screenshots/01-chat-send.jpg", ROOT / "writeups/check7-screenshots/02-chat-receive.jpg"]
+    p("来源：CS144 官方 Checkpoint 7 指导书：https://cs144.github.io/assignments/check7.pdf；本地官方应用 apps/tcp_eth_udp.cc、apps/fun_router.cc；原始实验记录 writeups/check7/data。")
+    markdown.append("\n学习入口：[源码新手讲解](source-code-guide.md) · [三机启动说明](peer-setup.md) · [验证摘要](logs/validation.txt)\n")
+    shots = [ROOT / "writeups/check7/screenshots/01-chat-send.jpg", ROOT / "writeups/check7/screenshots/02-chat-receive.jpg"]
     if all(path.is_file() for path in shots):
-        markdown.append("实际代码截图：[文件发送](check7-screenshots/01-chat-send.jpg) · [校验发布](check7-screenshots/02-chat-receive.jpg)\n")
+        markdown.append("实际代码截图：[文件发送](screenshots/01-chat-send.jpg) · [校验发布](screenshots/02-chat-receive.jpg)\n")
     else:
         markdown.append("实际桌面代码截图尚待补齐。\n")
     args.pdf.parent.mkdir(parents=True, exist_ok=True)
