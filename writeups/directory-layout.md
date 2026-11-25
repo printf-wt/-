@@ -35,7 +35,8 @@ Windows 项目路径为 `D:\计算机网络\课程设计\cs144-network-lab`，WS
 | `writeups/checkN-data/` | `writeups/checkN/data/` |
 | `writeups/check4-results/` | `writeups/check4/results/` |
 | `writeups/check0-4beginner-guide.md` | `writeups/guides/beginner-guide.md`，内容已覆盖 Point 0-7 |
-| `writeups/check0-check4-source-code-guide.md` | `writeups/guides/check0-4-source-code-guide.md` |
+| `writeups/check0-check4-source-code-guide.md` | `writeups/guides/check0-7-source-code-guide.md` |
+| `writeups/guides/check0-4-source-code-guide.md` | 已扩展并更名为 `writeups/guides/check0-7-source-code-guide.md` |
 | `writeups/check7-progress.md` | `writeups/check7/sessions/2026-11-24.md` |
 | `writeups/check7-session-2026-11-25.md` | `writeups/check7/sessions/2026-11-25.md` |
 | `output/pdf/checkN-report.pdf` | `output/checkN/report.pdf` |

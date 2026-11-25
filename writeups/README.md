@@ -1,13 +1,13 @@
 # 实验资料导航
 
-第一次阅读从[环境配置与实验入门](guides/beginner-guide.md)开始；想理解实现，先看[Point 0-4 源码讲解](guides/check0-4-source-code-guide.md)，再按下表进入后续实验。
+第一次阅读从[环境配置与实验入门](guides/beginner-guide.md)开始；想理解实现，阅读[Point 0-7 源码讲解](guides/check0-7-source-code-guide.md)，也可按下表单独查阅各实验。
 
 | 实验 | 主要内容 | 实验报告 | 源码讲解与操作说明 |
 |---|---|---|---|
-| Point 0 | HTTP 获取与字节流 | [报告](check0/report.md) | [Point 0-4 源码讲解](guides/check0-4-source-code-guide.md) |
-| Point 1 | 乱序字节重组 | [报告](check1/report.md) | [Point 0-4 源码讲解](guides/check0-4-source-code-guide.md) |
-| Point 2 | 序号换算与 TCP 接收端 | [报告](check2/report.md) | [Point 0-4 源码讲解](guides/check0-4-source-code-guide.md) |
-| Point 3 | TCP 发送端与超时重传 | [报告](check3/report.md) | [Point 0-4 源码讲解](guides/check0-4-source-code-guide.md) |
+| Point 0 | HTTP 获取与字节流 | [报告](check0/report.md) | [Point 0-7 源码讲解](guides/check0-7-source-code-guide.md) |
+| Point 1 | 乱序字节重组 | [报告](check1/report.md) | [Point 0-7 源码讲解](guides/check0-7-source-code-guide.md) |
+| Point 2 | 序号换算与 TCP 接收端 | [报告](check2/report.md) | [Point 0-7 源码讲解](guides/check0-7-source-code-guide.md) |
+| Point 3 | TCP 发送端与超时重传 | [报告](check3/report.md) | [Point 0-7 源码讲解](guides/check0-7-source-code-guide.md) |
 | Point 4 | 真实网络测量 | [报告](check4/report.md) | [同学主机配置](check4/peer-setup.md) |
 | Point 5 | 网络接口与 ARP | [报告](check5/report.md) | [源码讲解](check5/source-code-guide.md) |
 | Point 6 | IPv4 路由器 | [报告](check6/report.md) | [源码讲解](check6/source-code-guide.md) |

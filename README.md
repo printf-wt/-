@@ -25,6 +25,7 @@ To format code: `cmake --build build --target format`
 
 - [实验资料导航](writeups/README.md)：按 Point 0-7 查报告、源码讲解、截图与联调说明。
 - [从环境配置到 Point 7](writeups/guides/beginner-guide.md)：新手按顺序学习的入口。
+- [Checkpoint 0 到 7 源码新手逐步讲解](writeups/guides/check0-7-source-code-guide.md)：TCP、ARP、路由、聊天室与文件校验的统一教程，含全流程推演和完整源码附录。
 - [最终 PDF 与离线包](output/README.md)：可提交、可分享的正式成果。
 - [目录说明与旧路径对照](writeups/directory-layout.md)：整理规则、原始记录位置和验证命令。
 

@@ -1,5 +1,7 @@
 # Point 7 新手讲解：让前面的模块组成一张网络
 
+完整的前后衔接见 [Point 0-7 统一源码教程](../guides/check0-7-source-code-guide.md#full-stack)，其中还包含三机消息推演与全部八份实验工具快照。
+
 Point 7 以整合与实验为主。前面的 TCP、网络接口和路由器已经写好，
 这次让它们在独立程序中实际收发数据，再用自己的 TCP 字节流做聊天和文件校验。
 本机实验已通过；2026-11-25 三台电脑的 UDP、双向 TCP 数据与各 1 MiB 接收文件校验也已通过。
@@ -53,7 +55,7 @@ Linux UDP 是传送实验帧的载体，可靠传输仍由我们之前实现的 
 | `src/router.hh` | 应用层静态检查要求 Route 字段有显式默认初始化，增加 `{}` |
 
 这三处不改变路由选择或 TCP 收发规则。Point 6 文档中的快照继续保存当时版本。
-首次默认空地址失败的原始记录保留在 `check7-data/tiny`，正式通过记录另用新目录。
+首次默认空地址失败的原始记录保留在 `writeups/check7/data/tiny`，正式通过记录另用新目录。
 修复后重新编译带 ASan/UBSan 的应用，完整官方 CTest 40 个任务通过。
 
 ## 4 lab.py：怎样自动运行本机实验
@@ -148,11 +150,11 @@ listen 回显带实验标记的小消息；send 发送随机标识的探测并�
 
 ## 9 怎么阅读真实记录
 
-- `check7-data/tiny-final`：一台路由器的双向 1 MiB，通过。
-- `check7-data/bigger`：三台路由器、两条并发 TCP、四个方向各 1 MiB，通过。
-- `check7-data/loss`：定点丢一帧后的双向文件恢复，通过。
-- `check7-data/chat`：聊天和校验文件的本机全栈实验，通过。
-- `check7-data/three-host-2026-11-25`：真实三机 UDP 往返、双向数据及两份 1 MiB 接收验证，通过。
+- `writeups/check7/data/tiny-final`：一台路由器的双向 1 MiB，通过。
+- `writeups/check7/data/bigger`：三台路由器、两条并发 TCP、四个方向各 1 MiB，通过。
+- `writeups/check7/data/loss`：定点丢一帧后的双向文件恢复，通过。
+- `writeups/check7/data/chat`：聊天和校验文件的本机全栈实验，通过。
+- `writeups/check7/data/three-host-2026-11-25`：真实三机 UDP 往返、双向数据及两份 1 MiB 接收验证，通过。
 
 `results.json` 保存命令、端口、路由、退出码及收发哈希。
 `stderr.log` 是官方程序实际输出，不能把调试文字混进二进制文件的数据流。

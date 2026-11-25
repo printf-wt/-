@@ -1,5 +1,7 @@
 # Checkpoint 6 源码新手讲解：路由器怎样选择下一跳
 
+完整的前后衔接见 [Point 0-7 统一源码教程](../guides/check0-7-source-code-guide.md#ipv4-router)，本篇保留为路由器阶段的单独讲解。
+
 Point 5 解决“已知下一跳 IP，怎样发到它的 MAC”；
 Point 6 解决“这个 IP 数据报该从哪个接口发给谁”。
 本阶段主要编写 `src/router.hh` 和 `src/router.cc`。
