@@ -1,5 +1,9 @@
 # Point 7 三台电脑启动说明
 
+> 本文中的具体地址属于 **2026-11-24 的旧配置**。
+> 2026-11-25 已更换 Wi-Fi 和同学机器，暂勿复制下方旧 IP 命令执行。
+> 新一轮实际状态见 [11 月 25 日联调记录](check7-session-2026-11-25.md)，收齐新地址后再更新启动命令。
+
 本说明使用用户提供的实际地址。三台 Windows 应连接同一个局域网。
 这些配置已准备好，跨电脑通信是否成功需要三个人实际启动后再确认。
 当前本机回环实验不能代替三机实验结果。
@@ -60,6 +64,17 @@ CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target tcp_eth_udp_saniti
 Windows 中打开 PowerShell，进入项目目录。WSL 可通过文件资源管理器的 Linux 项
 找到 Ubuntu 中的仓库，也可将仓库中的 `tools/check7/udp-bridge.ps1` 复制到 Windows。
 复制脚本时保留其真实文件内容，下面命令的路径按实际位置填写。
+
+你这台电脑的每个 PowerShell 窗口先执行：
+
+```powershell
+Set-Location -LiteralPath 'D:\计算机网络\课程设计\-'
+Test-Path .\tools\check7\udp-bridge.ps1
+```
+
+应返回 True。管理员 PowerShell 默认常在 C:\Windows\System32，
+不能从那里直接使用项目相对路径。两位同学请切到他们自己的项目位置，
+或者复制脚本的完整路径后，用 `& '脚本完整路径'` 加对应参数启动。
 
 每台电脑需允许本次指定 UDP 端口。以下命令由该电脑主人在**管理员 PowerShell**运行，
 只开放列出的来源，不关闭整个防火墙。
