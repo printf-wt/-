@@ -1,0 +1,13 @@
+[  9%] Built target stream_sanitized
+[  9%] Building CXX object src/CMakeFiles/imp_sanitized.dir/router.cc.o
+[ 63%] Built target util_sanitized
+[ 63%] Linking CXX static library libimp_sanitized.a
+[ 90%] Built target imp_sanitized
+[ 90%] Linking CXX executable tcp_eth_udp_sanitized
+[100%] Built target tcp_eth_udp_sanitized
+[  9%] Built target stream_sanitized
+[ 63%] Built target util_sanitized
+[ 90%] Built target imp_sanitized
+[ 90%] Building CXX object apps/CMakeFiles/fun_router_sanitized.dir/fun_router.cc.o
+[100%] Linking CXX executable fun_router_sanitized
+[100%] Built target fun_router_sanitized

@@ -1,0 +1,5 @@
+READY probe UDP 0.0.0.0:9080; Ctrl+C to stop
+{"echo": 1, "source": ["172.18.80.1", 19080], "bytes": 56}
+{"echo": 2, "source": ["172.18.80.1", 19080], "bytes": 56}
+{"echo": 3, "source": ["172.18.80.1", 19080], "bytes": 56}
+{"mode": "listen", "echoed": 3, "status": "finished", "recorded_utc": "2026-11-25T06:48:02.157197+00:00"}

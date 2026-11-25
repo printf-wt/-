@@ -1,0 +1,19 @@
+{
+  "provenance": "Windows console and adapter addresses supplied by user",
+  "bridge_ready": {
+    "local_ubuntu_ip": "192.168.226.128",
+    "local_port": 2080,
+    "listen_port": 12080,
+    "peer_ip": "10.200.49.154",
+    "observed_peer_port": 1908,
+    "required_peer_port": 19080
+  },
+  "ignored_source": {
+    "ip": "10.200.54.254",
+    "port": 58031,
+    "count": 3
+  },
+  "confirmed_windows_vmnet8": "192.168.226.1",
+  "correction": "Restart A bridge with peer port 19080; send Ubuntu probe to 192.168.226.1:12080, keeping local port 2080.",
+  "verification": "Awaiting corrected end-to-end probe; not yet passed."
+}

@@ -1,0 +1,17 @@
+{
+  "archive": "D:\\计算机网络\\课程设计\\-\\output\\check7\\cs144-point7-offline-20261125.zip",
+  "commit": "6b327c9d010c7de04cc0089a94737ee0a36c2bfe",
+  "files": 143,
+  "bytes": 2518296,
+  "sha256": "fbafce7d361f2d4bf4146181e5006310a54739504168828dfc0c40f6761284fb",
+  "checks": [
+    "ZIP CRC",
+    "all file SHA-256",
+    "required build dependencies present",
+    "shell LF endings",
+    "Unix executable permission",
+    "Linux x86_64 ELF",
+    "no .git credentials",
+    "Extracted binary Ubuntu startup smoke test"
+  ]
+}

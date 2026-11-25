@@ -1,0 +1,4 @@
+READY: type a message, /send PATH, /quit (EOF also closes your send direction)
+CHAT {"from": "S1", "text": "Hello from S1"}
+FILE VERIFIED {"name": "S1.sent.bin", "size": 1048576, "sha256": "ee8c54bb30ccb8ce17123c90384be3dea6f4036fc231b05e7fb9f3bb60a27c99", "saved_as": "fa97434e35f44a80abf90a9c6c9b5df0-S1.sent.bin"}
+FILE SENT sha256=333d5a5352c75606e99197c643c3b42200f60922f0f1feba6cfda3500e71959f

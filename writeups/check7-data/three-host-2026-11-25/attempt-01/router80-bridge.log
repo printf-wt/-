@@ -1,0 +1,16 @@
+READY UDP :19080 Ubuntu=172.18.80.5:9080 peer=10.200.54.254:12080 (Ctrl+C to stop)
+FORWARDED to-peer=0 to-Ubuntu=1
+FORWARDED to-peer=1 to-Ubuntu=1
+FORWARDED to-peer=1 to-Ubuntu=2
+FORWARDED to-peer=2 to-Ubuntu=2
+FORWARDED to-peer=223 to-Ubuntu=277
+FORWARDED to-peer=469 to-Ubuntu=531
+FORWARDED to-peer=719 to-Ubuntu=781
+FORWARDED to-peer=968 to-Ubuntu=1032
+FORWARDED to-peer=1225 to-Ubuntu=1275
+FORWARDED to-peer=1502 to-Ubuntu=1498
+FORWARDED to-peer=1758 to-Ubuntu=1742
+FORWARDED to-peer=2006 to-Ubuntu=1994
+FORWARDED to-peer=2252 to-Ubuntu=2248
+FORWARDED to-peer=2502 to-Ubuntu=2498
+FORWARDED to-peer=2755 to-Ubuntu=2745

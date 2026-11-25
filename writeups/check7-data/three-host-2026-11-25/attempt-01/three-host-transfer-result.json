@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "provenance": "Two FILE VERIFIED console blocks supplied by user for the requested A/B endpoints; corroborated by bidirectional router data",
+  "endpoint_labels": "The pasted blocks were not individually labelled; retain them as transcript 1 and 2 rather than invent a direction mapping.",
+  "bytes_per_received_file": 1048576,
+  "expected_sha256": "7e7a19f30c8d5d3555721c2923598ef422d464e896fe68906f63f48c91f414fa",
+  "received_file_verifications": [
+    {
+      "name": "test-1MiB.bin",
+      "size": 1048576,
+      "sha256": "7e7a19f30c8d5d3555721c2923598ef422d464e896fe68906f63f48c91f414fa",
+      "saved_as": "22d683cdf656426ba246fb1a482536eb-test-1MiB.bin"
+    },
+    {
+      "name": "test-1MiB.bin",
+      "size": 1048576,
+      "sha256": "7e7a19f30c8d5d3555721c2923598ef422d464e896fe68906f63f48c91f414fa",
+      "saved_as": "cfbdb07f88d24cbe9d57ec1bd662bed9-test-1MiB.bin"
+    }
+  ],
+  "router_log": "router-fullstack.stderr.log",
+  "udp_results": [
+    "probe-A-user-reported-passed.json",
+    "probe-B-user-reported-passed.json"
+  ],
+  "formal_receipts_json": "Not returned to assistant; remain on peers Ubuntu after /quit. Validation uses supplied FILE VERIFIED console records and local router logs.",
+  "shutdown": "User reports both endpoint applications exited; local owned router and bridges stopped afterward."
+}

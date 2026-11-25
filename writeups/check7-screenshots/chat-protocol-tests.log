@@ -1,0 +1,13 @@
+test_binary_roundtrip (__main__.ProtocolTests.test_binary_roundtrip) ... ok
+test_corruption_not_published (__main__.ProtocolTests.test_corruption_not_published) ... ok
+test_declared_size_enforced (__main__.ProtocolTests.test_declared_size_enforced) ... ok
+test_empty_file (__main__.ProtocolTests.test_empty_file) ... ok
+test_existing_destination_not_overwritten (__main__.ProtocolTests.test_existing_destination_not_overwritten) ... ok
+test_path_traversal_rejected (__main__.ProtocolTests.test_path_traversal_rejected) ... ok
+test_size_limit_rejected (__main__.ProtocolTests.test_size_limit_rejected) ... ok
+test_unicode_chat (__main__.ProtocolTests.test_unicode_chat) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.008s
+
+OK

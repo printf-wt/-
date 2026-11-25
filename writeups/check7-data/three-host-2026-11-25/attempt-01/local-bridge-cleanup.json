@@ -1,0 +1,14 @@
+[
+  {
+    "Role": "router50",
+    "Port": 19050,
+    "ProcessId": 26312,
+    "Result": "stopped owned bridge"
+  },
+  {
+    "Role": "router80",
+    "Port": 19080,
+    "ProcessId": 13268,
+    "Result": "stopped owned bridge"
+  }
+]

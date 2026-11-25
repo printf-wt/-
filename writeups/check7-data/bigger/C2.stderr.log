@@ -1,0 +1,12 @@
+DEBUG: Network interface has Ethernet address f2:fe:b6:98:ae:39 and IP address 81.6.5.4
+DEBUG: Initiating physical tunnel to 127.0.0.1:40104.
+DEBUG: Connecting from 81.6.5.4:31208...
+DEBUG: imp connecting to 51.9.8.7:80...
+DEBUG: imp successfully connected to 51.9.8.7:80.
+DEBUG: Outbound stream to 51.9.8.7:80 finished.
+DEBUG: imp outbound stream to 51.9.8.7:80 finished (63000 seqnos still in flight).
+DEBUG: imp outbound stream to 51.9.8.7:80 has been fully acknowledged.
+DEBUG: imp inbound stream from 51.9.8.7:80 finished cleanly.
+DEBUG: Inbound stream from 51.9.8.7:80 finished.
+DEBUG: imp waiting for clean shutdown... DEBUG: imp TCP connection finished cleanly.
+done.

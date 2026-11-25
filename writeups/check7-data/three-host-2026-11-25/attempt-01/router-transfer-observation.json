@@ -1,0 +1,14 @@
+{
+  "A_to_B": {
+    "datagrams_observed": 2835,
+    "with_application_data": 1427,
+    "sum_logged_ipv4_bytes": 1517972,
+    "note": "Includes headers, acknowledgments and possible retransmission; not unique application byte count or received-file hash."
+  },
+  "B_to_A": {
+    "datagrams_observed": 2836,
+    "with_application_data": 1408,
+    "sum_logged_ipv4_bytes": 1520014,
+    "note": "Includes headers, acknowledgments and possible retransmission; not unique application byte count or received-file hash."
+  }
+}

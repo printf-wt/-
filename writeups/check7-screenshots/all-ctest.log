@@ -1,0 +1,935 @@
+Start testing: Nov 24 17:18 CST
+----------------------------------------------------------
+1/40 Testing: compile with bug-checkers
+1/40 Test: compile with bug-checkers
+Command: "/usr/bin/cmake" "--build" "/mnt/d/计算机网络/课程设计/-/build/wsl" "-t" "functionality_testing" "webget"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"compile with bug-checkers" start time: Nov 24 17:18 CST
+Output:
+----------------------------------------------------------
+[  2%] Built target imp_testing_debug
+[  2%] Built target imp_testing_sanitized
+[  3%] Building CXX object src/CMakeFiles/imp_debug.dir/router.cc.o
+[ 13%] Built target util_debug
+[ 17%] Built target imp_sanitized
+[ 25%] Built target util_sanitized
+[ 26%] Linking CXX executable byte_stream_basics_sanitized
+[ 27%] Linking CXX executable byte_stream_one_write_sanitized
+[ 27%] Linking CXX executable byte_stream_capacity_sanitized
+[ 28%] Linking CXX static library libimp_debug.a
+[ 28%] Built target byte_stream_capacity_sanitized
+[ 28%] Built target byte_stream_one_write_sanitized
+[ 30%] Built target byte_stream_basics_sanitized
+[ 31%] Linking CXX executable byte_stream_many_writes_sanitized
+[ 31%] Linking CXX executable byte_stream_two_writes_sanitized
+[ 31%] Linking CXX executable byte_stream_stress_test_sanitized
+[ 34%] Built target imp_debug
+[ 34%] Linking CXX executable reassembler_single_sanitized
+[ 34%] Built target byte_stream_two_writes_sanitized
+[ 35%] Built target byte_stream_many_writes_sanitized
+[ 35%] Linking CXX executable reassembler_single
+[ 36%] Built target byte_stream_stress_test_sanitized
+[ 36%] Linking CXX executable reassembler_cap_sanitized
+[ 36%] Linking CXX executable reassembler_cap
+[ 36%] Built target reassembler_single
+[ 38%] Built target reassembler_single_sanitized
+[ 39%] Linking CXX executable reassembler_seq_sanitized
+[ 39%] Built target reassembler_cap
+[ 40%] Linking CXX executable reassembler_seq
+[ 42%] Linking CXX executable reassembler_dup_sanitized
+[ 43%] Built target reassembler_cap_sanitized
+[ 43%] Linking CXX executable reassembler_dup
+[ 43%] Built target reassembler_seq
+[ 43%] Linking CXX executable reassembler_holes_sanitized
+[ 43%] Built target reassembler_seq_sanitized
+[ 44%] Linking CXX executable reassembler_holes
+[ 46%] Built target reassembler_dup
+[ 46%] Built target reassembler_dup_sanitized
+[ 46%] Linking CXX executable reassembler_overlapping_sanitized
+[ 46%] Linking CXX executable reassembler_overlapping
+[ 46%] Built target reassembler_holes
+[ 46%] Built target reassembler_holes_sanitized
+[ 46%] Linking CXX executable reassembler_win_sanitized
+[ 47%] Linking CXX executable reassembler_win
+[ 48%] Built target reassembler_overlapping
+[ 48%] Linking CXX executable wrapping_integers_cmp_sanitized
+[ 50%] Built target reassembler_overlapping_sanitized
+[ 50%] Linking CXX executable wrapping_integers_cmp
+[ 51%] Built target wrapping_integers_cmp_sanitized
+[ 52%] Linking CXX executable wrapping_integers_wrap_sanitized
+[ 52%] Built target wrapping_integers_cmp
+[ 53%] Linking CXX executable wrapping_integers_wrap
+[ 53%] Built target wrapping_integers_wrap_sanitized
+[ 53%] Built target reassembler_win
+[ 53%] Linking CXX executable wrapping_integers_unwrap_sanitized
+[ 53%] Linking CXX executable wrapping_integers_unwrap
+[ 53%] Built target wrapping_integers_wrap
+[ 53%] Built target reassembler_win_sanitized
+[ 53%] Linking CXX executable wrapping_integers_roundtrip_sanitized
+[ 55%] Linking CXX executable wrapping_integers_roundtrip
+[ 56%] Built target wrapping_integers_unwrap
+[ 57%] Built target wrapping_integers_unwrap_sanitized
+[ 59%] Linking CXX executable wrapping_integers_extra_sanitized
+[ 59%] Linking CXX executable wrapping_integers_extra
+[ 59%] Built target wrapping_integers_roundtrip_sanitized
+[ 59%] Built target wrapping_integers_roundtrip
+[ 60%] Linking CXX executable recv_connect_sanitized
+[ 61%] Linking CXX executable recv_connect
+[ 63%] Built target wrapping_integers_extra
+[ 63%] Built target wrapping_integers_extra_sanitized
+[ 64%] Linking CXX executable recv_transmit_sanitized
+[ 64%] Linking CXX executable recv_transmit
+[ 64%] Built target recv_connect
+[ 64%] Linking CXX executable recv_window_sanitized
+[ 64%] Built target recv_connect_sanitized
+[ 65%] Built target recv_transmit
+[ 67%] Linking CXX executable recv_window
+[ 68%] Linking CXX executable recv_reorder_sanitized
+[ 68%] Built target recv_transmit_sanitized
+[ 68%] Linking CXX executable recv_reorder
+[ 68%] Built target recv_window
+[ 68%] Built target recv_window_sanitized
+[ 68%] Linking CXX executable recv_reorder_more_sanitized
+[ 68%] Linking CXX executable recv_reorder_more
+[ 68%] Built target recv_reorder_sanitized
+[ 68%] Built target recv_reorder
+[ 68%] Linking CXX executable recv_close_sanitized
+[ 68%] Linking CXX executable recv_close
+[ 69%] Built target recv_reorder_more
+[ 69%] Linking CXX executable recv_special_sanitized
+[ 71%] Built target recv_reorder_more_sanitized
+[ 72%] Built target recv_close
+[ 73%] Linking CXX executable recv_special
+[ 75%] Linking CXX executable send_connect_sanitized
+[ 76%] Built target recv_close_sanitized
+[ 76%] Linking CXX executable send_connect
+[ 76%] Built target recv_special
+[ 76%] Built target recv_special_sanitized
+[ 76%] Linking CXX executable send_transmit_sanitized
+[ 77%] Linking CXX executable send_transmit
+[ 78%] Built target send_connect
+[ 78%] Built target send_connect_sanitized
+[ 78%] Linking CXX executable send_window_sanitized
+[ 78%] Linking CXX executable send_window
+[ 78%] Built target send_transmit
+[ 81%] Built target send_window
+[ 81%] Linking CXX executable send_ack_sanitized
+[ 82%] Linking CXX executable send_ack
+[ 82%] Built target send_transmit_sanitized
+[ 82%] Linking CXX executable send_close_sanitized
+[ 84%] Built target send_window_sanitized
+[ 84%] Linking CXX executable send_close
+[ 84%] Built target send_ack
+[ 85%] Linking CXX executable send_retx_sanitized
+[ 85%] Built target send_ack_sanitized
+[ 85%] Linking CXX executable send_retx
+[ 86%] Built target send_close_sanitized
+[ 86%] Built target send_close
+[ 86%] Linking CXX executable send_extra_sanitized
+[ 88%] Linking CXX executable send_extra
+[ 89%] Built target send_retx
+[ 89%] Built target send_retx_sanitized
+[ 89%] Linking CXX executable net_interface_sanitized
+[ 89%] Linking CXX executable net_interface
+[ 89%] Built target send_extra
+[ 90%] Building CXX object tests/CMakeFiles/router_sanitized.dir/router.cc.o
+[ 90%] Built target send_extra_sanitized
+[ 92%] Building CXX object tests/CMakeFiles/router.dir/router.cc.o
+[ 92%] Built target net_interface
+[ 93%] Linking CXX executable no_skip_sanitized
+[ 94%] Built target net_interface_sanitized
+[ 94%] Linking CXX executable no_skip
+[ 94%] Built target no_skip_sanitized
+[ 94%] Linking CXX executable byte_stream_basics
+[ 96%] Built target no_skip
+[ 97%] Linking CXX executable byte_stream_capacity
+[ 97%] Built target byte_stream_basics
+[ 97%] Linking CXX executable byte_stream_one_write
+[ 97%] Built target byte_stream_capacity
+[ 97%] Linking CXX executable router
+[ 97%] Linking CXX executable byte_stream_two_writes
+[ 97%] Linking CXX executable router_sanitized
+[ 98%] Built target byte_stream_one_write
+[ 98%] Linking CXX executable byte_stream_many_writes
+[100%] Built target byte_stream_two_writes
+[100%] Linking CXX executable byte_stream_stress_test
+[100%] Built target router
+[100%] Built target byte_stream_many_writes
+[100%] Built target router_sanitized
+[100%] Built target byte_stream_stress_test
+[100%] Built target functionality_testing
+[  7%] Built target stream_copy
+[ 61%] Built target util_debug
+[ 92%] Built target imp_debug
+[100%] Linking CXX executable webget
+[100%] Built target webget
+<end of output>
+Test time =  38.28 sec
+----------------------------------------------------------
+Test Passed.
+"compile with bug-checkers" end time: Nov 24 17:19 CST
+"compile with bug-checkers" time elapsed: 00:00:38
+----------------------------------------------------------
+
+2/40 Testing: t_webget
+2/40 Test: t_webget
+Command: "/mnt/d/计算机网络/课程设计/-/tests/webget_t.sh" "/mnt/d/计算机网络/课程设计/-/build/wsl"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"t_webget" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+HTTP/1.1 200 OK
+Content-type: text/plain
+
+7SmXqWkrLKzVBCEalbSPqBcvs11Pw263K7x4Wv3JckI
+<end of output>
+Test time =   1.07 sec
+----------------------------------------------------------
+Test Passed.
+"t_webget" end time: Nov 24 17:19 CST
+"t_webget" time elapsed: 00:00:01
+----------------------------------------------------------
+
+3/40 Testing: byte_stream_basics
+3/40 Test: byte_stream_basics
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_basics_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_basics" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_basics" end time: Nov 24 17:19 CST
+"byte_stream_basics" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/40 Testing: byte_stream_capacity
+4/40 Test: byte_stream_capacity
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_capacity_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_capacity" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_capacity" end time: Nov 24 17:19 CST
+"byte_stream_capacity" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/40 Testing: byte_stream_one_write
+5/40 Test: byte_stream_one_write
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_one_write_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_one_write" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_one_write" end time: Nov 24 17:19 CST
+"byte_stream_one_write" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/40 Testing: byte_stream_two_writes
+6/40 Test: byte_stream_two_writes
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_two_writes_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_two_writes" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_two_writes" end time: Nov 24 17:19 CST
+"byte_stream_two_writes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/40 Testing: byte_stream_many_writes
+7/40 Test: byte_stream_many_writes
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_many_writes_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_many_writes" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_many_writes" end time: Nov 24 17:19 CST
+"byte_stream_many_writes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/40 Testing: byte_stream_stress_test
+8/40 Test: byte_stream_stress_test
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_stress_test_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_stress_test" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.14 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_stress_test" end time: Nov 24 17:19 CST
+"byte_stream_stress_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/40 Testing: reassembler_single
+9/40 Test: reassembler_single
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_single_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_single" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_single" end time: Nov 24 17:19 CST
+"reassembler_single" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/40 Testing: reassembler_cap
+10/40 Test: reassembler_cap
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_cap_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_cap" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_cap" end time: Nov 24 17:19 CST
+"reassembler_cap" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/40 Testing: reassembler_seq
+11/40 Test: reassembler_seq
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_seq_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_seq" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_seq" end time: Nov 24 17:19 CST
+"reassembler_seq" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/40 Testing: reassembler_dup
+12/40 Test: reassembler_dup
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_dup_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_dup" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_dup" end time: Nov 24 17:19 CST
+"reassembler_dup" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/40 Testing: reassembler_holes
+13/40 Test: reassembler_holes
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_holes_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_holes" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_holes" end time: Nov 24 17:19 CST
+"reassembler_holes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/40 Testing: reassembler_overlapping
+14/40 Test: reassembler_overlapping
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_overlapping_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_overlapping" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_overlapping" end time: Nov 24 17:19 CST
+"reassembler_overlapping" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/40 Testing: reassembler_win
+15/40 Test: reassembler_win
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_win_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_win" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.24 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_win" end time: Nov 24 17:19 CST
+"reassembler_win" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/40 Testing: wrapping_integers_cmp
+16/40 Test: wrapping_integers_cmp
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/wrapping_integers_cmp_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"wrapping_integers_cmp" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"wrapping_integers_cmp" end time: Nov 24 17:19 CST
+"wrapping_integers_cmp" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/40 Testing: wrapping_integers_wrap
+17/40 Test: wrapping_integers_wrap
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/wrapping_integers_wrap_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"wrapping_integers_wrap" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"wrapping_integers_wrap" end time: Nov 24 17:19 CST
+"wrapping_integers_wrap" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/40 Testing: wrapping_integers_unwrap
+18/40 Test: wrapping_integers_unwrap
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/wrapping_integers_unwrap_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"wrapping_integers_unwrap" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"wrapping_integers_unwrap" end time: Nov 24 17:19 CST
+"wrapping_integers_unwrap" time elapsed: 00:00:00
+----------------------------------------------------------
+
+19/40 Testing: wrapping_integers_roundtrip
+19/40 Test: wrapping_integers_roundtrip
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/wrapping_integers_roundtrip_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"wrapping_integers_roundtrip" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.25 sec
+----------------------------------------------------------
+Test Passed.
+"wrapping_integers_roundtrip" end time: Nov 24 17:19 CST
+"wrapping_integers_roundtrip" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/40 Testing: wrapping_integers_extra
+20/40 Test: wrapping_integers_extra
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/wrapping_integers_extra_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"wrapping_integers_extra" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.21 sec
+----------------------------------------------------------
+Test Passed.
+"wrapping_integers_extra" end time: Nov 24 17:19 CST
+"wrapping_integers_extra" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/40 Testing: recv_connect
+21/40 Test: recv_connect
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_connect_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_connect" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"recv_connect" end time: Nov 24 17:19 CST
+"recv_connect" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/40 Testing: recv_transmit
+22/40 Test: recv_transmit
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_transmit_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_transmit" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.35 sec
+----------------------------------------------------------
+Test Passed.
+"recv_transmit" end time: Nov 24 17:19 CST
+"recv_transmit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/40 Testing: recv_window
+23/40 Test: recv_window
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_window_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_window" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"recv_window" end time: Nov 24 17:19 CST
+"recv_window" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/40 Testing: recv_reorder
+24/40 Test: recv_reorder
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_reorder_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_reorder" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"recv_reorder" end time: Nov 24 17:19 CST
+"recv_reorder" time elapsed: 00:00:00
+----------------------------------------------------------
+
+25/40 Testing: recv_reorder_more
+25/40 Test: recv_reorder_more
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_reorder_more_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_reorder_more" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.79 sec
+----------------------------------------------------------
+Test Passed.
+"recv_reorder_more" end time: Nov 24 17:19 CST
+"recv_reorder_more" time elapsed: 00:00:00
+----------------------------------------------------------
+
+26/40 Testing: recv_close
+26/40 Test: recv_close
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_close_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_close" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"recv_close" end time: Nov 24 17:19 CST
+"recv_close" time elapsed: 00:00:00
+----------------------------------------------------------
+
+27/40 Testing: recv_special
+27/40 Test: recv_special
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/recv_special_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"recv_special" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"recv_special" end time: Nov 24 17:19 CST
+"recv_special" time elapsed: 00:00:00
+----------------------------------------------------------
+
+28/40 Testing: send_connect
+28/40 Test: send_connect
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_connect_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_connect" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"send_connect" end time: Nov 24 17:19 CST
+"send_connect" time elapsed: 00:00:00
+----------------------------------------------------------
+
+29/40 Testing: send_transmit
+29/40 Test: send_transmit
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_transmit_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_transmit" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.48 sec
+----------------------------------------------------------
+Test Passed.
+"send_transmit" end time: Nov 24 17:19 CST
+"send_transmit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+30/40 Testing: send_window
+30/40 Test: send_window
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_window_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_window" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.13 sec
+----------------------------------------------------------
+Test Passed.
+"send_window" end time: Nov 24 17:19 CST
+"send_window" time elapsed: 00:00:00
+----------------------------------------------------------
+
+31/40 Testing: send_ack
+31/40 Test: send_ack
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_ack_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_ack" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"send_ack" end time: Nov 24 17:19 CST
+"send_ack" time elapsed: 00:00:00
+----------------------------------------------------------
+
+32/40 Testing: send_close
+32/40 Test: send_close
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_close_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_close" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"send_close" end time: Nov 24 17:19 CST
+"send_close" time elapsed: 00:00:00
+----------------------------------------------------------
+
+33/40 Testing: send_retx
+33/40 Test: send_retx
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_retx_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_retx" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"send_retx" end time: Nov 24 17:19 CST
+"send_retx" time elapsed: 00:00:00
+----------------------------------------------------------
+
+34/40 Testing: send_extra
+34/40 Test: send_extra
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/send_extra_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"send_extra" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"send_extra" end time: Nov 24 17:19 CST
+"send_extra" time elapsed: 00:00:00
+----------------------------------------------------------
+
+35/40 Testing: net_interface
+35/40 Test: net_interface
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/net_interface_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"net_interface" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+DEBUG: Network interface has Ethernet address 6e:5c:5c:2c:b7:30 and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address 32:ed:a1:3d:49:1e and IP address 5.5.5.5
+DEBUG: Network interface has Ethernet address ba:f0:7c:79:47:5f and IP address 5.5.5.5
+DEBUG: Network interface has Ethernet address e6:4b:48:04:6f:45 and IP address 1.2.3.4
+DEBUG: Network interface has Ethernet address 5a:11:b9:50:fd:dc and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address da:3a:76:c4:a7:52 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 0e:bf:78:67:2e:79 and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address fe:b4:cc:bf:8d:e6 and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address c6:2b:40:61:a0:cb and IP address 100.5.100.5
+DEBUG: Network interface has Ethernet address 2a:f5:77:f1:8d:4a and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address 7a:af:0b:52:04:d4 and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address f6:5e:27:b4:40:f5 and IP address 5.5.5.5
+DEBUG: Network interface has Ethernet address 1a:90:a7:b8:99:d6 and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address 5e:d4:48:22:08:13 and IP address 5.5.5.5
+DEBUG: Network interface has Ethernet address 26:fe:8f:34:0a:74 and IP address 5.5.5.5
+DEBUG: Network interface has Ethernet address a2:2b:aa:fa:51:77 and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address 16:18:27:65:49:cb and IP address 5.5.5.5
+DEBUG: Network interface has Ethernet address 86:84:2e:88:3d:39 and IP address 4.3.2.1
+DEBUG: Network interface has Ethernet address a6:8d:56:91:62:7e and IP address 80.97.114.116
+DEBUG: Network interface has Ethernet address 9a:1d:f2:55:b3:e3 and IP address 5.5.5.5
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"net_interface" end time: Nov 24 17:19 CST
+"net_interface" time elapsed: 00:00:00
+----------------------------------------------------------
+
+36/40 Testing: router
+36/40 Test: router
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/router_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"router" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+[32;1mConstructing network.[m
+DEBUG: Network interface has Ethernet address 02:00:00:ed:a2:7a and IP address 171.67.76.46
+DEBUG: Network interface has Ethernet address 02:00:00:d2:1d:d7 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:2a:de:e0 and IP address 172.16.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:f2:c3:da and IP address 192.168.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:83:21:55 and IP address 198.178.229.1
+DEBUG: Network interface has Ethernet address 02:00:00:67:43:2e and IP address 143.195.0.2
+DEBUG: Network interface has Ethernet address 02:00:00:8c:9d:04 and IP address 128.30.76.255
+DEBUG: Network interface has Ethernet address 0e:a6:9d:50:2f:33 and IP address 10.0.0.2
+DEBUG: Network interface has Ethernet address be:89:fe:45:af:17 and IP address 171.67.76.1
+DEBUG: Network interface has Ethernet address d6:75:75:c1:51:fc and IP address 192.168.0.2
+DEBUG: Network interface has Ethernet address 76:30:a2:43:d7:71 and IP address 143.195.0.1
+DEBUG: Network interface has Ethernet address 42:4e:48:34:c1:2c and IP address 198.178.229.42
+DEBUG: Network interface has Ethernet address da:52:12:df:8d:a7 and IP address 198.178.229.43
+DEBUG: adding route 10.0.0.0/8 => (direct) on interface 1
+DEBUG: adding route 172.16.0.0/16 => (direct) on interface 2
+DEBUG: adding route 192.168.0.0/24 => (direct) on interface 3
+DEBUG: adding route 0.0.0.0/0 => 171.67.76.1 on interface 0
+DEBUG: adding route 198.178.229.0/24 => (direct) on interface 4
+DEBUG: adding route 143.195.0.0/17 => 143.195.0.1 on interface 5
+DEBUG: adding route 143.195.128.0/18 => 143.195.0.1 on interface 5
+DEBUG: adding route 143.195.192.0/19 => 143.195.0.1 on interface 5
+DEBUG: adding route 128.30.76.255/16 => 128.30.0.1 on interface 6
+[32;1m
+
+Testing traffic between two ordinary hosts (applesauce to cherrypie)...[m
+
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 556"
+Transferring frame from applesauce to eth0: dst=ff:ff:ff:ff:ff:ff src=0e:a6:9d:50:2f:33 type=ARP payload: opcode=REQUEST, sender=0e:a6:9d:50:2f:33/10.0.0.2, target=00:00:00:00:00:00/10.0.0.1
+Transferring frame from eth0 to applesauce: dst=0e:a6:9d:50:2f:33 src=02:00:00:d2:1d:d7 type=ARP payload: opcode=REPLY, sender=02:00:00:d2:1d:d7/10.0.0.1, target=0e:a6:9d:50:2f:33/10.0.0.2
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 556"
+Transferring frame from eth2 to cherrypie: dst=ff:ff:ff:ff:ff:ff src=02:00:00:f2:c3:da type=ARP payload: opcode=REQUEST, sender=02:00:00:f2:c3:da/192.168.0.1, target=00:00:00:00:00:00/192.168.0.2
+Transferring frame from cherrypie to eth2: dst=02:00:00:f2:c3:da src=d6:75:75:c1:51:fc type=ARP payload: opcode=REPLY, sender=d6:75:75:c1:51:fc/192.168.0.2, target=02:00:00:f2:c3:da/192.168.0.1
+Transferring frame from eth2 to cherrypie: dst=d6:75:75:c1:51:fc src=02:00:00:f2:c3:da type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 556"
+[32;1m
+
+Testing traffic between two ordinary hosts (cherrypie to applesauce)...[m
+
+Host cherrypie trying to send datagram (with next hop = 192.168.0.1): IPv4 len=31 proto=144 ttl=64 src=192.168.0.2 dst=10.0.0.2 payload="Cardinal 52"
+Transferring frame from cherrypie to eth2: dst=02:00:00:f2:c3:da src=d6:75:75:c1:51:fc type=IPv4 payload: IPv4 len=31 proto=144 ttl=64 src=192.168.0.2 dst=10.0.0.2 payload="Cardinal 52"
+Transferring frame from eth0 to applesauce: dst=0e:a6:9d:50:2f:33 src=02:00:00:d2:1d:d7 type=IPv4 payload: IPv4 len=31 proto=144 ttl=63 src=192.168.0.2 dst=10.0.0.2 payload="Cardinal 52"
+[32;1m
+
+Testing a few datagrams between applesauce and cherrypie...[m
+
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 513"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 121"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 662"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 649"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 802"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=31 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 18"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 160"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 863"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 860"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 132"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 513"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 121"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 662"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 649"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 802"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=31 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 18"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 160"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 863"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 860"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 132"
+Transferring frame from eth2 to cherrypie: dst=d6:75:75:c1:51:fc src=02:00:00:f2:c3:da type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 513"
+Transferring frame from eth2 to cherrypie: dst=d6:75:75:c1:51:fc src=02:00:00:f2:c3:da type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 121"
+Transferring frame from eth2 to cherrypie: dst=d6:75:75:c1:51:fc src=02:00:00:f2:c3:da type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 662"
+Transferring frame from eth2 to cherrypie: dst=d6:75:75:c1:51:fc src=02:00:00:f2:c3:da type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 649"
+Transferring frame from eth2 to cherrypie: dst=d6:75:75:c1:51:fc src=02:00:00:f2:c3:da type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 802"
+Transferring frame from eth2 to cherrypie: dst=d6:75:75:c1:51:fc src=02:00:00:f2:c3:da type=IPv4 payload: IPv4 len=31 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 18"
+Transferring frame from eth2 to cherrypie: dst=d6:75:75:c1:51:fc src=02:00:00:f2:c3:da type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 160"
+Transferring frame from eth2 to cherrypie: dst=d6:75:75:c1:51:fc src=02:00:00:f2:c3:da type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 863"
+Transferring frame from eth2 to cherrypie: dst=d6:75:75:c1:51:fc src=02:00:00:f2:c3:da type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 860"
+Transferring frame from eth2 to cherrypie: dst=d6:75:75:c1:51:fc src=02:00:00:f2:c3:da type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=192.168.0.2 payload="Cardinal 132"
+[32;1m
+
+Testing applesauce sending to the Internet.[m
+
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 833"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 833"
+Transferring frame from default to default_router: dst=ff:ff:ff:ff:ff:ff src=02:00:00:ed:a2:7a type=ARP payload: opcode=REQUEST, sender=02:00:00:ed:a2:7a/171.67.76.46, target=00:00:00:00:00:00/171.67.76.1
+Transferring frame from default_router to default: dst=02:00:00:ed:a2:7a src=be:89:fe:45:af:17 type=ARP payload: opcode=REPLY, sender=be:89:fe:45:af:17/171.67.76.1, target=02:00:00:ed:a2:7a/171.67.76.46
+Transferring frame from default to default_router: dst=be:89:fe:45:af:17 src=02:00:00:ed:a2:7a type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 833"
+[32;1m
+
+Testing sending to the HS network and Internet.[m
+
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=143.195.131.17 payload="Cardinal 186"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=10.0.0.2 dst=143.195.131.17 payload="Cardinal 186"
+Transferring frame from hs4 to hs_router: dst=ff:ff:ff:ff:ff:ff src=02:00:00:67:43:2e type=ARP payload: opcode=REQUEST, sender=02:00:00:67:43:2e/143.195.0.2, target=00:00:00:00:00:00/143.195.0.1
+Transferring frame from hs_router to hs4: dst=02:00:00:67:43:2e src=76:30:a2:43:d7:71 type=ARP payload: opcode=REPLY, sender=76:30:a2:43:d7:71/143.195.0.1, target=02:00:00:67:43:2e/143.195.0.2
+Transferring frame from hs4 to hs_router: dst=76:30:a2:43:d7:71 src=02:00:00:67:43:2e type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=10.0.0.2 dst=143.195.131.17 payload="Cardinal 186"
+Host cherrypie trying to send datagram (with next hop = 192.168.0.1): IPv4 len=32 proto=144 ttl=64 src=192.168.0.2 dst=143.195.193.52 payload="Cardinal 572"
+Transferring frame from cherrypie to eth2: dst=02:00:00:f2:c3:da src=d6:75:75:c1:51:fc type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=192.168.0.2 dst=143.195.193.52 payload="Cardinal 572"
+Transferring frame from hs4 to hs_router: dst=76:30:a2:43:d7:71 src=02:00:00:67:43:2e type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=192.168.0.2 dst=143.195.193.52 payload="Cardinal 572"
+Host cherrypie trying to send datagram (with next hop = 192.168.0.1): IPv4 len=32 proto=144 ttl=64 src=192.168.0.2 dst=143.195.223.255 payload="Cardinal 389"
+Transferring frame from cherrypie to eth2: dst=02:00:00:f2:c3:da src=d6:75:75:c1:51:fc type=IPv4 payload: IPv4 len=32 proto=144 ttl=64 src=192.168.0.2 dst=143.195.223.255 payload="Cardinal 389"
+Transferring frame from hs4 to hs_router: dst=76:30:a2:43:d7:71 src=02:00:00:67:43:2e type=IPv4 payload: IPv4 len=32 proto=144 ttl=63 src=192.168.0.2 dst=143.195.223.255 payload="Cardinal 389"
+Host cherrypie trying to send datagram (with next hop = 192.168.0.1): IPv4 len=31 proto=144 ttl=64 src=192.168.0.2 dst=143.195.224.0 payload="Cardinal 32"
+Transferring frame from cherrypie to eth2: dst=02:00:00:f2:c3:da src=d6:75:75:c1:51:fc type=IPv4 payload: IPv4 len=31 proto=144 ttl=64 src=192.168.0.2 dst=143.195.224.0 payload="Cardinal 32"
+Transferring frame from default to default_router: dst=be:89:fe:45:af:17 src=02:00:00:ed:a2:7a type=IPv4 payload: IPv4 len=31 proto=144 ttl=63 src=192.168.0.2 dst=143.195.224.0 payload="Cardinal 32"
+[32;1m
+
+Testing two hosts on the same network (dm42 to dm43)...[m
+
+Host dm42 trying to send datagram (with next hop = 198.178.229.1): IPv4 len=30 proto=144 ttl=64 src=198.178.229.42 dst=198.178.229.43 payload="Cardinal 2"
+Transferring frame from dm42 to uun3: dst=ff:ff:ff:ff:ff:ff src=42:4e:48:34:c1:2c type=ARP payload: opcode=REQUEST, sender=42:4e:48:34:c1:2c/198.178.229.42, target=00:00:00:00:00:00/198.178.229.1
+Transferring frame from dm42 to dm43: dst=ff:ff:ff:ff:ff:ff src=42:4e:48:34:c1:2c type=ARP payload: opcode=REQUEST, sender=42:4e:48:34:c1:2c/198.178.229.42, target=00:00:00:00:00:00/198.178.229.1
+Transferring frame from uun3 to dm42: dst=42:4e:48:34:c1:2c src=02:00:00:83:21:55 type=ARP payload: opcode=REPLY, sender=02:00:00:83:21:55/198.178.229.1, target=42:4e:48:34:c1:2c/198.178.229.42
+Transferring frame from uun3 to dm43: dst=42:4e:48:34:c1:2c src=02:00:00:83:21:55 type=ARP payload: opcode=REPLY, sender=02:00:00:83:21:55/198.178.229.1, target=42:4e:48:34:c1:2c/198.178.229.42
+Transferring frame from dm42 to uun3: dst=02:00:00:83:21:55 src=42:4e:48:34:c1:2c type=IPv4 payload: IPv4 len=30 proto=144 ttl=64 src=198.178.229.42 dst=198.178.229.43 payload="Cardinal 2"
+Transferring frame from dm42 to dm43: dst=02:00:00:83:21:55 src=42:4e:48:34:c1:2c type=IPv4 payload: IPv4 len=30 proto=144 ttl=64 src=198.178.229.42 dst=198.178.229.43 payload="Cardinal 2"
+Transferring frame from uun3 to dm42: dst=ff:ff:ff:ff:ff:ff src=02:00:00:83:21:55 type=ARP payload: opcode=REQUEST, sender=02:00:00:83:21:55/198.178.229.1, target=00:00:00:00:00:00/198.178.229.43
+Transferring frame from uun3 to dm43: dst=ff:ff:ff:ff:ff:ff src=02:00:00:83:21:55 type=ARP payload: opcode=REQUEST, sender=02:00:00:83:21:55/198.178.229.1, target=00:00:00:00:00:00/198.178.229.43
+Transferring frame from dm43 to uun3: dst=02:00:00:83:21:55 src=da:52:12:df:8d:a7 type=ARP payload: opcode=REPLY, sender=da:52:12:df:8d:a7/198.178.229.43, target=02:00:00:83:21:55/198.178.229.1
+Transferring frame from dm43 to dm42: dst=02:00:00:83:21:55 src=da:52:12:df:8d:a7 type=ARP payload: opcode=REPLY, sender=da:52:12:df:8d:a7/198.178.229.43, target=02:00:00:83:21:55/198.178.229.1
+Transferring frame from uun3 to dm42: dst=da:52:12:df:8d:a7 src=02:00:00:83:21:55 type=IPv4 payload: IPv4 len=30 proto=144 ttl=63 src=198.178.229.42 dst=198.178.229.43 payload="Cardinal 2"
+Transferring frame from uun3 to dm43: dst=da:52:12:df:8d:a7 src=02:00:00:83:21:55 type=IPv4 payload: IPv4 len=30 proto=144 ttl=63 src=198.178.229.42 dst=198.178.229.43 payload="Cardinal 2"
+[32;1m
+
+Testing TTL expiration...[m
+
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=1 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 507"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=1 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 507"
+Host applesauce trying to send datagram (with next hop = 10.0.0.1): IPv4 len=32 proto=144 ttl=0 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 991"
+Transferring frame from applesauce to eth0: dst=02:00:00:d2:1d:d7 src=0e:a6:9d:50:2f:33 type=IPv4 payload: IPv4 len=32 proto=144 ttl=0 src=10.0.0.2 dst=1.2.3.4 payload="Cardinal 991"
+[32;1m
+
+Testing network with no default route...[m
+
+DEBUG: Network interface has Ethernet address 02:00:00:fe:c6:af and IP address 18.241.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:38:95:a3 and IP address 10.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:67:93:40 and IP address 192.168.0.1
+DEBUG: adding route 10.0.0.0/8 => (direct) on interface 1
+
+
+[32;1mCongratulations! All datagrams were routed successfully.[m
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"router" end time: Nov 24 17:19 CST
+"router" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/40 Testing: no_skip
+37/40 Test: no_skip
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/no_skip_sanitized"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"no_skip" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"no_skip" end time: Nov 24 17:19 CST
+"no_skip" time elapsed: 00:00:00
+----------------------------------------------------------
+
+38/40 Testing: compile with optimization
+38/40 Test: compile with optimization
+Command: "/usr/bin/cmake" "--build" "/mnt/d/计算机网络/课程设计/-/build/wsl" "-t" "speed_testing"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"compile with optimization" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+[  8%] Building CXX object src/CMakeFiles/imp_optimized.dir/router.cc.o
+[ 58%] Built target util_optimized
+[ 66%] Linking CXX static library libimp_optimized.a
+[ 83%] Built target imp_optimized
+[ 91%] Linking CXX executable reassembler_speed_test
+[ 91%] Linking CXX executable byte_stream_speed_test
+[ 91%] Built target byte_stream_speed_test
+[100%] Built target reassembler_speed_test
+[100%] Built target speed_testing
+<end of output>
+Test time =   3.40 sec
+----------------------------------------------------------
+Test Passed.
+"compile with optimization" end time: Nov 24 17:19 CST
+"compile with optimization" time elapsed: 00:00:03
+----------------------------------------------------------
+
+39/40 Testing: byte_stream_speed_test
+39/40 Test: byte_stream_speed_test
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/byte_stream_speed_test"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"byte_stream_speed_test" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+ByteStream with capacity=32768, write_size=1500, read_size=4096 reached 22.93 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=128 reached 16.58 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=32 reached 7.90 Gbit/s.
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Passed.
+"byte_stream_speed_test" end time: Nov 24 17:19 CST
+"byte_stream_speed_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+40/40 Testing: reassembler_speed_test
+40/40 Test: reassembler_speed_test
+Command: "/mnt/d/计算机网络/课程设计/-/build/wsl/tests/reassembler_speed_test"
+Directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+"reassembler_speed_test" start time: Nov 24 17:19 CST
+Output:
+----------------------------------------------------------
+Reassembler to ByteStream with capacity=32768 reached 125.07 Gbit/s.
+Reassembler to ByteStream with capacity=32768 reached 13.70 Gbit/s.
+<end of output>
+Test time =   0.23 sec
+----------------------------------------------------------
+Test Passed.
+"reassembler_speed_test" end time: Nov 24 17:19 CST
+"reassembler_speed_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 24 17:19 CST

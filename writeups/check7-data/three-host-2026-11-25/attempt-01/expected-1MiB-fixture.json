@@ -1,0 +1,6 @@
+{
+  "provenance": "Deterministic expected fixture, not a remote received-file measurement",
+  "label": "CS144 peer test",
+  "bytes": 1048576,
+  "sha256": "7e7a19f30c8d5d3555721c2923598ef422d464e896fe68906f63f48c91f414fa"
+}

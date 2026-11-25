@@ -1,0 +1,2 @@
+{"node": "C1", "returncode": 0, "received_bytes": 1048576, "expected_bytes": 1048576, "sha256": "ee8c54bb30ccb8ce17123c90384be3dea6f4036fc231b05e7fb9f3bb60a27c99", "expected_sha256": "ee8c54bb30ccb8ce17123c90384be3dea6f4036fc231b05e7fb9f3bb60a27c99", "chat_match": true, "match": true}
+{"node": "S1", "returncode": 0, "received_bytes": 1048576, "expected_bytes": 1048576, "sha256": "333d5a5352c75606e99197c643c3b42200f60922f0f1feba6cfda3500e71959f", "expected_sha256": "333d5a5352c75606e99197c643c3b42200f60922f0f1feba6cfda3500e71959f", "chat_match": true, "match": true}

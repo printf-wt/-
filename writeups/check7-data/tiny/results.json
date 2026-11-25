@@ -1,0 +1,165 @@
+{
+  "status": "failed",
+  "started_utc": "2026-11-24T09:09:21.812579+00:00",
+  "scope": "single WSL instance; real UDP sockets and separate C++ processes",
+  "topology": "tiny",
+  "sanitized": true,
+  "bytes_per_direction": 1048576,
+  "routers": {
+    "R1": {
+      "interfaces": [
+        "interface:stanford:50.0.0.1:54003:127.0.0.1:33201",
+        "interface:ucla:80.0.0.1:33499:127.0.0.1:49372"
+      ],
+      "routes": [
+        "route:50.0.0.0:8:stanford",
+        "route:80.0.0.0:8:ucla"
+      ]
+    }
+  },
+  "endpoints": {
+    "S1": {
+      "port": 39306,
+      "proxy": 33201,
+      "ip": "50.9.8.7",
+      "gateway": "50.0.0.1"
+    },
+    "C1": {
+      "port": 35160,
+      "proxy": 49372,
+      "ip": "80.6.5.4",
+      "gateway": "80.0.0.1"
+    }
+  },
+  "flows": [
+    [
+      "C1",
+      "S1"
+    ]
+  ],
+  "error": "Command '['/mnt/d/计算机网络/课程设计/-/build/wsl/apps/tcp_eth_udp_sanitized', 'server', '39306', '50.0.0.1', '50.9.8.7:80']' timed out after 90 seconds",
+  "elapsed_s": 90.42648418099998,
+  "transfers": [],
+  "commands": {
+    "R1": [
+      "/mnt/d/计算机网络/课程设计/-/build/wsl/apps/fun_router_sanitized",
+      "interface:stanford:50.0.0.1:54003:127.0.0.1:33201",
+      "interface:ucla:80.0.0.1:33499:127.0.0.1:49372",
+      "route:50.0.0.0:8:stanford",
+      "route:80.0.0.0:8:ucla"
+    ],
+    "S1": [
+      "/mnt/d/计算机网络/课程设计/-/build/wsl/apps/tcp_eth_udp_sanitized",
+      "server",
+      "39306",
+      "50.0.0.1",
+      "50.9.8.7:80"
+    ],
+    "C1": [
+      "/mnt/d/计算机网络/课程设计/-/build/wsl/apps/tcp_eth_udp_sanitized",
+      "client",
+      "35160",
+      "127.0.0.1:49372",
+      "80.0.0.1",
+      "80.6.5.4",
+      "50.9.8.7:80"
+    ]
+  },
+  "links": [
+    {
+      "name": "stanford",
+      "proxy_port": 33201,
+      "left_port": 39306,
+      "right_port": 54003,
+      "frames": 0,
+      "types": {},
+      "ttls": {},
+      "dropped_data_frames": 0,
+      "repeated_data_ranges": 0,
+      "first_events": [],
+      "capture": "stanford.pcap",
+      "snaplen": 96
+    },
+    {
+      "name": "ucla",
+      "proxy_port": 49372,
+      "left_port": 35160,
+      "right_port": 33499,
+      "frames": 7,
+      "types": {
+        "ARP": 7
+      },
+      "ttls": {},
+      "dropped_data_frames": 0,
+      "repeated_data_ranges": 0,
+      "first_events": [
+        {
+          "direction": "left-to-right",
+          "dropped": false,
+          "bytes": 42,
+          "type": "ARP",
+          "opcode": 1,
+          "sender": "80.6.5.4",
+          "target": "80.0.0.1"
+        },
+        {
+          "direction": "left-to-right",
+          "dropped": false,
+          "bytes": 42,
+          "type": "ARP",
+          "opcode": 1,
+          "sender": "80.6.5.4",
+          "target": "80.0.0.1"
+        },
+        {
+          "direction": "left-to-right",
+          "dropped": false,
+          "bytes": 42,
+          "type": "ARP",
+          "opcode": 1,
+          "sender": "80.6.5.4",
+          "target": "80.0.0.1"
+        },
+        {
+          "direction": "left-to-right",
+          "dropped": false,
+          "bytes": 42,
+          "type": "ARP",
+          "opcode": 1,
+          "sender": "80.6.5.4",
+          "target": "80.0.0.1"
+        },
+        {
+          "direction": "left-to-right",
+          "dropped": false,
+          "bytes": 42,
+          "type": "ARP",
+          "opcode": 1,
+          "sender": "80.6.5.4",
+          "target": "80.0.0.1"
+        },
+        {
+          "direction": "left-to-right",
+          "dropped": false,
+          "bytes": 42,
+          "type": "ARP",
+          "opcode": 1,
+          "sender": "80.6.5.4",
+          "target": "80.0.0.1"
+        },
+        {
+          "direction": "left-to-right",
+          "dropped": false,
+          "bytes": 42,
+          "type": "ARP",
+          "opcode": 1,
+          "sender": "80.6.5.4",
+          "target": "80.0.0.1"
+        }
+      ],
+      "capture": "ucla.pcap",
+      "snaplen": 96
+    }
+  ],
+  "relay_errors": []
+}

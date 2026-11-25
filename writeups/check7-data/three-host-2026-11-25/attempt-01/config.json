@@ -1,0 +1,42 @@
+{
+  "client_date": "2026-11-25",
+  "status": "passed: both UDP paths, bidirectional TCP data and two 1 MiB receiver SHA-256 verifications",
+  "router": {
+    "windows": "10.200.49.154",
+    "ubuntu": "172.18.80.5",
+    "kind": "WSL",
+    "windows_wsl_address": "172.18.80.1"
+  },
+  "client_A": {
+    "windows": "10.200.54.254",
+    "ubuntu": "192.168.226.128",
+    "kind": "VM",
+    "windows_vmnet8": "192.168.226.1",
+    "udp_probe_status": "passed: 3/3, user transcript and router logs"
+  },
+  "server_B": {
+    "windows": "10.200.93.187",
+    "ubuntu": "192.168.105.128",
+    "kind": "VM",
+    "windows_vmnet8": "192.168.105.1",
+    "preparation": "Windows bridge READY reported; Ubuntu only hostname checked, probe script not yet downloaded",
+    "udp_probe_status": "passed: 3/3, user transcript and root log"
+  },
+  "scope": "Addresses supplied by user and local inspection; reachability requires actual UDP test.",
+  "tcp_router_observations": {
+    "A_to_B": {
+      "datagrams_observed": 2835,
+      "with_application_data": 1427,
+      "sum_logged_ipv4_bytes": 1517972,
+      "note": "Includes headers, acknowledgments and possible retransmission; not unique application byte count or received-file hash."
+    },
+    "B_to_A": {
+      "datagrams_observed": 2836,
+      "with_application_data": 1408,
+      "sum_logged_ipv4_bytes": 1520014,
+      "note": "Includes headers, acknowledgments and possible retransmission; not unique application byte count or received-file hash."
+    }
+  },
+  "three_host_verified": true,
+  "verification_file": "three-host-transfer-result.json"
+}

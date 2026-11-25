@@ -1,0 +1,5 @@
+DEBUG: Network interface has Ethernet address 02:00:00:8c:1f:12 and IP address 50.0.0.1
+DEBUG: Network interface has Ethernet address 02:00:00:bc:8e:62 and IP address 80.0.0.1
+DEBUG: adding route 50.0.0.0/8 => (direct) on interface 0
+DEBUG: adding route 80.0.0.0/8 => (direct) on interface 1
+/mnt/d/计算机网络/课程设计/-/util/address.cc:37:9: runtime error: null pointer passed as argument 2, which is declared to never be null

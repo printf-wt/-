@@ -1,0 +1,32 @@
+Checkpoint 7 验证摘要（本机与真实三机均通过）
+
+2026-11-24 本机最终结果：
+- 官方完整 CTest 40/40，通过；原始记录 all-tests.log、all-ctest.log。
+- ASan/UBSan 全栈应用构建通过，记录 apps-build.log。
+- 项目与改动的 fun_router、address 静态分析通过，记录 static-analysis.log。
+- 一路由器双向 1 MiB：check7-data/tiny-final，逐字节及 SHA-256 均一致。
+- 三路由器、两条并发 TCP、四方向各 1 MiB：check7-data/bigger，均一致。
+- 定点丢一个数据帧后双向文件一致：check7-data/loss，观察到重复数据序号范围。
+- 双向聊天及各 1 MiB 文件校验：check7-data/chat，消息、文件、哈希及收据一致。
+- 聊天协议 8/8：chat-protocol-tests.log。
+- Windows UDP 转发 4 项回环检查：windows-bridge-test.log。
+- pcap 首部、IPv4 校验和、SYN/FIN、TTL、计数和保存哈希核对通过：evidence-validation.log。
+
+初次 tiny 目录是框架默认空地址的 UBSan 失败记录，不计作通过。
+正式本机实验是独立 C++ 进程和真实 UDP 回环，不是三位同学已跨电脑互通。
+pcap 仅保存每帧前 96 字节，不能从抓帧重建完整传输文件。
+实际完整字节在应用端比较，SHA-256 保存于 results.json 和聊天收据。
+
+2026-11-25 新网络联调：
+- 三台 Windows 地址与两台虚拟机地址已收齐，见 check7-session-2026-11-25.md。
+- 用户路由器两条固定来源规则已读取确认更新，两个 Windows 转发显示 READY。
+- 本机 UDP 预检工具已用真实三次回环验证，并核对无端点时失败退出。
+- A、B 的实际 UDP 探测各 3/3，本机各记录三次回显。
+- 正式路由器记录两个方向的 TCP 数据。
+- 两份 FILE VERIFIED 各 1048576 字节，SHA-256 均与原文一致，已分别保留原始保存名。
+- 退出收据 JSON 留在同学机器，提交的接收证据为用户回传控制台记录；不冒充远程自动采集。
+- 用户确认退出后，按 PID 与命令/端口归属停止本机临时服务。
+
+报告：output/pdf/check7-report.pdf 已更新为本机实验与 11 月 25 日三机实测结果。
+两张真实 VS Code 截图：01-chat-send.jpg、02-chat-receive.jpg，源文件未修改。
+实现、验证、记录与文档由 Codex 按用户要求辅助完成。

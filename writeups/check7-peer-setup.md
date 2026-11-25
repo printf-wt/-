@@ -1,195 +1,202 @@
-# Point 7 三台电脑启动说明
+# Point 7 三机启动与复现说明（2026-11-25 实测）
 
-> 本文中的具体地址属于 **2026-11-24 的旧配置**。
-> 2026-11-25 已更换 Wi-Fi 和同学机器，暂勿复制下方旧 IP 命令执行。
-> 新一轮实际状态见 [11 月 25 日联调记录](check7-session-2026-11-25.md)，收齐新地址后再更新启动命令。
+本说明使用已经完成 UDP 和双向 1 MiB 校验的实际配置。
+换网、重启或换机器后先重新核对地址，不能直接套用今天的 IP。
+两位同学使用 Ubuntu 虚拟机，用户本人使用 WSL 并运行路由器。
 
-本说明使用用户提供的实际地址。三台 Windows 应连接同一个局域网。
-这些配置已准备好，跨电脑通信是否成功需要三个人实际启动后再确认。
-当前本机回环实验不能代替三机实验结果。
+## 1 角色与两层地址
 
-## 1 分工与地址
-
-| 角色 | Windows 局域网 IPv4 | Ubuntu 内部 IPv4 | 系统 |
+| 角色 | Windows Wi-Fi IPv4 | Ubuntu IPv4 | 宿主机连接 Ubuntu 的地址 |
 |---|---|---|---|
-| 你：路由器 | 172.20.10.3 | 172.18.80.5 | WSL |
-| 同学 A：客户端 | 172.20.10.2 | 172.18.199.141 | WSL |
-| 同学 B：服务端 | 172.20.10.7 | 192.168.217.128 | 虚拟机 |
+| 用户：路由器 | 10.200.49.154 | 172.18.80.5 / WSL | 172.18.80.1 |
+| A：客户端 | 10.200.54.254 | 192.168.226.128 / VM | VMnet8：192.168.226.1 |
+| B：服务端 | 10.200.93.187 | 192.168.105.128 / VM | VMnet8：192.168.105.1 |
 
-以上地址会因重启或换网络而改变；开始前在 Windows `ipconfig`、Ubuntu `hostname -I`
-核对。`169.254.144.1` 是另一条实验接口，未作为这次跨机隧道地址。
+内层虚拟地址仍是 A=80.6.5.4，B=50.9.8.7:80，路由器两侧为 80.0.0.1/50.0.0.1。
+它们只存在于实验封装的数据中，不写入 Windows 网卡。
+Ubuntu 应先连接宿主机的虚拟网卡地址，再由 Windows 向同学的真实 Wi-Fi 地址转发。
 
-本次虚拟网络仍用：客户端 80.6.5.4，服务端 50.9.8.7:80，
-路由器两侧接口 80.0.0.1 和 50.0.0.1。这些地址不需要写进 Windows 网卡设置。
+实际采用同一份项目代码在三台电脑部署，参与者以 A/B/用户代称。
+不声称是三名同学独立实现的协议栈；没有提供的姓名和 SUNet ID 不虚构。
 
-## 2 为什么增加 Windows UDP 转发
+## 2 准备文件
 
-WSL 和虚拟机内部地址未必能从另一台电脑直接访问。
-本方案在每台 Windows 上运行一个固定两端的 UDP 转发脚本，
-将外层 UDP 在已配置的本机 Ubuntu 与同学 Windows 之间转发。
-脚本不实现 TCP、ARP 或选路；协议行为仍由 Ubuntu 中的项目源码完成。
-它只接受指定 IP 和源端口的两个端点，不转发其他来源。
+两位均确认 Ubuntu 24.04.5、GCC 13.3、CMake 3.28.3。
+本次克隆失败后改发 [离线包](../output/check7/cs144-point7-offline-20261125.zip)。
+里面有源码、已编译 Linux x86_64 端点、聊天工具和 OFFLINE-START.md。
 
-不要使用只支持 TCP 的 `netsh interface portproxy` 代替这里的 UDP 转发。
-这里不要求切换 WSL 网络模式，也不要求修改虚拟机桥接模式。
-微软背景说明：[WSL 网络](https://learn.microsoft.com/en-us/windows/wsl/networking)。
-
-## 3 准备项目与编译
-
-两位同学可在 Ubuntu 中新建独立副本，不覆盖自己原来的实验目录：
+在 Ubuntu 中将包内 cs144-point7-offline-20261125 文件夹提取到 Home，再执行：
 
 ```bash
-git clone https://github.com/printf-wt/C-NET_class-design.git cs144-point7
-cd cs144-point7
+cd "$HOME/cs144-point7-offline-20261125"
+chmod +x bin/tcp_eth_udp_sanitized scripts/*.sh tests/*.sh
 ```
 
-若仓库访问需要登录，使用自己的已获授权账号，或由仓库主人提供代码副本。
-已经取得这个副本的同学先 `git pull --ff-only`。然后在各自仓库根目录执行：
+程序需要相应 Ubuntu 运行库；其他系统优先按包内说明从源码构建。
+聊天收文件使用同目录硬链接，建议运行于 Ubuntu 本地文件系统。
+
+## 3 Windows 转发脚本
+
+本次使用 [udp-bridge.ps1](../tools/check7/udp-bridge.ps1)。
+可下载到 TEMP，也可直接传给同学保存到确定的文件路径。
+PowerShell 当前目录若是 C:\Windows\System32，不能假设项目相对路径存在。
+下面示例假设脚本在桌面并命名为 udp-bridge.ps1：
+
+```powershell
+$bridge = Join-Path ([Environment]::GetFolderPath("Desktop")) "udp-bridge.ps1"
+Test-Path $bridge
+```
+
+应为 True。若已确认是本项目文件，且 RemoteSigned 因下载标记报未签名，可只解除该文件标记：
+
+```powershell
+Unblock-File -LiteralPath $bridge
+```
+
+这不改变全局执行策略；若仍受策略阻止，先读取 Get-ExecutionPolicy -List 再处理。
+参考：[微软 Unblock-File 文档](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/unblock-file)。
+
+## 4 精确来源的防火墙规则
+
+由各电脑主人在管理员 PowerShell 执行。端口固定，来源只包含对应同学和本机 Ubuntu。
+用户路由器两条规则本次是更新已有配置：
+
+```powershell
+Set-NetFirewallRule -DisplayName "CS144-Check7-Router50" -RemoteAddress 10.200.93.187,172.18.80.5
+Set-NetFirewallRule -DisplayName "CS144-Check7-Router80" -RemoteAddress 10.200.54.254,172.18.80.5
+```
+
+新电脑没有旧规则时，需要新建对应 UDP 19050/19080 入站规则。
+A 本次新建：
+
+```powershell
+New-NetFirewallRule -DisplayName "CS144-Check7-Client-1125" -Direction Inbound -Action Allow -Protocol UDP -LocalPort 12080 -RemoteAddress 10.200.49.154,192.168.226.128
+```
+
+B 本次新建：
+
+```powershell
+New-NetFirewallRule -DisplayName "CS144-Check7-Server-1125" -Direction Inbound -Action Allow -Protocol UDP -LocalPort 12050 -RemoteAddress 10.200.49.154,192.168.105.128
+```
+
+已经创建的规则不必反复新建。若有 Hyper-V 或第三方防火墙限制，按实际诊断处理。
+不关闭整机防火墙，也不以 ping 成败替代实际 UDP 往返。
+
+## 5 四个 Windows 转发进程
+
+用户电脑运行两个窗口，脚本路径使用自己的真实绝对路径：
+
+```powershell
+& 'D:\计算机网络\课程设计\-\tools\check7\udp-bridge.ps1' -LocalUbuntuIP 172.18.80.5 -LocalPort 9050 -ListenPort 19050 -PeerIP 10.200.93.187 -PeerPort 12050
+```
+
+```powershell
+& 'D:\计算机网络\课程设计\-\tools\check7\udp-bridge.ps1' -LocalUbuntuIP 172.18.80.5 -LocalPort 9080 -ListenPort 19080 -PeerIP 10.200.54.254 -PeerPort 12080
+```
+
+A Windows：
+
+```powershell
+& $bridge -LocalUbuntuIP 192.168.226.128 -LocalPort 2080 -ListenPort 12080 -PeerIP 10.200.49.154 -PeerPort 19080
+```
+
+B Windows：
+
+```powershell
+& $bridge -LocalUbuntuIP 192.168.105.128 -LocalPort 2050 -ListenPort 12050 -PeerIP 10.200.49.154 -PeerPort 19050
+```
+
+确认 READY 中每个端口完整，尤其 A 的 PeerPort 是 19080，不是 1908。
+READY 只说明本地套接字已绑定，尚不证明对方可达。
+
+## 6 正式连接前先测 UDP
+
+路由器 WSL 可先分别启动 9080、9050 的探测应答端，替代正式程序占用这些端口：
 
 ```bash
-g++ --version
-cmake --version
-python3 --version
-cmake -S . -B build/wsl -DSANITIZED_APPS=True
-CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target tcp_eth_udp_sanitized fun_router_sanitized
+python3 tools/check7/udp_probe.py listen --port 9080
 ```
 
-本项目验证环境为 Ubuntu 24.04、GCC 13、CMake 3.28；框架要求 C++23 和 CMake≥3.24。
-如果同学版本较旧且编译失败，先保留错误输出，不必反复运行。
-本地源码已做 GCC 13 范围遍历兼容修正与默认空地址的 UBSan 修正。
-不要从官方 startercode 单独下载未实现的 TCP 模块来替换自己的源码。
-
-## 4 Windows 侧准备
-
-Windows 中打开 PowerShell，进入项目目录。WSL 可通过文件资源管理器的 Linux 项
-找到 Ubuntu 中的仓库，也可将仓库中的 `tools/check7/udp-bridge.ps1` 复制到 Windows。
-复制脚本时保留其真实文件内容，下面命令的路径按实际位置填写。
-
-你这台电脑的每个 PowerShell 窗口先执行：
-
-```powershell
-Set-Location -LiteralPath 'D:\计算机网络\课程设计\-'
-Test-Path .\tools\check7\udp-bridge.ps1
+```bash
+python3 tools/check7/udp_probe.py listen --port 9050
 ```
 
-应返回 True。管理员 PowerShell 默认常在 C:\Windows\System32，
-不能从那里直接使用项目相对路径。两位同学请切到他们自己的项目位置，
-或者复制脚本的完整路径后，用 `& '脚本完整路径'` 加对应参数启动。
+A Ubuntu：
 
-每台电脑需允许本次指定 UDP 端口。以下命令由该电脑主人在**管理员 PowerShell**运行，
-只开放列出的来源，不关闭整个防火墙。
-
-你这台路由器 Windows：
-
-```powershell
-New-NetFirewallRule -DisplayName "CS144-Check7-Router50" -Direction Inbound -Action Allow -Protocol UDP -LocalPort 19050 -RemoteAddress 172.20.10.7,172.18.80.5
-New-NetFirewallRule -DisplayName "CS144-Check7-Router80" -Direction Inbound -Action Allow -Protocol UDP -LocalPort 19080 -RemoteAddress 172.20.10.2,172.18.80.5
+```bash
+python3 tools/check7/udp_probe.py send --port 2080 --peer 192.168.226.1 --peer-port 12080
 ```
 
-同学 A 的 Windows：
+B Ubuntu：
 
-```powershell
-New-NetFirewallRule -DisplayName "CS144-Check7-Client" -Direction Inbound -Action Allow -Protocol UDP -LocalPort 12080 -RemoteAddress 172.20.10.3,172.18.199.141
+```bash
+python3 tools/check7/udp_probe.py send --port 2050 --peer 192.168.105.1 --peer-port 12050
 ```
 
-同学 B 的 Windows：
+本次两端均三次回复且 status=passed，本机日志各记录三次回显。
+A 初次发往自己 Windows 的 Wi-Fi IP，经 NAT 改写了来源，被严格来源过滤拒绝；
+改成 VMnet8 后成功。不要为了这个问题放开任意来源。
+通过后退出探测应答进程释放端口，再启动下面的正式路由器。
 
-```powershell
-New-NetFirewallRule -DisplayName "CS144-Check7-Server" -Direction Inbound -Action Allow -Protocol UDP -LocalPort 12050 -RemoteAddress 172.20.10.3,192.168.217.128
-```
+## 7 正式路由器与端点
 
-若额外的 Hyper-V、第三方防火墙或虚拟机软件阻断流量，仍需针对实际错误处理；
-普通 Windows 入站规则不是跨机联通成功的证明。
-
-## 5 开四个 Windows 转发窗口
-
-你这台开两个 PowerShell，分别保持以下命令运行：
-
-```powershell
-& .\tools\check7\udp-bridge.ps1 -LocalUbuntuIP 172.18.80.5 -LocalPort 9050 -ListenPort 19050 -PeerIP 172.20.10.7 -PeerPort 12050
-```
-
-```powershell
-& .\tools\check7\udp-bridge.ps1 -LocalUbuntuIP 172.18.80.5 -LocalPort 9080 -ListenPort 19080 -PeerIP 172.20.10.2 -PeerPort 12080
-```
-
-同学 A 的 Windows：
-
-```powershell
-& .\tools\check7\udp-bridge.ps1 -LocalUbuntuIP 172.18.199.141 -LocalPort 2080 -ListenPort 12080 -PeerIP 172.20.10.3 -PeerPort 19080
-```
-
-同学 B 的 Windows：
-
-```powershell
-& .\tools\check7\udp-bridge.ps1 -LocalUbuntuIP 192.168.217.128 -LocalPort 2050 -ListenPort 12050 -PeerIP 172.20.10.3 -PeerPort 19050
-```
-
-应显示 READY，之后实际转发时显示 FORWARDED 计数。
-如果 PowerShell 提示执行策略阻止脚本或端口占用，保留报错再处理；不用重装 Ubuntu。
-
-## 6 启动三个 Ubuntu 角色
-
-先在你的 Ubuntu 仓库目录运行路由器，窗口保持开启：
+用户 WSL，在项目根目录运行并保留日志：
 
 ```bash
 ./build/wsl/apps/fun_router_sanitized \
-  interface:stanford:50.0.0.1:9050:172.20.10.3:19050 \
-  interface:ucla:80.0.0.1:9080:172.20.10.3:19080 \
+  interface:stanford:50.0.0.1:9050:172.18.80.1:19050 \
+  interface:ucla:80.0.0.1:9080:172.18.80.1:19080 \
   route:50.0.0.0:8:stanford route:80.0.0.0:8:ucla
 ```
 
-然后同学 B 在自己的 Ubuntu 启动聊天室服务端：
+B 先在离线包目录启动服务端：
 
 ```bash
-python3 tools/check7/chat.py --name classmate-B --downloads build/check7-peer-B -- \
-  ./build/wsl/apps/tcp_eth_udp_sanitized server 2050 50.0.0.1 50.9.8.7:80
+python3 tools/check7/chat.py --name B --downloads build/three-host-B -- ./bin/tcp_eth_udp_sanitized server 2050 50.0.0.1 50.9.8.7:80
 ```
 
-最后同学 A 在自己的 Ubuntu 启动客户端：
+A 再启动客户端：
 
 ```bash
-python3 tools/check7/chat.py --name classmate-A --downloads build/check7-peer-A -- \
-  ./build/wsl/apps/tcp_eth_udp_sanitized client 2080 172.20.10.2:12080 80.0.0.1 80.6.5.4 50.9.8.7:80
+python3 tools/check7/chat.py --name A --downloads build/three-host-A -- ./bin/tcp_eth_udp_sanitized client 2080 192.168.226.1:12080 80.0.0.1 80.6.5.4 50.9.8.7:80
 ```
 
-注意，客户端连接的物理地址是**自己 Windows 的转发端口**，
-转发脚本再送给你的路由器 Windows。虚拟下一跳仍为 80.0.0.1。
-服务端从第一份帧学习本地转发端的物理应答地址。
+两边可各输入一句普通文字，确认 CHAT。端点的物理地址、虚拟下一跳、最终目的地址各有用途，不能互换。
 
-## 7 聊天与 1 MiB 文件校验
+## 8 双向 1 MiB 文件校验
 
-连接成功后 A、B 各输入一句话，确认对方出现 CHAT 提示。
-双方各在另一个 Ubuntu 终端生成测试文件：
+两位另开 Ubuntu 终端，在离线包目录生成原文件：
 
 ```bash
-python3 -c 'import hashlib,pathlib; pathlib.Path("build/check7-test.bin").write_bytes(hashlib.shake_256(b"CS144 peer test").digest(1048576))'
-sha256sum build/check7-test.bin
+python3 -c 'import hashlib,pathlib; p=pathlib.Path("build/test-1MiB.bin"); p.parent.mkdir(parents=True,exist_ok=True); p.write_bytes(hashlib.shake_256(b"CS144 peer test").digest(1048576))'
+sha256sum build/test-1MiB.bin
 ```
 
-回到聊天窗口输入：
+原文件预期 SHA-256：
 
 ```text
-/send build/check7-test.bin
+7e7a19f30c8d5d3555721c2923598ef422d464e896fe68906f63f48c91f414fa
 ```
 
-发送端出现 FILE SENT，接收端应出现 FILE VERIFIED，包含字节数和 SHA-256。
-分别记录两个方向的结果。也可对接收端保存的文件再运行 `sha256sum`。
-聊天结束时双方输入 `/quit`，等待双方关闭及 receipts.json 写入。
-应用需要两边都结束发送；只一方退出时，另一方仍可以发消息。
+回到聊天窗口，先 A 发送，B 验证后再由 B 发送：
 
-交回实际参与者姓名或你们选择的代称、Ubuntu 类型、发送和接收哈希、
-两侧聊天日志及任何报错，才能把报告中的“三机待验证”改成实际结果。
-没有 Stanford SUNet ID 就说明非 Stanford 环境，不虚构学号。
+```text
+/send build/test-1MiB.bin
+```
 
-## 8 实验结束
+接收方须出现 FILE VERIFIED，大小为 1048576，哈希与原文件一致。
+不能仅凭 FILE SENT 记为成功。本次两份独立接收记录均已核对通过。
 
-各 Windows 转发窗口 Ctrl+C，路由器 Ubuntu 窗口 Ctrl+C。
-各电脑主人在管理员 PowerShell 清理本次规则：
+## 9 退出、保存与清理
+
+双方各输入 /quit，等返回命令提示符，应用在下载目录写 receipts.json。
+本次提供给助手的是两份 FILE VERIFIED 控制台记录；退出后的正式 JSON 留在参与者机器中。
+用户 WSL 路由器和本机两个 Windows 转发由助手在数据核对后停止，两位 Windows 转发可 Ctrl+C。
+各电脑主人可在管理员 PowerShell 删除本次不用的入站规则，例如 A：
 
 ```powershell
-Get-NetFirewallRule -DisplayName "CS144-Check7-*" | Remove-NetFirewallRule
+Get-NetFirewallRule -DisplayName "CS144-Check7-Client-1125" | Remove-NetFirewallRule
 ```
 
-先前 Checkpoint 4 的 ping 规则不是这些名称，不受这条清理命令影响。
-整个联通阶段建议预留 20-30 分钟，首次编译和排查另计；没有强制一小时要求。
+B 对应 Server-1125，用户对应 Router50/Router80。不要删除其他实验规则。
+本次实际结果、原始错误与证据目录见 [当日联调记录](check7-session-2026-11-25.md)。

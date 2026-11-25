@@ -1,0 +1,41 @@
+{
+  "provenance": "Ubuntu console supplied by user; independently matched against router-side logs",
+  "mode": "send",
+  "status": "passed",
+  "local_port": 2080,
+  "target": [
+    "192.168.226.1",
+    12080
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "reply": true,
+      "rtt_ms": 56.63100399988252,
+      "source": [
+        "192.168.226.1",
+        12080
+      ]
+    },
+    {
+      "attempt": 2,
+      "reply": true,
+      "rtt_ms": 9.292169999753241,
+      "source": [
+        "192.168.226.1",
+        12080
+      ]
+    },
+    {
+      "attempt": 3,
+      "reply": true,
+      "rtt_ms": 6.526633000248694,
+      "source": [
+        "192.168.226.1",
+        12080
+      ]
+    }
+  ],
+  "scope": "UDP connectivity only; not TCP, chat or file verification",
+  "recorded_utc": "2026-11-25T06:37:24.275482+00:00"
+}

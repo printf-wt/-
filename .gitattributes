@@ -5,3 +5,8 @@ writeups/check4-data/** -text -whitespace
 
 # PDFs contain byte offsets and must never undergo text conversion.
 *.pdf binary
+
+# Keep packet captures and hashed experiment evidence byte-for-byte stable.
+*.pcap binary
+*.zip binary
+writeups/check7-data/** -text -whitespace

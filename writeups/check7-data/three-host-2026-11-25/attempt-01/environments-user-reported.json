@@ -1,0 +1,14 @@
+{
+  "provenance": "Ubuntu terminal output supplied by user",
+  "A": {
+    "ubuntu": "24.04.5 LTS",
+    "g++": "13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1)",
+    "cmake": "3.28.3"
+  },
+  "B": {
+    "ubuntu": "24.04.5 LTS",
+    "g++": "13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1)",
+    "cmake": "3.28.3"
+  },
+  "endpoint_build_status": "pending"
+}

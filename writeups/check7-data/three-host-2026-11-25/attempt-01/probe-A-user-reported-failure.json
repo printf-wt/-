@@ -1,0 +1,27 @@
+{
+  "provenance": "Ubuntu console output supplied by user; not a locally executed remote probe",
+  "mode": "send",
+  "status": "failed",
+  "local_port": 2080,
+  "target": [
+    "10.200.54.254",
+    12080
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "reply": false
+    },
+    {
+      "attempt": 2,
+      "reply": false
+    },
+    {
+      "attempt": 3,
+      "reply": false
+    }
+  ],
+  "scope": "UDP connectivity only; not TCP, chat or file verification",
+  "recorded_utc": "2026-11-25T06:31:50.053185+00:00",
+  "root_observation": "Root bridge and WSL listener running; no incoming probe logged at this check."
+}

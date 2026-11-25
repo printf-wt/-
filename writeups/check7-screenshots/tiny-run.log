@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/mnt/d/计算机网络/课程设计/-/tools/check7/lab.py", line 289, in <module>
+    main()
+  File "/mnt/d/计算机网络/课程设计/-/tools/check7/lab.py", line 285, in main
+    run(args)
+  File "/mnt/d/计算机网络/课程设计/-/tools/check7/lab.py", line 230, in run
+    result = future.result()
+             ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/计算机网络/课程设计/-/tools/check7/lab.py", line 201, in exchange
+    received, _ = process.communicate(data, timeout=args.timeout)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['/mnt/d/计算机网络/课程设计/-/build/wsl/apps/tcp_eth_udp_sanitized', 'server', '39306', '50.0.0.1', '50.9.8.7:80']' timed out after 90 seconds

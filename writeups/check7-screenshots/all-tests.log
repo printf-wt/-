@@ -1,0 +1,86 @@
+Internal ctest changing into directory: /mnt/d/计算机网络/课程设计/-/build/wsl
+Test project /mnt/d/计算机网络/课程设计/-/build/wsl
+      Start  1: compile with bug-checkers
+ 1/40 Test  #1: compile with bug-checkers ........   Passed   38.28 sec
+      Start  2: t_webget
+ 2/40 Test  #2: t_webget .........................   Passed    1.07 sec
+      Start  3: byte_stream_basics
+ 3/40 Test  #3: byte_stream_basics ...............   Passed    0.03 sec
+      Start  4: byte_stream_capacity
+ 4/40 Test  #4: byte_stream_capacity .............   Passed    0.03 sec
+      Start  5: byte_stream_one_write
+ 5/40 Test  #5: byte_stream_one_write ............   Passed    0.03 sec
+      Start  6: byte_stream_two_writes
+ 6/40 Test  #6: byte_stream_two_writes ...........   Passed    0.03 sec
+      Start  7: byte_stream_many_writes
+ 7/40 Test  #7: byte_stream_many_writes ..........   Passed    0.08 sec
+      Start  8: byte_stream_stress_test
+ 8/40 Test  #8: byte_stream_stress_test ..........   Passed    0.14 sec
+      Start  9: reassembler_single
+ 9/40 Test  #9: reassembler_single ...............   Passed    0.04 sec
+      Start 10: reassembler_cap
+10/40 Test #10: reassembler_cap ..................   Passed    0.04 sec
+      Start 11: reassembler_seq
+11/40 Test #11: reassembler_seq ..................   Passed    0.04 sec
+      Start 12: reassembler_dup
+12/40 Test #12: reassembler_dup ..................   Passed    0.06 sec
+      Start 13: reassembler_holes
+13/40 Test #13: reassembler_holes ................   Passed    0.03 sec
+      Start 14: reassembler_overlapping
+14/40 Test #14: reassembler_overlapping ..........   Passed    0.05 sec
+      Start 15: reassembler_win
+15/40 Test #15: reassembler_win ..................   Passed    0.24 sec
+      Start 16: wrapping_integers_cmp
+16/40 Test #16: wrapping_integers_cmp ............   Passed    0.02 sec
+      Start 17: wrapping_integers_wrap
+17/40 Test #17: wrapping_integers_wrap ...........   Passed    0.01 sec
+      Start 18: wrapping_integers_unwrap
+18/40 Test #18: wrapping_integers_unwrap .........   Passed    0.01 sec
+      Start 19: wrapping_integers_roundtrip
+19/40 Test #19: wrapping_integers_roundtrip ......   Passed    0.25 sec
+      Start 20: wrapping_integers_extra
+20/40 Test #20: wrapping_integers_extra ..........   Passed    0.21 sec
+      Start 21: recv_connect
+21/40 Test #21: recv_connect .....................   Passed    0.06 sec
+      Start 22: recv_transmit
+22/40 Test #22: recv_transmit ....................   Passed    0.35 sec
+      Start 23: recv_window
+23/40 Test #23: recv_window ......................   Passed    0.07 sec
+      Start 24: recv_reorder
+24/40 Test #24: recv_reorder .....................   Passed    0.09 sec
+      Start 25: recv_reorder_more
+25/40 Test #25: recv_reorder_more ................   Passed    0.79 sec
+      Start 26: recv_close
+26/40 Test #26: recv_close .......................   Passed    0.09 sec
+      Start 27: recv_special
+27/40 Test #27: recv_special .....................   Passed    0.07 sec
+      Start 28: send_connect
+28/40 Test #28: send_connect .....................   Passed    0.05 sec
+      Start 29: send_transmit
+29/40 Test #29: send_transmit ....................   Passed    0.48 sec
+      Start 30: send_window
+30/40 Test #30: send_window ......................   Passed    0.13 sec
+      Start 31: send_ack
+31/40 Test #31: send_ack .........................   Passed    0.04 sec
+      Start 32: send_close
+32/40 Test #32: send_close .......................   Passed    0.03 sec
+      Start 33: send_retx
+33/40 Test #33: send_retx ........................   Passed    0.04 sec
+      Start 34: send_extra
+34/40 Test #34: send_extra .......................   Passed    0.10 sec
+      Start 35: net_interface
+35/40 Test #35: net_interface ....................   Passed    0.08 sec
+      Start 36: router
+36/40 Test #36: router ...........................   Passed    0.06 sec
+      Start 37: no_skip
+37/40 Test #37: no_skip ..........................   Passed    0.01 sec
+      Start 38: compile with optimization
+38/40 Test #38: compile with optimization ........   Passed    3.40 sec
+      Start 39: byte_stream_speed_test
+39/40 Test #39: byte_stream_speed_test ...........   Passed    0.19 sec
+      Start 40: reassembler_speed_test
+40/40 Test #40: reassembler_speed_test ...........   Passed    0.23 sec
+
+100% tests passed, 0 tests failed out of 40
+
+Total Test time (real) =  47.53 sec

@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "runs": [
+    {
+      "run": "tiny-final",
+      "status": "passed",
+      "directions": 2,
+      "capture_frames": 8419,
+      "observed_ttls": [
+        127,
+        128
+      ]
+    },
+    {
+      "run": "bigger",
+      "status": "passed",
+      "directions": 4,
+      "capture_frames": 33839,
+      "observed_ttls": [
+        125,
+        126,
+        127,
+        128
+      ]
+    },
+    {
+      "run": "loss",
+      "status": "passed",
+      "directions": 2,
+      "capture_frames": 8516,
+      "observed_ttls": [
+        127,
+        128
+      ]
+    },
+    {
+      "run": "chat",
+      "status": "passed",
+      "directions": 2,
+      "capture_frames": 11358,
+      "observed_ttls": [
+        127,
+        128
+      ]
+    }
+  ],
+  "official_tasks": 40,
+  "chat_protocol_tests": 8,
+  "three_host": {
+    "udp_replies": "A 3/3, B 3/3",
+    "received_files": 2,
+    "bytes_each": 1048576,
+    "sha256": "7e7a19f30c8d5d3555721c2923598ef422d464e896fe68906f63f48c91f414fa",
+    "provenance": "User-reported endpoint verifications plus local router logs"
+  },
+  "manifest_files": 59
+}

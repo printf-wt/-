@@ -1,0 +1,16 @@
+{
+  "chats": [
+    {
+      "from": "C1",
+      "text": "Hello from C1"
+    }
+  ],
+  "files": [
+    {
+      "name": "C1.sent.bin",
+      "size": 1048576,
+      "sha256": "333d5a5352c75606e99197c643c3b42200f60922f0f1feba6cfda3500e71959f",
+      "saved_as": "b0c79c5f232d4efe9877716bc6c81a52-C1.sent.bin"
+    }
+  ]
+}

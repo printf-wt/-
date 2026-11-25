@@ -1,10 +1,10 @@
-# 从环境配置到 Checkpoint 0、1、2、3、4、5 和 6
+# 从环境配置到 Checkpoint 0、1、2、3、4、5、6 和 7
 
 本文面向计算机网络新手，按照本项目实际开发过程，说明环境怎样配置、
 各阶段实验分别解决什么问题、代码怎样验证，以及最后怎样提交到 GitHub。
 命令会标明运行位置，阅读时先分清 Windows PowerShell 和 Ubuntu 终端。
 
-记录日期：2026 年 11 月 24 日。
+初始记录：2026 年 11 月 24 日；更新至 2026 年 11 月 25 日。
 
 ## 1 各阶段实验完成了什么
 
@@ -19,6 +19,7 @@
 | Checkpoint 4 | 网络测量工具 | 采集 ping，统计交付率、RTT、连续丢失与相关性，生成图表和报告 |
 | Checkpoint 5 | NetworkInterface | 在 IPv4 与以太网之间封装、解析，并用 ARP 寻找下一跳 MAC |
 | Checkpoint 6 | Router | 按最长前缀选择出口与下一跳，递减 TTL 并重算首部校验和 |
+| Checkpoint 7 | 全栈整合、聊天与文件校验 | 本机多进程与三机双向 1 MiB 校验均通过 |
 
 webget 目前使用 Linux 自带的 TCP。ByteStream 和 Reassembler 是我们
 实现的基础模块；Checkpoint 2 已将它们接入自己的 TCP 接收端。
@@ -26,9 +27,10 @@ Checkpoint 3 又完成了自己的 TCP 发送端；完整实网互操作安排�
 TCP 编程部分已完成自动化验证；TCP 实网互操作、手工 SMTP 会话与 TCP 抓包尚未执行。
 Checkpoint 4 的实际 ICMP 网络测量另见后文。
 
-“Checkpoint 0/1/2/3/4/5/6”是阶段名称。check0 到 check3 检查早期编程阶段，
+“Checkpoint 0/1/2/3/4/5/6/7”是阶段名称。check0 到 check3 检查早期编程阶段，
 check5 单独检查网络接口，check6 检查网络接口与路由器。
 Checkpoint 4 是测量实验，没有 check4 构建目标。
+Checkpoint 7 是整合、联网与创意项目，没有单独的 check7 构建目标。
 Checkpoint 5 和 6 已完成内存模拟网络验证，真实网卡/TAP 与实网路由尚未验证。
 
 ## 2 先认识开发环境
@@ -932,7 +934,53 @@ python3 writeups/check6-screenshots/boundary-validation.py
 - [实现报告与两张实际代码截图](check6.md)
 - [验证摘要与原始日志索引](check6-screenshots/validation.txt)
 
-## 16 怎样判断代码正确
+## 16 Checkpoint 7 的全栈整合与创意项目
+
+### 16.1 先分清本机和跨机实验
+
+官方新增 tcp_eth_udp 和 fun_router，使用已经实现的 TCP、网络接口和路由器。
+内层虚拟 IP 属于实验网络，外层真实 IP 用来把以太网帧装进 UDP 运送。
+本机验证让独立进程通过 127.0.0.1 通信，跨机实验还需要实际连接同学电脑。
+这两种结果分别记录，不能把本机三路由器实验写成三位同学已互通。
+
+### 16.2 构建与本机复现
+
+在 Ubuntu 仓库根目录执行：
+
+```bash
+cmake -S . -B build/wsl -DSANITIZED_APPS=True
+CMAKE_BUILD_PARALLEL_LEVEL=4 cmake --build build/wsl --target tcp_eth_udp_sanitized fun_router_sanitized
+python3 tools/check7/lab.py --sanitized --output build/my-check7/tiny
+python3 tools/check7/lab.py --sanitized --topology bigger --output build/my-check7/bigger
+python3 tools/check7/lab.py --sanitized --drop-first-data --output build/my-check7/loss
+python3 tools/check7/lab.py --sanitized --chat --output build/my-check7/chat
+```
+
+每次输出目录必须不存在，不覆盖旧结果。本次已经通过双向各 1 MiB、
+三路由器两条并发 TCP、定点丢一帧后的恢复，以及聊天室双向消息/校验文件。
+记录在 writeups/check7-data；抓帧只保留每帧前 96 字节，文件哈希来自实际接收内容。
+
+### 16.3 聊天与文件的工作方式
+
+chat.py 启动官方全栈端点，用换行分隔的 JSON 消息传文字和 Base64 文件块。
+文件接收方核对大小和 SHA-256 后才发布，拒绝路径穿越及覆盖已有文件。
+FILE SENT 不等于对方已接收；应核对接收端 FILE VERIFIED 和最终文件。
+双方输入 /quit 后结束发送并保存收据，底层数据仍经过自己的 TCP/IP 栈。
+
+### 16.4 三机联调与状态
+
+11 月 25 日更换了 Wi-Fi 和两位同学机器，两位现在均使用虚拟机。
+需重新核对 Windows 与 Ubuntu 地址、更新固定来源规则并配置 UDP 转发。
+先用 udp_probe.py 验证外层 UDP，退出探测释放端口后再启动正式应用。
+本次两端 UDP 各 3/3，真实双向 1 MiB 的两份接收大小与 SHA-256 均通过。
+结果由用户回传 FILE VERIFIED 与本机路由器日志共同核对，没有只凭 READY 计为完成。
+
+- [Point 7 源码新手讲解与完整工具快照](check7-source-code-guide.md)
+- [本机结果与三机状态报告](check7.md)
+- [11 月 25 日联调记录](check7-session-2026-11-25.md)
+- [工具构建和复现说明](../tools/check7/README.md)
+
+## 17 怎样判断代码正确
 
 官方测试会自动构造输入，并核对输出、容量、结束状态和性能。
 测试结果中的一项可能是构建或基准任务，不等于一个单独的网络功能。
@@ -957,6 +1005,7 @@ python3 writeups/check6-screenshots/boundary-validation.py
 - Checkpoint 3 的 37 项官方检查、11 项 HTTP 回归和 6 个补充场景均通过。
 - Checkpoint 5 的 3 个官方任务、37 项 check3 回归、11 项 check0 回归及 5 个补充场景通过。
 - Checkpoint 6 的 4 个官方任务、37 项 check3 回归、11 项 check0 回归及 5 个补充场景通过。
+- Checkpoint 7 整合后，完整官方 CTest 40/40、聊天协议 8/8、本机全栈及 Windows 转发回环通过；另行完成三机 UDP 与双向各 1 MiB 校验。
 - 编译中的 ASan 检查常见内存访问错误，UBSan 检查未定义行为。
 - 静态检查曾提示重组器有不必要的数据复制，我增加整块移动处理后重新验证通过。
 - 最终通过相关静态分析与格式检查，官方测试内容保持原样。
@@ -989,7 +1038,7 @@ check2、check3 同样不包含远端 HTTP 请求，因此也另跑 check0。
 重组器官方基准的输出使用了不同于实际输入字节数的计算分子。
 报告中同时保留原始输出和折算后的有效载荷吞吐，避免混淆两种口径。
 
-## 17 截图、提交与推送
+## 18 截图、提交与推送
 
 功能验证后，我在 Windows 编辑器中打开主要代码并保存实际截图，
 再把源码、报告、截图和测试日志一起纳入 Git。
@@ -1025,7 +1074,7 @@ git remote -v
 git log -1 --format=full
 ```
 
-## 18 可以亲手复现的最短流程
+## 19 可以亲手复现的最短流程
 
 工具和框架已经配置完成。先在 **Windows PowerShell** 中进入 Ubuntu：
 
@@ -1063,7 +1112,7 @@ check6 同时检查网络接口和路由器；日常不必重复跑 check1、che
 阅读 TCPReceiver 时，再加入 SYN、FIN 的序号占用，逐步算出 ACK=101、103、108。
 阅读 TCPSender 时，画出未确认队列，计算每次 ACK 和超时后窗口、在途数及 RTO 的变化。
 
-## 19 阶段完成记录
+## 20 阶段完成记录
 
 | 提交 | 内容 |
 |---|---|
@@ -1075,5 +1124,6 @@ check6 同时检查网络接口和路由器；日常不必重复跑 check1、che
 Checkpoint 4 的实测范围、图表与原始记录见[测量报告](check4.md)。
 Checkpoint 5 的实现、四张代码截图与验证记录见[网络接口报告](check5.md)。
 Checkpoint 6 的实现、两张代码截图与验证记录见[路由器报告](check6.md)。
+Checkpoint 7 本机实跑与当前三机状态见[整合报告](check7.md)。
 
 实现、验证与本文整理由 Codex 按用户请求辅助完成。
